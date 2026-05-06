@@ -1,0 +1,96 @@
+<!DOCTYPE html>
+<html lang="ro">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>FPPZT — Ediție</title>
+  <meta name="description" content="Detalii ediție FPPZT — Profile de sol, traseu și date analitice">
+
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:ital,wght@0,400;0,700;1,400&family=Source+Sans+3:wght@300;400;600;700&family=JetBrains+Mono:wght@400;500&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="https://unpkg.com/leaflet@1.9.4/dist/leaflet.css" />
+  <link rel="stylesheet" href="css/style.css">
+  <link rel="stylesheet" href="css/edition.css">
+</head>
+<body>
+
+<!-- ── Nav ─────────────────────────────────────── -->
+<nav class="nav">
+  <div class="nav-inner">
+    <a href="index.html" class="nav-brand">FPPZT 2026</a>
+    <div class="nav-links">
+      <a href="index.html" lang="ro">Acasă</a>
+      <a href="index.html" lang="en">Home</a>
+      <a href="profiles.html" lang="ro">Profile de Sol</a>
+      <a href="profiles.html" lang="en">Soil Profiles</a>
+      <a href="archive.html" class="active" lang="ro">Arhivă</a>
+      <a href="archive.html" class="active" lang="en">Archive</a>
+      <button class="lang-toggle" onclick="toggleLang()">EN</button>
+    </div>
+  </div>
+</nav>
+
+<!-- ── Page Header (filled by JS) ──────────────── -->
+<header class="page-header" id="pageHeader">
+  <h1 id="editionTitle"></h1>
+  <p id="editionSubtitle"></p>
+</header>
+
+<div class="container">
+  <!-- Back link -->
+  <a href="archive.html" class="back-link">
+    <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M19 12H5M12 19l-7-7 7-7"/></svg>
+    <span lang="ro">Înapoi la arhivă</span>
+    <span lang="en">Back to archive</span>
+  </a>
+
+  <!-- Loading -->
+  <div id="loading" style="text-align:center;padding:3rem;">
+    <p lang="ro">Se încarcă datele ediției…</p>
+    <p lang="en">Loading edition data…</p>
+  </div>
+
+  <!-- Main content (hidden until data loads) -->
+  <div id="editionContent" style="display:none;">
+
+    <!-- Route Description -->
+    <section class="route-section" id="routeSection">
+      <h2 lang="ro">Traseul aplicației de teren</h2>
+      <h2 lang="en">Field Trip Route</h2>
+      <div id="routeDays"></div>
+    </section>
+
+    <!-- Map -->
+    <div class="edition-map" id="editionMap"></div>
+
+    <!-- Profiles -->
+    <section class="profiles-section">
+      <h2 lang="ro">Profilele de sol</h2>
+      <h2 lang="en">Soil Profiles</h2>
+
+      <div class="profile-tabs" id="profileTabs"></div>
+      <div id="profileDetail"></div>
+    </section>
+
+    <!-- Gallery -->
+    <section class="gallery-section" id="gallerySection">
+      <h2 lang="ro">Galerie foto</h2>
+      <h2 lang="en">Photo Gallery</h2>
+      <div id="galleryGrid"></div>
+    </section>
+  </div>
+</div>
+
+<!-- ── Footer ──────────────────────────────────── -->
+<footer class="page-footer">
+  <p>FPPZT · Universitatea „Alexandru Ioan Cuza" din Iași ·
+    <a href="mailto:radupirnau@yahoo.com">radupirnau@yahoo.com</a></p>
+</footer>
+
+<script src="https://unpkg.com/leaflet@1.9.4/dist/leaflet.js"></script>
+<script src="js/main.js"></script>
+<script src="js/profiles-engine.js"></script>
+<script src="js/edition.js"></script>
+</body>
+</html>
