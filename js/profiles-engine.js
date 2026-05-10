@@ -159,7 +159,7 @@ function renderTexturalTriangle(profile) {
   }
 
   let svg = '<svg viewBox="0 0 '+W+' '+H+'" xmlns="http://www.w3.org/2000/svg" style="width:100%;max-width:'+W+'px;">';
-  svg += '<text x="'+cx+'" y="16" text-anchor="middle" class="title-label">'+(lang==='ro'?'Triunghiul Textural SRTS':'SRTS Textural Triangle')+'</text>';
+  svg += '<text x="'+cx+'" y="16" text-anchor="middle" class="title-label">'+(lang==='ro'?'Diagrama triunghiulară a texturii SRTS':'SRTS Textural Triangle Diagram')+'</text>';
 
   // Triangle outline
   svg += '<polygon points="'+leftX+','+botY+' '+rightX+','+botY+' '+cx+','+topY+'" fill="#FAF6F0" stroke="#3E2723" stroke-width="1.5"/>';
