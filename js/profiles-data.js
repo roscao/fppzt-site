@@ -6,18 +6,18 @@
 const PROFILES_DATA = [
   {
     id: "P1-2026",
-    name: { ro: "Profilul 1 — Târgu Frumos", en: "Profile 1 — Târgu Frumos" },
+    name: { ro: "Profilul 1 — Cucuteni (Dl. lui Viteaz)", en: "Profile 1 — Cucuteni (Dl. lui Viteaz)" },
     classification: {
       srts: "Cernoziom tipic moderat humifer",
       wrb: "Haplic Chernozem (Loamic, Pachic)"
     },
     location: {
       lat: 47.208, lng: 27.005,
-      description: { ro: "Platoul Târgu Frumos, pe depozit loessoid", en: "Târgu Frumos Plateau, on loessoid deposit" }
+      description: { ro: "Platoul Cucuteni (Dl. lui Viteaz), pe depozit loessoid", en: "Cucuteni (Dl. lui Viteaz) Plateau, on loessoid deposit" }
     },
     landuse: { ro: "Teren arabil — grâu de toamnă", en: "Arable land — winter wheat" },
     parentMaterial: { ro: "Depozit loessoid carbonatic", en: "Calcareous loessoid deposit" },
-    photo: "photos/P1_oriz.JPG.jpeg", // ★ Înlocuiți cu "photos/2026-P1.jpg" când aveți fotografia
+    photo: "photos/2026/P1.jpeg", // ★ Înlocuiți cu "photos/2026-P1.jpg" când aveți fotografia
     horizons: [
       {
         symbol: "Ap",
