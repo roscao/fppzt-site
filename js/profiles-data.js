@@ -17,7 +17,7 @@ const PROFILES_DATA = [
     },
     landuse: { ro: "Teren arabil — grâu de toamnă", en: "Arable land — winter wheat" },
     parentMaterial: { ro: "Depozit loessoid carbonatic", en: "Calcareous loessoid deposit" },
-    photo: "photos/P1_oriz.JPG.jpeg", // ★ Înlocuiți cu "photos/2026-P1.jpg" când aveți fotografia
+    photo: "photos/2026/P1.jpeg", // ★ Înlocuiți cu "photos/2026-P1.jpg" când aveți fotografia
     horizons: [
       {
         symbol: "Ap",
