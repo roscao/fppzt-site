@@ -29,7 +29,7 @@
   --font-mono: 'JetBrains Mono', monospace;
 
   --max-width: 1100px;
-  --nav-height: 64px;
+  --nav-height: auto;
 }
 
 /* ============================================================
@@ -39,7 +39,7 @@
 
 html {
   scroll-behavior: smooth;
-  scroll-padding-top: calc(var(--nav-height) + 20px);
+  scroll-padding-top: 130px; /* nav ~110px + padding */
 }
 
 body {
@@ -56,40 +56,75 @@ a { color: var(--color-earth-600); text-decoration: none; transition: color 0.2s
 a:hover { color: var(--color-ochre-dark); }
 
 /* ============================================================
-   NAVIGATION
+   NAVIGATION — Header academic cu logo-uri (2 rânduri)
+   Rândul 1: Logo AR + Titlu + Logo UAIC
+   Rândul 2: Linkuri navigare
    ============================================================ */
 .nav {
   position: fixed; top: 0; left: 0; right: 0; z-index: 1000;
-  height: var(--nav-height);
-  background: rgba(44, 24, 16, 0.95);
+  background: rgba(44, 24, 16, 0.97);
   backdrop-filter: blur(12px);
-  display: flex; align-items: center; justify-content: center;
-  border-bottom: 1px solid rgba(200,169,81,0.3);
+  border-bottom: 2px solid rgba(200,169,81,0.4);
 }
 
 .nav-inner {
-  max-width: var(--max-width);
-  width: 100%; padding: 0 24px;
-  display: flex; align-items: center; justify-content: space-between;
+  max-width: 1200px;
+  width: 100%; margin: 0 auto; padding: 0 24px;
+  display: flex; flex-direction: column;
 }
 
+/* ── Rândul 1: Brand (logo-uri + titlu) ── */
 .nav-brand {
+  display: flex; align-items: center; justify-content: center;
+  gap: 16px;
+  padding: 10px 0 6px;
+}
+
+.nav-logo {
+  height: 52px; width: auto;
+  flex-shrink: 0;
+  filter: drop-shadow(0 1px 3px rgba(0,0,0,0.3));
+}
+.nav-logo--uaic { height: 48px; }
+
+.nav-title {
+  text-align: center;
+  line-height: 1.2;
+}
+.nav-title-main {
   font-family: var(--font-display);
   color: var(--color-ochre);
-  font-size: 1.1rem;
+  font-size: clamp(0.75rem, 1.6vw, 1.05rem);
   font-weight: 700;
-  letter-spacing: 0.5px;
+  letter-spacing: 1.5px;
+  display: block;
+}
+.nav-title-sub {
+  font-family: var(--font-body);
+  color: var(--color-earth-200);
+  font-size: 0.78rem;
+  font-weight: 400;
+  letter-spacing: 2px;
+  text-transform: uppercase;
+  display: block;
+  margin-top: 2px;
 }
 
-.nav-links { display: flex; gap: 6px; align-items: center; flex-wrap: wrap; }
+/* ── Rândul 2: Linkuri ── */
+.nav-links {
+  display: flex; gap: 4px; align-items: center;
+  justify-content: center; flex-wrap: wrap;
+  padding: 4px 0 8px;
+  border-top: 1px solid rgba(200,169,81,0.15);
+}
 
 .nav-links a {
   color: var(--color-earth-100);
-  font-size: 0.82rem;
+  font-size: 0.78rem;
   font-weight: 600;
   text-transform: uppercase;
   letter-spacing: 0.8px;
-  padding: 6px 10px;
+  padding: 4px 8px;
   border-radius: 4px;
   transition: all 0.2s;
 }
@@ -99,11 +134,11 @@ a:hover { color: var(--color-ochre-dark); }
   background: var(--color-ochre);
   color: var(--color-earth-900) !important;
   font-weight: 700 !important;
-  padding: 5px 12px !important;
+  padding: 4px 10px !important;
   border-radius: 4px !important;
   cursor: pointer;
   border: none;
-  font-size: 0.82rem;
+  font-size: 0.78rem;
   text-transform: uppercase;
   letter-spacing: 0.8px;
   font-family: var(--font-body);
@@ -124,7 +159,7 @@ a:hover { color: var(--color-ochre-dark); }
 @media (max-width: 860px) {
   .nav-hamburger { display: block; }
   .nav-links {
-    display: none; position: absolute; top: var(--nav-height); left: 0; right: 0;
+    display: none; position: absolute; top: 100%; left: 0; right: 0;
     background: rgba(44,24,16,0.98); flex-direction: column;
     padding: 16px 24px; gap: 4px;
   }
@@ -136,7 +171,7 @@ a:hover { color: var(--color-ochre-dark); }
    HERO
    ============================================================ */
 .hero {
-  margin-top: var(--nav-height);
+  margin-top: 110px; /* nav height ~110px */
   min-height: 85vh;
   display: flex; align-items: center; justify-content: center;
   position: relative; overflow: hidden;
@@ -397,8 +432,182 @@ h2 {
 }
 
 /* ============================================================
+   PROGRAM — Two-column layout (timeline + sidebar)
+   ============================================================ */
+.program-grid {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 40px;
+  align-items: start;
+}
+
+@media (max-width: 900px) {
+  .program-grid { grid-template-columns: 1fr; }
+}
+
+.program-timeline {
+  /* inherits .timeline styles */
+}
+
+.program-sidebar {
+  display: flex;
+  flex-direction: column;
+  gap: 16px;
+  position: sticky;
+  top: 130px;
+}
+
+.program-sidebar .info-card {
+  background: var(--color-white);
+  border: 1px solid var(--color-earth-100);
+  border-radius: 10px;
+  padding: 20px;
+  box-shadow: 0 2px 12px rgba(0,0,0,0.04);
+}
+
+.program-sidebar .info-card h3 {
+  font-family: var(--font-display);
+  font-size: 1.05rem;
+  color: var(--color-earth-700);
+  margin-bottom: 12px;
+  padding-bottom: 8px;
+  border-bottom: 2px solid var(--color-ochre);
+}
+
+.program-sidebar .info-card p {
+  font-size: 0.88rem;
+  line-height: 1.6;
+  color: var(--color-text);
+}
+
+.program-sidebar .info-card a {
+  color: var(--color-ochre-dark);
+  font-weight: 600;
+}
+
+.fee-table {
+  width: 100%;
+  border-collapse: collapse;
+  font-size: 0.85rem;
+  margin-top: 8px;
+}
+.fee-table th, .fee-table td {
+  padding: 6px 8px;
+  text-align: left;
+  border-bottom: 1px solid var(--color-earth-100);
+}
+.fee-table th {
+  font-size: 0.78rem;
+  text-transform: uppercase;
+  letter-spacing: 0.5px;
+  color: var(--color-text-muted);
+  font-weight: 600;
+}
+.fee-table td:first-child { font-weight: 500; }
+
+.download-btn {
+  display: inline-block;
+  background: var(--color-ochre);
+  color: var(--color-earth-900) !important;
+  padding: 8px 16px;
+  border-radius: 6px;
+  font-weight: 700;
+  font-size: 0.85rem;
+  text-decoration: none;
+  text-align: center;
+  transition: background 0.2s;
+}
+.download-btn:hover { background: var(--color-ochre-dark); }
+
+/* ============================================================
+   ORGANIZATORI & COLABORATORI
+   ============================================================ */
+.org-grid {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 48px;
+  align-items: stretch;
+}
+
+@media (max-width: 768px) {
+  .org-grid { grid-template-columns: 1fr; gap: 32px; }
+}
+.org-column {
+  display: flex;
+  flex-direction: column;
+}
+
+.org-column .org-card:last-child {
+  flex: 1;
+}
+.org-column h2 {
+  font-family: var(--font-display);
+  font-size: 1.4rem;
+  color: var(--color-earth-700);
+  margin-bottom: 20px;
+  padding-bottom: 12px;
+  border-bottom: 2px solid var(--color-ochre);
+}
+
+.org-card {
+  display: flex;
+  align-items: center;
+  gap: 16px;
+  background: var(--color-white);
+  border-radius: 10px;
+  padding: 16px 20px;
+  margin-bottom: 12px;
+  border: 1px solid var(--color-earth-100);
+  box-shadow: 0 2px 8px rgba(0,0,0,0.03);
+}
+
+.org-card-logo {
+  width: 48px;
+  height: 48px;
+  object-fit: contain;
+  flex-shrink: 0;
+  filter: drop-shadow(0 1px 2px rgba(0,0,0,0.15));
+}
+
+.org-card-text h3 {
+  font-family: var(--font-display);
+  font-size: 0.95rem;
+  color: var(--color-earth-700);
+  font-weight: 600;
+  margin-bottom: 4px;
+}
+
+.org-card-text p {
+  font-size: 0.85rem;
+  color: var(--color-text-muted);
+  line-height: 1.5;
+}
+
+/* ============================================================
    COMMITTEES
    ============================================================ */
+.committee-card--wide {
+  grid-column: 1 / -1;
+}
+
+.committee-list--2col {
+  columns: 2;
+  column-gap: 40px;
+}
+
+@media (max-width: 768px) {
+  .committee-list--2col { columns: 1; }
+}
+
+.committee-honorary {
+  font-size: 1rem;
+  color: var(--color-earth-600);
+  margin-bottom: 16px;
+  padding: 12px 16px;
+  background: rgba(200,169,81,0.08);
+  border-radius: 6px;
+  text-align: center;
+}
 .committee-grid {
   display: grid;
   grid-template-columns: 1fr 1fr;

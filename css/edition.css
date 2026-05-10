@@ -223,26 +223,16 @@
 }
 
 /* ── Charts Row ─────────────────────────────────── */
-.charts-row {
+.diagrams-row {
   display: grid;
-  grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+  grid-template-columns: 1fr 1fr;
   gap: 1.5rem;
   margin-top: 1.5rem;
 }
-.chart-card {
-  background: var(--cream-dk, #F0EAE0);
-  border-radius: 10px;
-  padding: 1rem;
-  text-align: center;
+@media (max-width: 768px) {
+  .diagrams-row { grid-template-columns: 1fr; }
 }
-.chart-card h5 {
-  font-size: .82rem;
-  color: var(--earth-600, #5D4037);
-  margin-bottom: .6rem;
-}
-.chart-card svg, .chart-card canvas {
-  max-width: 100%;
-}
+
 
 /* ── Triangle container ──────────────────────────── */
 .triangle-container {
@@ -253,7 +243,7 @@
 }
 
 .triangle-container svg {
-  max-width: 1700px !important;
+  max-width: 700px !important;
   width: 100% !important;
 }
 
@@ -319,5 +309,25 @@
   margin-bottom: 1.5rem;
   transition: color .2s;
 }
+
+.svg-tooltip {
+  position: fixed;
+  pointer-events: none;
+  background: rgba(44, 24, 16, 0.92);
+  color: #FAF6F0;
+  padding: 8px 12px;
+  border-radius: 6px;
+  font-size: 0.82rem;
+  font-family: var(--font-body, sans-serif);
+  line-height: 1.5;
+  z-index: 1000;
+  opacity: 0;
+  transition: opacity 0.15s;
+  max-width: 260px;
+}
+.svg-tooltip.visible {
+  opacity: 1;
+}
+
 .back-link:hover { color: var(--ochre, #C8A951); }
 .back-link svg { width: 16px; height: 16px; }

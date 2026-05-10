@@ -145,6 +145,7 @@
     var detail = document.createElement('div');
     detail.className = 'profile-detail';
 
+    // Header
     detail.innerHTML =
       '<h3>' + p.id + ' — ' + p.name.ro + '</h3>' +
       '<span class="soil-type-badge">' + p.soilType + '</span>' +
@@ -177,16 +178,26 @@
         '</div>' +
       '</div>';
 
-    // Diagrame
-    if (p.analyticalData) {
-      var triangleId = 'triangle-' + p.id;
-      var chartsId = 'charts-' + p.id;
+    // Diagrame — layout 2×2 ca în profiles.html
+    if (p.analyticalData && typeof window.renderTexturalTriangle === 'function' && typeof window.renderDepthChart === 'function') {
+      var fp = buildFakeProfileForCharts(p);
+      var triangleSvg = window.renderTexturalTriangle(fp) || '';
+      var phSvg = window.renderDepthChart(fp, 'pH', 'pH', '', '#4A6B8B', 5.8, 9) || '';
+      var humusSvg = window.renderDepthChart(fp, 'humus', 'Humus', '%', '#4A7C5C', 0, 8) || '';
+      var caco3Svg = window.renderDepthChart(fp, 'CaCO3', 'CaCO\u2083', '%', '#C8A951', 0, 25) || '';
+
       detail.innerHTML +=
         '<div class="profile-subsection">' +
           '<h4 lang="ro">Date analitice</h4>' +
           '<h4 lang="en">Analytical Data</h4>' +
-          '<div class="triangle-container"><div id="' + triangleId + '"></div></div>' +
-          '<div class="charts-row" id="' + chartsId + '"></div>' +
+          '<div class="diagrams-row">' +
+            '<div class="card"><div class="card-body" style="text-align:center;">' + triangleSvg + '</div></div>' +
+            '<div class="card"><div class="card-body" style="text-align:center;">' + phSvg + '</div></div>' +
+          '</div>' +
+          '<div class="diagrams-row">' +
+            '<div class="card"><div class="card-body" style="text-align:center;">' + humusSvg + '</div></div>' +
+            '<div class="card"><div class="card-body" style="text-align:center;">' + caco3Svg + '</div></div>' +
+          '</div>' +
         '</div>';
     }
 
@@ -202,13 +213,8 @@
 
     container.appendChild(detail);
     drawProfileSketch(sketchId, p);
-    if (p.analyticalData) {
-      drawTriangle(triangleId, p);
-      drawDepthCharts(chartsId, p);
-    }
     applyLang();
   }
-
   // ── Tabel morfologic ────────────────────────────
   function buildMorphTable(p) {
     var html = '<table class="morph-table">' +
@@ -259,102 +265,7 @@
     el.innerHTML = svg;
   }
 
-  // ── Triunghi textural SRTS ──────────────────────
-  function drawTriangle(containerId, p) {
-    var el = document.getElementById(containerId);
-    if (!el || !p.analyticalData || !p.analyticalData.granulometry) return;
-    var gran = p.analyticalData.granulometry;
-
-    if (typeof window.renderTexturalTriangle === 'function') {
-      var fakeProfile = { horizons: [] };
-      for (var i = 0; i < gran.clay.length; i++) {
-        if (gran.clay[i] === null) continue;
-        var totalSand = (gran.sandCoarse[i] || 0) + (gran.sandFine[i] || 0);
-        fakeProfile.horizons.push({
-          symbol: gran.headers[i],
-          texture: { sand: totalSand, silt: gran.silt[i], clay: gran.clay[i] },
-          textureName: { ro: gran.textureClass[i] || '', en: gran.textureClass[i] || '' }
-        });
-      }
-      el.innerHTML = window.renderTexturalTriangle(fakeProfile);
-      return;
-    }
-    el.innerHTML = '<p style="color:#8D6E63;font-size:.85rem;text-align:center;font-style:italic;">Triunghiul textural necesită profiles-engine.js</p>';
-  }
-
-  // ── Grafice de adâncime ─────────────────────────
-  function drawDepthCharts(containerId, p) {
-    var el = document.getElementById(containerId);
-    if (!el || !p.analyticalData) return;
-    var chem = p.analyticalData.chemistry;
-    var depths = p.analyticalData.granulometry.depths;
-
-    var midDepths = depths.map(function (d) {
-      var parts = d.split('-').map(Number);
-      return (parts[0] + parts[1]) / 2;
-    });
-
-    var charts = [
-      { key: 'pH', label: 'pH', color: '#4A6B8B', unit: '' },
-      { key: 'humus', label: 'Humus', color: '#6D4C41', unit: '%' },
-      { key: 'CaCO3', label: 'CaCO\u2083', color: '#C8A951', unit: '%' },
-      { key: 'Vsh', label: 'V%', color: '#4A7C5C', unit: '%' }
-    ];
-
-    charts.forEach(function (ch) {
-      var values = chem[ch.key];
-      if (!values) return;
-      var validPairs = [];
-      for (var i = 0; i < values.length; i++) {
-        if (values[i] !== null && values[i] !== undefined) {
-          validPairs.push({ depth: midDepths[i], value: values[i] });
-        }
-      }
-      if (validPairs.length < 2) return;
-
-      var card = document.createElement('div');
-      card.className = 'chart-card';
-      card.innerHTML = '<h5>' + ch.label + (ch.unit ? ' (' + ch.unit + ')' : '') + '</h5>';
-
-      var svgW = 180, svgH = 200, pad = 30;
-      var plotW = svgW - 2 * pad, plotH = svgH - 2 * pad;
-      var maxD = 0, minV = Infinity, maxV = -Infinity;
-      validPairs.forEach(function (vp) {
-        if (vp.depth > maxD) maxD = vp.depth;
-        if (vp.value < minV) minV = vp.value;
-        if (vp.value > maxV) maxV = vp.value;
-      });
-      var range = maxV - minV || 1;
-
-      var svg = '<svg viewBox="0 0 ' + svgW + ' ' + svgH + '" xmlns="http://www.w3.org/2000/svg">';
-      // Axe
-      svg += '<line x1="' + pad + '" y1="' + pad + '" x2="' + pad + '" y2="' + (pad + plotH) + '" stroke="#BCAAA4"/>';
-      svg += '<line x1="' + pad + '" y1="' + (pad + plotH) + '" x2="' + (pad + plotW) + '" y2="' + (pad + plotH) + '" stroke="#BCAAA4"/>';
-      // Etichete adâncime
-      svg += '<text x="' + (pad - 4) + '" y="' + (pad + 3) + '" text-anchor="end" font-size="7" fill="#8D6E63">0</text>';
-      svg += '<text x="' + (pad - 4) + '" y="' + (pad + plotH + 3) + '" text-anchor="end" font-size="7" fill="#8D6E63">' + Math.round(maxD) + '</text>';
-      // Etichete valori
-      svg += '<text x="' + pad + '" y="' + (pad + plotH + 14) + '" font-size="7" fill="#8D6E63">' + minV.toFixed(1) + '</text>';
-      svg += '<text x="' + (pad + plotW) + '" y="' + (pad + plotH + 14) + '" font-size="7" fill="#8D6E63" text-anchor="end">' + maxV.toFixed(1) + '</text>';
-
-      // Linie + puncte
-      var pts = validPairs.map(function (vp) {
-        var x = pad + ((vp.value - minV) / range) * plotW;
-        var y = pad + (vp.depth / maxD) * plotH;
-        return x + ',' + y;
-      }).join(' ');
-      svg += '<polyline points="' + pts + '" fill="none" stroke="' + ch.color + '" stroke-width="2" stroke-linejoin="round"/>';
-      validPairs.forEach(function (vp) {
-        var x = pad + ((vp.value - minV) / range) * plotW;
-        var y = pad + (vp.depth / maxD) * plotH;
-        svg += '<circle cx="' + x + '" cy="' + y + '" r="3" fill="' + ch.color + '"/>';
-      });
-      svg += '</svg>';
-
-      card.innerHTML += svg;
-      el.appendChild(card);
-    });
-  }
+  
 
   // ── Galerie foto ────────────────────────────────
   function renderGallery(gallery) {
@@ -373,7 +284,33 @@
       grid.appendChild(el);
     });
   }
-
+	// ── Convertește datele din format edition-JSON în format profiles-engine ──
+  function buildFakeProfileForCharts(p) {
+    var gran = p.analyticalData.granulometry;
+    var chem = p.analyticalData.chemistry;
+    var horizons = [];
+    for (var i = 0; i < gran.headers.length; i++) {
+      var parts = gran.depths[i].split('-').map(Number);
+      horizons.push({
+        symbol: gran.headers[i],
+        top: parts[0],
+        bottom: parts[1],
+        texture: (gran.clay[i] !== null) ? {
+          sand: (gran.sandCoarse[i] || 0) + (gran.sandFine[i] || 0),
+          silt: gran.silt[i],
+          clay: gran.clay[i]
+        } : null,
+        textureName: { ro: (gran.textureClass && gran.textureClass[i]) || '', en: (gran.textureClass && gran.textureClass[i]) || '' },
+        parameters: {
+          pH: chem.pH ? chem.pH[i] : null,
+          humus: chem.humus ? chem.humus[i] : null,
+          CaCO3: chem.CaCO3 ? chem.CaCO3[i] : null
+        }
+      });
+    }
+    return { horizons: horizons };
+  }
+  
   // ── Munsell → RGB ───────────────────────────────
   var MUNSELL = {
     '10YR 2/1':'#1a1a12','10YR 2.5/1':'#201f17','10YR 3/1':'#2e2c22',
