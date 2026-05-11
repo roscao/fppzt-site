@@ -94,7 +94,7 @@ const PROFILES_DATA = [
     },
     landuse: { ro: "Pășune — sit arheologic protejat", en: "Pasture — protected archaeological site" },
     parentMaterial: { ro: "Depozit deluvio-proluvial pe substrat marnos", en: "Deluvio-proluvial deposit on marly substrate" },
-    photo: null,
+    photo: "photos/2026/P2.jpeg",
     horizons: [
       {
         symbol: "Ap",
@@ -171,7 +171,7 @@ const PROFILES_DATA = [
     },
     landuse: { ro: "Pășune naturală", en: "Natural pasture" },
     parentMaterial: { ro: "Calcar recifal sarmatic", en: "Sarmatian reef limestone" },
-    photo: null,
+    photo: "photos/2026/P3.jpeg",
     horizons: [
       {
         symbol: "Am",
@@ -202,7 +202,7 @@ const PROFILES_DATA = [
         top: 50, bottom: 70,
         munsell: { hue: "2.5Y", value: 7, chroma: 2 },
         textureName: { ro: "—", en: "—" },
-        texture: null,
+        texture: "photos/2026/P4.jpeg",
         description: {
           ro: "Calcar recifal compact, fisurat, cu patină de alterare brun-gălbuie.",
           en: "Compact reef limestone, fissured, with yellowish-brown weathering patina."
