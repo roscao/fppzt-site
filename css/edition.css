@@ -1,0 +1,333 @@
+/* ============================================================
+   edition.css — Styles for individual edition pages
+   Depends on: css/style.css (shared variables & base styles)
+   ============================================================ */
+
+/* ── Route Section ──────────────────────────────── */
+.route-section {
+  margin-bottom: 2.5rem;
+}
+.route-day {
+  background: var(--cream-dk, #F0EAE0);
+  border-radius: 10px;
+  padding: 1.5rem 2rem;
+  margin-bottom: 1.5rem;
+  border-left: 4px solid var(--earth-400, #8D6E63);
+}
+.route-day h3 {
+  font-family: var(--font-display, 'Playfair Display', serif);
+  color: var(--earth-800, #3E2723);
+  font-size: 1.15rem;
+  margin-bottom: .4rem;
+}
+.route-day .route-itinerary {
+  font-family: var(--font-mono, monospace);
+  font-size: .82rem;
+  color: var(--earth-500, #6D4C41);
+  margin-bottom: .6rem;
+  word-break: break-word;
+}
+.route-day .route-desc {
+  font-size: .95rem;
+  line-height: 1.55;
+  color: var(--earth-700, #4E342E);
+}
+
+/* ── Map ────────────────────────────────────────── */
+.edition-map {
+  width: 100%;
+  height: 380px;
+  border-radius: 10px;
+  margin-bottom: 2.5rem;
+  border: 2px solid var(--earth-200, #BCAAA4);
+}
+
+/* ── Profile Tabs ───────────────────────────────── */
+.profiles-section { margin-bottom: 2.5rem; }
+
+.profile-tabs {
+  display: flex;
+  flex-wrap: wrap;
+  gap: .8rem;
+  margin-bottom: 1.5rem;
+}
+.profile-tab {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  cursor: pointer;
+  border: 3px solid transparent;
+  border-radius: 10px;
+  padding: .5rem;
+  transition: border-color .25s, box-shadow .25s, transform .15s;
+  background: var(--cream-dk, #F0EAE0);
+  min-width: 100px;
+  flex: 1;
+  max-width: 160px;
+}
+.profile-tab:hover {
+  border-color: var(--earth-300, #A1887F);
+  transform: translateY(-2px);
+  box-shadow: 0 4px 12px rgba(0,0,0,.1);
+}
+.profile-tab.active {
+  border-color: var(--ochre, #C8A951);
+  background: var(--white, #fff);
+  box-shadow: 0 4px 16px rgba(200,169,81,.25);
+}
+.profile-tab img {
+  width: 80px;
+  height: 100px;
+  object-fit: cover;
+  border-radius: 6px;
+  margin-bottom: .4rem;
+  background: var(--earth-100, #D7CCC8);
+}
+.profile-tab .tab-label {
+  font-family: var(--font-body, sans-serif);
+  font-weight: 700;
+  font-size: .82rem;
+  color: var(--earth-700, #4E342E);
+}
+.profile-tab .tab-soil {
+  font-size: .72rem;
+  color: var(--earth-400, #8D6E63);
+  text-align: center;
+  line-height: 1.3;
+}
+.profile-tab .tab-placeholder {
+  width: 80px;
+  height: 100px;
+  border-radius: 6px;
+  margin-bottom: .4rem;
+  background: var(--earth-100, #D7CCC8);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-size: 1.8rem;
+  color: var(--earth-300, #A1887F);
+}
+
+/* ── Profile Detail Panel ───────────────────────── */
+.profile-detail {
+  background: var(--white, #fff);
+  border: 1px solid var(--earth-100, #D7CCC8);
+  border-radius: 12px;
+  padding: 2rem;
+  box-shadow: 0 2px 16px rgba(0,0,0,.06);
+  animation: fadeIn .3s ease;
+}
+@keyframes fadeIn {
+  from { opacity: 0; transform: translateY(10px); }
+  to   { opacity: 1; transform: translateY(0); }
+}
+.profile-detail h3 {
+  font-family: var(--font-display, serif);
+  font-size: 1.25rem;
+  color: var(--earth-800, #3E2723);
+  margin-bottom: .3rem;
+}
+.profile-detail .soil-type-badge {
+  display: inline-block;
+  background: var(--ochre, #C8A951);
+  color: var(--earth-900, #2C1810);
+  padding: .25rem .75rem;
+  border-radius: 20px;
+  font-size: .8rem;
+  font-weight: 600;
+  margin-bottom: 1rem;
+}
+.profile-detail .location-meta {
+  font-size: .85rem;
+  color: var(--earth-500, #6D4C41);
+  margin-bottom: 1.5rem;
+  line-height: 1.6;
+}
+.profile-detail .incomplete-badge {
+  display: inline-block;
+  background: var(--earth-100, #D7CCC8);
+  color: var(--earth-600, #5D4037);
+  padding: .5rem 1rem;
+  border-radius: 8px;
+  font-size: .9rem;
+  text-align: center;
+}
+
+/* Sub-sections within profile */
+.profile-subsection {
+  margin-top: 2rem;
+  padding-top: 1.5rem;
+  border-top: 1px solid var(--earth-100, #D7CCC8);
+}
+.profile-subsection h4 {
+  font-family: var(--font-display, serif);
+  font-size: 1.05rem;
+  color: var(--earth-700, #4E342E);
+  margin-bottom: 1rem;
+}
+
+/* ── Sketch + Description Grid ──────────────────── */
+.sketch-desc-grid {
+  display: grid;
+  grid-template-columns: 220px 1fr;
+  gap: 2rem;
+  align-items: start;
+}
+@media (max-width: 768px) {
+  .sketch-desc-grid {
+    grid-template-columns: 1fr;
+  }
+}
+
+/* Morphological Description Table */
+.morph-table {
+  width: 100%;
+  border-collapse: collapse;
+  font-size: .82rem;
+}
+.morph-table th, .morph-table td {
+  padding: .5rem .6rem;
+  border-bottom: 1px solid var(--earth-100, #D7CCC8);
+  text-align: left;
+  vertical-align: top;
+}
+.morph-table th {
+  background: var(--cream-dk, #F0EAE0);
+  font-weight: 700;
+  color: var(--earth-700, #4E342E);
+  white-space: nowrap;
+}
+.morph-table .hz-symbol {
+  font-weight: 700;
+  font-family: var(--font-mono, monospace);
+  white-space: nowrap;
+}
+.morph-table .color-chip {
+  display: inline-block;
+  width: 16px;
+  height: 16px;
+  border-radius: 3px;
+  border: 1px solid rgba(0,0,0,.15);
+  vertical-align: middle;
+  margin-right: 4px;
+}
+.morph-table .lamella-marker {
+  display: inline-block;
+  background: var(--ochre, #C8A951);
+  color: var(--earth-900, #2C1810);
+  font-size: .65rem;
+  padding: 1px 5px;
+  border-radius: 3px;
+  margin-left: 4px;
+  font-weight: 700;
+}
+
+/* ── Charts Row ─────────────────────────────────── */
+.diagrams-row {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 1.5rem;
+  margin-top: 1.5rem;
+}
+@media (max-width: 768px) {
+  .diagrams-row { grid-template-columns: 1fr; }
+}
+
+
+/* ── Triangle container ──────────────────────────── */
+.triangle-container {
+  display: flex;
+  justify-content: center;
+  margin-top: 1rem;
+  min-width: 100%;
+}
+
+.triangle-container svg {
+  max-width: 700px !important;
+  width: 100% !important;
+}
+
+/* ── Observations ────────────────────────────────── */
+.observations-list {
+  list-style: none;
+  padding: 0;
+}
+.observations-list li {
+  position: relative;
+  padding-left: 1.2rem;
+  margin-bottom: .5rem;
+  font-size: .9rem;
+  color: var(--earth-600, #5D4037);
+  line-height: 1.5;
+}
+.observations-list li::before {
+  content: '●';
+  position: absolute;
+  left: 0;
+  color: var(--ochre, #C8A951);
+}
+
+/* ── Gallery Section ─────────────────────────────── */
+.gallery-section {
+  margin-top: 3rem;
+  padding-top: 2rem;
+  border-top: 2px solid var(--earth-200, #BCAAA4);
+}
+.gallery-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fill, minmax(200px, 1fr));
+  gap: 1rem;
+}
+.gallery-grid img {
+  width: 100%;
+  height: 180px;
+  object-fit: cover;
+  border-radius: 8px;
+  cursor: pointer;
+  transition: transform .2s;
+}
+.gallery-grid img:hover {
+  transform: scale(1.03);
+}
+
+/* Empty state */
+.empty-gallery {
+  text-align: center;
+  padding: 2rem;
+  color: var(--earth-300, #A1887F);
+  font-size: .95rem;
+}
+
+/* ── Back to archive link ────────────────────────── */
+.back-link {
+  display: inline-flex;
+  align-items: center;
+  gap: .4rem;
+  color: var(--earth-500, #6D4C41);
+  text-decoration: none;
+  font-size: .9rem;
+  margin-bottom: 1.5rem;
+  transition: color .2s;
+}
+
+.svg-tooltip {
+  position: fixed;
+  pointer-events: none;
+  background: rgba(44, 24, 16, 0.92);
+  color: #FAF6F0;
+  padding: 8px 12px;
+  border-radius: 6px;
+  font-size: 0.82rem;
+  font-family: var(--font-body, sans-serif);
+  line-height: 1.5;
+  z-index: 1000;
+  opacity: 0;
+  transition: opacity 0.15s;
+  max-width: 260px;
+}
+.svg-tooltip.visible {
+  opacity: 1;
+}
+
+.back-link:hover { color: var(--ochre, #C8A951); }
+.back-link svg { width: 16px; height: 16px; }

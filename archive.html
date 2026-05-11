@@ -1,0 +1,172 @@
+<!DOCTYPE html>
+<html lang="ro">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>FPPZT — Arhiva Edițiilor</title>
+  <meta name="description" content="Arhiva celor 35 de ediții ale Simpozionului Național FPPZT (1988–2026)">
+
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:ital,wght@0,400;0,700;1,400&family=Source+Sans+3:wght@300;400;600;700&family=JetBrains+Mono:wght@400;500&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="css/style.css">
+
+  <style>
+    .editions-grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fill, minmax(260px, 1fr));
+      gap: 1.2rem; margin-top: 1.5rem;
+    }
+    .edition-card {
+      background: var(--cream-dk, #F0EAE0);
+      border-radius: 10px; padding: 1.3rem 1.5rem;
+      border-left: 4px solid var(--earth-300, #A1887F);
+      transition: transform .2s, box-shadow .2s, border-color .2s;
+      text-decoration: none; color: inherit; display: block;
+    }
+    .edition-card:hover {
+      transform: translateY(-3px);
+      box-shadow: 0 6px 20px rgba(0,0,0,.1);
+      border-color: var(--ochre, #C8A951);
+    }
+    .edition-card.current {
+      border-color: var(--ochre, #C8A951);
+      background: var(--white, #fff);
+      box-shadow: 0 4px 16px rgba(200,169,81,.2);
+    }
+    .edition-card.has-data { border-color: var(--green-mid, #4A7C5C); }
+    .edition-card .card-edition {
+      font-family: var(--font-display, 'Playfair Display', serif);
+      font-size: 1.1rem; color: var(--earth-800, #3E2723); margin-bottom: .2rem;
+    }
+    .edition-card .card-year {
+      font-family: var(--font-mono, monospace);
+      font-size: .82rem; color: var(--earth-400, #8D6E63);
+    }
+    .edition-card .card-location {
+      font-size: .9rem; color: var(--earth-600, #5D4037); margin-top: .3rem;
+    }
+    .edition-card .card-region { font-size: .78rem; color: var(--earth-400, #8D6E63); }
+    .edition-card .card-badge {
+      display: inline-block; font-size: .68rem; padding: 2px 8px;
+      border-radius: 12px; margin-top: .5rem; font-weight: 600;
+    }
+    .badge-current { background: var(--ochre, #C8A951); color: var(--earth-900, #2C1810); }
+    .badge-data { background: var(--green-mid, #4A7C5C); color: #fff; }
+    .badge-empty { background: var(--earth-100, #D7CCC8); color: var(--earth-500, #6D4C41); }
+
+    .archive-legend {
+      display: flex; flex-wrap: wrap; gap: 1rem;
+      margin-bottom: 1.5rem; font-size: .82rem; color: var(--earth-500, #6D4C41);
+    }
+    .archive-legend span { display: flex; align-items: center; gap: .3rem; }
+    .legend-bar { width: 16px; height: 4px; border-radius: 2px; }
+
+    .archive-search { margin-bottom: 1.5rem; }
+    .archive-search input {
+      width: 100%; max-width: 400px; padding: .6rem 1rem;
+      border: 1px solid var(--earth-200, #BCAAA4); border-radius: 8px;
+      font-family: var(--font-body, sans-serif); font-size: .9rem;
+      background: var(--white, #fff);
+    }
+    .archive-search input:focus { outline: none; border-color: var(--ochre, #C8A951); }
+  </style>
+</head>
+<body>
+
+<nav class="nav">
+  <div class="nav-inner">
+    <div class="nav-brand">
+      <img src="Academia_Romana_transparent.png" alt="Academia Română" class="nav-logo nav-logo--ar">
+      <div class="nav-title">
+        <span class="nav-title-main">FACTORI ȘI PROCESE PEDOGENETICE<br>DIN ZONA TEMPERATĂ</span>
+        <span class="nav-title-sub" lang="ro">Simpozion Național</span>
+        <span class="nav-title-sub" lang="en">National Symposium</span>
+      </div>
+      <img src="UAIC.png" alt="UAIC" class="nav-logo nav-logo--uaic">
+    </div>
+    <div class="nav-links">
+      <a href="index.html" lang="ro">Acasă</a>
+      <a href="index.html" lang="en">Home</a>
+      <a href="profiles.html" lang="ro">Profile de Sol</a>
+      <a href="profiles.html" lang="en">Soil Profiles</a>
+      <a href="archive.html" class="active" lang="ro">Arhivă</a>
+      <a href="archive.html" class="active" lang="en">Archive</a>
+      <button class="lang-toggle" onclick="toggleLang()">EN</button>
+    </div>
+  </div>
+</nav>
+
+<header class="page-header">
+  <h1 lang="ro">Arhiva Edițiilor</h1>
+  <h1 lang="en">Editions Archive</h1>
+  <p lang="ro">35 de ediții de știință a solului · 1988 – 2026</p>
+  <p lang="en">35 editions of soil science · 1988 – 2026</p>
+</header>
+
+<div class="container">
+  <div class="archive-legend">
+    <span><span class="legend-bar" style="background:var(--ochre)"></span> <span lang="ro">Ediția curentă</span><span lang="en">Current edition</span></span>
+    <span><span class="legend-bar" style="background:var(--green-mid)"></span> <span lang="ro">Date disponibile</span><span lang="en">Data available</span></span>
+    <span><span class="legend-bar" style="background:var(--earth-300)"></span> <span lang="ro">De completat</span><span lang="en">To be completed</span></span>
+  </div>
+
+  <div class="archive-search">
+    <input type="text" id="archiveSearch" placeholder="Caută ediție (an, loc, regiune)…"
+           oninput="filterEditions(this.value)">
+  </div>
+
+  <div class="editions-grid" id="editionsGrid"></div>
+</div>
+
+<footer class="page-footer">
+  <p>FPPZT · Universitatea „Alexandru Ioan Cuza" din Iași ·
+    <a href="mailto:radupirnau@yahoo.com">radupirnau@yahoo.com</a></p>
+</footer>
+
+<!-- ★ Datele sunt în JS, nu fetch() — funcționează și cu file:// -->
+<script src="js/main.js"></script>
+<script src="js/editions-data.js"></script>
+<script>
+(function() {
+  var grid = document.getElementById('editionsGrid');
+  EDITIONS_LIST.forEach(function(ed) {
+    var card = document.createElement('a');
+    card.className = 'edition-card' +
+      (ed.current ? ' current' : '') +
+      (ed.hasData && !ed.current ? ' has-data' : '');
+    card.href = ed.hasData ? 'edition.html?year=' + ed.year : 'javascript:void(0)';
+    if (!ed.hasData) card.style.cursor = 'default';
+    card.dataset.search = (ed.year + ' ' + ed.edition + ' ' + ed.location + ' ' + ed.region + ' ' + (ed.theme || '')).toLowerCase();
+
+    var badge = '';
+    if (ed.current) {
+      badge = '<span class="card-badge badge-current" lang="ro">Ediția curentă</span><span class="card-badge badge-current" lang="en">Current edition</span>';
+    } else if (ed.hasData) {
+      badge = '<span class="card-badge badge-data" lang="ro">Profil + date</span><span class="card-badge badge-data" lang="en">Profiles + data</span>';
+    } else {
+      badge = '<span class="card-badge badge-empty" lang="ro">De completat</span><span class="card-badge badge-empty" lang="en">To be added</span>';
+    }
+
+    card.innerHTML =
+      '<div class="card-edition">Ed. a ' + ed.edition + '-a</div>' +
+      '<div class="card-year">' + ed.year + '</div>' +
+      '<div class="card-location">\u{1F4CD} ' + ed.location + '</div>' +
+      '<div class="card-region">' + ed.region + '</div>' +
+      (ed.theme ? '<div style="font-size:.78rem;color:var(--earth-500);margin-top:.3rem;line-height:1.3">' + ed.theme + '</div>' : '') +
+      badge;
+    grid.appendChild(card);
+  });
+  if (typeof window.applyCurrentLang === 'function') window.applyCurrentLang();
+
+  window.filterEditions = function(q) {
+    var lower = q.toLowerCase().trim();
+    var cards = document.querySelectorAll('.edition-card');
+    for (var i = 0; i < cards.length; i++) {
+      cards[i].style.display = (!lower || cards[i].dataset.search.indexOf(lower) >= 0) ? '' : 'none';
+    }
+  };
+})();
+</script>
+</body>
+</html>

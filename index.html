@@ -1,0 +1,639 @@
+<!DOCTYPE html>
+<html lang="ro">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>FPPZT 2026 — Factori și procese pedogenetice din zona temperată</title>
+  <meta name="description" content="Simpozionul Factori și procese pedogenetice din zona temperată, Ediția a XXXV-a, Iași, 11–13 septembrie 2026">
+
+  <!-- Fonts -->
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:ital,wght@0,400;0,700;1,400&family=Source+Sans+3:wght@300;400;600;700&family=JetBrains+Mono:wght@400&display=swap" rel="stylesheet">
+
+  <!-- Leaflet CSS for map -->
+  <link rel="stylesheet" href="https://unpkg.com/leaflet@1.9.4/dist/leaflet.css" />
+
+  <!-- Site CSS -->
+  <link rel="stylesheet" href="css/style.css">
+</head>
+<body>
+
+<!-- ============================================================
+     NAVIGATION
+     ============================================================ -->
+<nav class="nav" role="navigation">
+  <div class="nav-inner">
+
+    <!-- ── Brand: Logo AR + Titlu + Logo UAIC ── -->
+    <div class="nav-brand">
+      <img src="UAIC.png" alt="UAIC" class="nav-logo nav-logo--uaic">
+      <div class="nav-title">
+        <span class="nav-title-main">FACTORI ȘI PROCESE PEDOGENETICE<br>DIN ZONA TEMPERATĂ</span>
+        <span class="nav-title-sub" lang="ro">Simpozion Național</span>
+        <span class="nav-title-sub" lang="en">National Symposium</span>
+      </div>
+      <img src="Academia_Romana_transparent.png" alt="Academia Română" class="nav-logo nav-logo--ar">
+    </div>
+
+    <button class="nav-hamburger" onclick="document.querySelector('.nav-links').classList.toggle('open')" aria-label="Menu">
+      <span></span><span></span><span></span>
+    </button>
+
+    <div class="nav-links">
+      <a href="#invitation" lang="ro">Invitație</a>
+      <a href="#invitation" lang="en">Invitation</a>
+
+      <a href="#program"  lang="ro">Program</a>
+      <a href="#program"  lang="en">Program</a>
+	  
+	  <a href="#registration" lang="ro">Înscriere</a>
+      <a href="#registration" lang="en">Registration</a>
+	  
+	  <a href="#fieldtrip" lang="ro">Teren</a>
+      <a href="#fieldtrip" lang="en">Field Trip</a>
+
+      <a href="#venue" lang="ro">Organizatori</a>
+      <a href="#venue" lang="en">Organizers</a>
+
+      <a href="archive.html" lang="ro">Arhivă</a>
+      <a href="archive.html" lang="en">Archive</a>
+
+      <button class="lang-toggle" onclick="toggleLang()" aria-label="Switch language">EN</button>
+    </div>
+  </div>
+</nav>
+
+<!-- ============================================================
+     HERO
+     ============================================================ -->
+<header class="hero" id="top">
+  <div class="hero-content">
+
+    <div class="hero-edition" lang="ro">Ediția a XXXV-a</div>
+    <div class="hero-edition" lang="en">XXXV<sup>th</sup> Edition</div>
+
+    <h1 class="hero-theme">
+      <span lang="ro">„Soluri și peisaje culturale din Podișul Moldovei"</span>
+      <span lang="en">"Soils and Cultural Landscapes of the Moldavian Plateau"</span>
+    </h1>
+
+    <div class="hero-meta">
+      <span>
+        <svg viewBox="0 0 24 24"><rect x="3" y="4" width="18" height="18" rx="2"/><line x1="16" y1="2" x2="16" y2="6"/><line x1="8" y1="2" x2="8" y2="6"/><line x1="3" y1="10" x2="21" y2="10"/></svg>
+        11–13 septembrie 2026
+      </span>
+      <span>
+        <svg viewBox="0 0 24 24"><path d="M21 10c0 7-9 13-9 13s-9-6-9-13a9 9 0 0118 0z"/><circle cx="12" cy="10" r="3"/></svg>
+        Iași, România
+      </span>
+    </div>
+
+    <a href="#registration" class="hero-cta">
+      <span lang="ro">Înscrie-te acum</span>
+      <span lang="en">Register Now</span>
+    </a>
+  </div>
+</header>
+
+<!-- ============================================================
+     ABOUT / INVITATION
+     ============================================================ -->
+<section class="section" id="invitation">
+  <div class="container fade-in">
+    <div class="section-divider"></div>
+
+    <h2 lang="ro">Invitație</h2>
+    <h2 lang="en">Invitation</h2>
+
+    <p class="section-subtitle" lang="ro">Un simpozion interdisciplinar care reunește pedologi, geografi și arheologi</p>
+    <p class="section-subtitle" lang="en">An interdisciplinary symposium bringing together pedologists, geographers, and archaeologists</p>
+
+    <div class="about-grid">
+      <div class="about-text">
+        
+        <p lang="ro">
+          Avem plăcerea de a vă invita la lucrările științifice ale celei de-a XXXV-a ediții a
+          Simpozionului Național „Factori și procese pedogenetice din zona temperată", care va avea loc
+          la Iași, în perioada 11–13 septembrie 2026.
+        </p>
+        <p lang="en">
+          We are pleased to invite you to the XXXV<sup>th</sup> edition of the National Symposium
+          "Pedogenic Factors and Processes in the Temperate Zone," to be held in Iași,
+          11–13 September 2026.
+        </p>
+
+        <p lang="ro">
+          Ediția din acest an, cu tema „Soluri și peisaje culturale din Podișul Moldovei", își propune
+          să evidențieze particularitățile solurilor dezvoltate pe substraturi carbonatice, într-un spațiu
+          în care acestea au constituit, încă din preistorie, suportul dezvoltării uneia dintre cele mai
+          remarcabile civilizații europene — cultura Cucuteni.
+        </p>
+        <p lang="en">
+          This year's edition, themed "Soils and Cultural Landscapes of the Moldavian Plateau,"
+          aims to highlight the characteristics of soils developed on carbonate substrates in a region
+          that has supported, since prehistoric times, one of Europe's most remarkable civilizations
+          — the Cucuteni culture.
+        </p>
+
+        <p lang="ro">
+          Aplicația de teren va îmbina studiul unor profile de sol cu vizitarea sitului arheologic
+          Cucuteni-Cetățuie și a Rezervației Arheologice Cucuteni (jud. Iași), oferind o viziune unitară
+          asupra relației dintre învelișul de sol și patrimoniul cultural.
+        </p>
+        <p lang="en">
+          The field trip will combine soil profile studies with visits to the Cucuteni-Cetățuie
+          archaeological site and the Cucuteni Archaeological Reserve (Iași county), providing
+          a unified perspective on the relationship between the soil mantle and cultural heritage.
+        </p>
+      </div>
+
+      <div class="about-highlights">
+        <div class="highlight-item">
+          <div class="highlight-label" lang="ro">Tema</div>
+          <div class="highlight-label" lang="en">Theme</div>
+          <div class="highlight-value" lang="ro">Soluri și peisaje culturale din Podișul Moldovei</div>
+          <div class="highlight-value" lang="en">Soils and Cultural Landscapes of the Moldavian Plateau</div>
+        </div>
+        <div class="highlight-item">
+          <div class="highlight-label" lang="ro">Data</div>
+          <div class="highlight-label" lang="en">Date</div>
+          <div class="highlight-value">11–13 septembrie / September 2026</div>
+        </div>
+        <div class="highlight-item">
+          <div class="highlight-label" lang="ro">Locație</div>
+          <div class="highlight-label" lang="en">Venue</div>
+          <div class="highlight-value" lang="ro">Universitatea „Alexandru Ioan Cuza" din Iași</div>
+          <div class="highlight-value" lang="en">"Alexandru Ioan Cuza" University of Iași</div>
+        </div>
+
+        <div class="highlight-item">
+          <div class="highlight-label" lang="ro">Termen limită înscriere</div>
+          <div class="highlight-label" lang="en">Registration deadline</div>
+          <div class="highlight-value" style="color: #b71c1c;">15 iulie / July 2026</div>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ============================================================
+     PROGRAM & INFORMAȚII PRACTICE
+     ============================================================ -->
+<section class="section section-alt" id="program">
+  <div class="container fade-in">
+    <div class="section-divider"></div>
+
+    <h2 lang="ro">Program & Informații Practice</h2>
+    <h2 lang="en">Program & Practical Information</h2>
+
+    <div class="program-grid">
+
+      <!-- ── COLOANA STÂNGA: Timeline ── -->
+      <div class="program-timeline">
+
+        <!-- Joi 10 septembrie -->
+        <div class="timeline-item">
+          <div class="timeline-date" lang="ro">Joi, 10 septembrie</div>
+          <div class="timeline-date" lang="en">Thursday, 10 September</div>
+          <div class="timeline-title" lang="ro">Sosirea participanților</div>
+          <div class="timeline-title" lang="en">Arrival of Participants</div>
+          <div class="timeline-desc">
+            <span lang="ro">14:00–19:00 — Sosirea și cazarea participanților, Hotel Akademos, UAIC</span>
+            <span lang="en">14:00–19:00 — Arrival and check-in, Hotel Akademos, UAIC</span>
+          </div>
+        </div>
+
+        <!-- Vineri 11 septembrie -->
+        <div class="timeline-item">
+          <div class="timeline-date" lang="ro">Vineri, 11 septembrie</div>
+          <div class="timeline-date" lang="en">Friday, 11 September</div>
+          <div class="timeline-title" lang="ro">Sesiunea de prezentări științifice</div>
+          <div class="timeline-title" lang="en">Scientific Presentations Session</div>
+          <div class="timeline-desc">
+            <span lang="ro">
+              07:30–08:45 — Mic dejun (Hotel Akademos)<br>
+              09:00–10:00 — Înregistrarea participanților (Amfiteatrul B8, corp B, et. 3)<br>
+              10:00–10:30 — Deschiderea simpozionului<br>
+              10:30–11:30 — Prezentări științifice<br>
+              11:30–12:00 — Pauză de cafea<br>
+              12:00–13:30 — Prezentări științifice<br>
+              13:30–15:00 — Masă de prânz (Sala 658, corp B, et. 3)<br>
+              15:00–16:30 — Prezentări științifice / Workshop<br>
+              16:30–17:00 — Pauză de cafea<br>
+              17:00–18:30 — Prezentări științifice<br>
+              18:30–19:00 — Concluzii<br>
+              19:30–21:30 — Cină (Casa Universitarilor)
+            </span>
+            <span lang="en">
+              07:30–08:45 — Breakfast (Hotel Akademos)<br>
+              09:00–10:00 — Registration (Amphitheatre B8, building B, 3rd floor)<br>
+              10:00–10:30 — Opening ceremony<br>
+              10:30–11:30 — Scientific presentations<br>
+              11:30–12:00 — Coffee break<br>
+              12:00–13:30 — Scientific presentations<br>
+              13:30–15:00 — Lunch (Room 658, building B, 3rd floor)<br>
+              15:00–16:30 — Scientific presentations / Workshop<br>
+              16:30–17:00 — Coffee break<br>
+              17:00–18:30 — Scientific presentations<br>
+              18:30–19:00 — Conclusions<br>
+              19:30–21:30 — Dinner (Casa Universitarilor)
+            </span>
+          </div>
+        </div>
+
+        <!-- Sâmbătă 12 septembrie -->
+        <div class="timeline-item">
+          <div class="timeline-date" lang="ro">Sâmbătă, 12 septembrie</div>
+          <div class="timeline-date" lang="en">Saturday, 12 September</div>
+          <div class="timeline-title" lang="ro">Aplicație de teren</div>
+          <div class="timeline-title" lang="en">Field Trip</div>
+          <div class="timeline-desc">
+            <span lang="ro">
+              07:30–08:45 — Mic dejun<br>
+              09:00–10:15 — Deplasare Iași → Cucuteni<br>
+              10:15–11:00 — Prezentarea profilului 1 (Dl. lui Viteaz, Cucuteni)<br>
+              11:15–11:45 — Prezentarea profilului 2 (Dl. Spinișului, Cucuteni)<br>
+              12:00–12:30 — Prezentarea profilului 3 (Muzeul Cucuteni)<br>
+              12:30–13:30 — Vizitarea Muzeului de Sit Arheologic Cucuteni<br>
+              13:45–15:00 — Masă de prânz (Baza Arheologică „Acad. M. Petrescu-Dîmbovița", Băiceni)<br>
+              15:00–16:30 — Situl Cucuteni-Cetățuie: investigații arheologice recente<br>
+              17:00–18:00 — Prezentarea profilului 4 (Stroești, com. Todirești)<br>
+              18:00–19:00 — Deplasare Stroești → Iași<br>
+              19:30–22:00 — Cină (Casa Universitarilor)
+            </span>
+            <span lang="en">
+              07:30–08:45 — Breakfast<br>
+              09:00–10:15 — Transfer Iași → Cucuteni<br>
+              10:15–11:00 — Soil profile 1 (Dl. lui Viteaz, Cucuteni)<br>
+              11:15–11:45 — Soil profile 2 (Dl. Spinișului, Cucuteni)<br>
+              12:00–12:30 — Soil profile 3 (Cucuteni Museum)<br>
+              12:30–13:30 — Visit to the Cucuteni Archaeological Site Museum<br>
+              13:45–15:00 — Lunch (Archaeological Base "Acad. M. Petrescu-Dîmbovița", Băiceni)<br>
+              15:00–16:30 — Cucuteni-Cetățuie site: recent archaeological investigations<br>
+              17:00–18:00 — Soil profile 4 (Stroești, Todirești commune)<br>
+              18:00–19:00 — Transfer Stroești → Iași<br>
+              19:30–22:00 — Dinner (Casa Universitarilor)
+            </span>
+          </div>
+        </div>
+
+        <!-- Duminică 13 septembrie -->
+        <div class="timeline-item">
+          <div class="timeline-date" lang="ro">Duminică, 13 septembrie</div>
+          <div class="timeline-date" lang="en">Sunday, 13 September</div>
+          <div class="timeline-title" lang="ro">Vizită și plecare</div>
+          <div class="timeline-title" lang="en">Visit & Departure</div>
+          <div class="timeline-desc">
+            <span lang="ro">
+              10:00–12:00 — Vizitarea Grădinii Botanice „Anastasie Fătu", UAIC Iași<br>
+              12:00 — Plecarea participanților
+            </span>
+            <span lang="en">
+              10:00–12:00 — Visit to the "Anastasie Fătu" Botanical Garden, UAIC Iași<br>
+              12:00 — Departure
+            </span>
+          </div>
+        </div>
+      </div>
+
+      <!-- ── COLOANA DREAPTA: Info practice ── -->
+      <div class="program-sidebar">
+
+        <!-- ★ EDITARE: Taxa de participare -->
+        <div class="info-card" id="registration">
+          <h3 lang="ro">Taxă de Participare</h3>
+          <h3 lang="en">Participation Fee</h3>
+          <table class="fee-table">
+            <thead>
+              <tr>
+                <th></th>
+                <th>Single</th>
+                <th>Double</th>
+              </tr>
+            </thead>
+            <tbody>
+              <tr>
+                <td lang="ro">Cu cazare *</td>
+                <td lang="en">With accommodation *</td>
+                <td><strong>1.500 RON</strong></td>
+                <td><strong>1.300 RON</strong></td>
+              </tr>
+              <tr>
+                <td lang="ro">Fără cazare **</td>
+                <td lang="en">Without accommodation **</td>
+                <td colspan="2" style="text-align:center;"><strong>800 RON</strong></td>
+              </tr>
+            </tbody>
+          </table>
+          <p style="font-size:0.8rem;color:var(--color-earth-400);margin-top:8px;">
+            <span lang="ro">* Include materialele, cazarea (3 nopți, Hotel Akademos), mesele (11–12 sept.) și transportul la teren.<br>** Include materialele, mesele și transportul la teren.</span>
+            <span lang="en">* Includes materials, accommodation (3 nights, Hotel Akademos), meals (11–12 Sept.) and field transport.<br>** Includes materials, meals and field transport.</span>
+          </p>
+        </div>
+
+        <!-- ★ EDITARE: Plata taxei -->
+        <div class="info-card">
+          <h3 lang="ro">Plata Taxei</h3>
+          <h3 lang="en">Payment</h3>
+          <p>
+            <span lang="ro">Virament bancar · Termen: <strong style="color:#b71c1c;">31 iulie 2026</strong></span>
+            <span lang="en">Bank transfer · Deadline: <strong style="color:#b71c1c;">31 July 2026</strong></span>
+          </p>
+          <div style="background:rgba(200,169,81,0.08);border-radius:6px;padding:12px;margin-top:10px;font-size:0.85rem;">
+            <strong>Fundația „Alumni – Universitatea Al. I. Cuza din Iași"</strong><br>
+            Bld. Carol I, nr. 11 · C.I.F. 21591880<br>
+            IBAN: <span style="font-family:var(--font-mono);font-size:0.82rem;">RO90BRDE240SV76562202400</span><br>
+            BRD Groupe Société Générale, Suc. Iași<br>
+            <span lang="ro">Mențiune obligatorie:</span>
+            <span lang="en">Required note:</span>
+            <strong>FPPZT 2026</strong>
+          </div>
+          <p style="margin-top:10px;font-size:0.85rem;">
+            <span lang="ro">Dovada plății se transmite la:</span>
+            <span lang="en">Proof of payment to:</span>
+            <strong>Ionuț VASILINIUC</strong><br>
+			<a href="mailto:vasiliniucionut@yahoo.com">&#9993; vasiliniucionut@yahoo.com</a>, 
+			<a href="mailto:ionut.vasiliniuc@uaic.ro">&#9993; ionut.vasiliniuc@uaic.ro</a><br>
+            <span style="font-size:0.82rem;">✆ +40 743 029 112</span>
+          </p>
+        </div>
+
+        <!-- ★ EDITARE: Cazare -->
+        <div class="info-card">
+          <h3 lang="ro">Cazare</h3>
+          <h3 lang="en">Accommodation</h3>
+          <p>
+            <span lang="ro"><strong>Hotel Akademos</strong>, Universitatea „Alexandru Ioan Cuza" din Iași.<br> <strong style="color:#b71c1c;">Numărul locurilor este limitat — ocuparea se face în ordinea înregistrărilor, confirmate prin plata taxei.</strong></span>
+            <span lang="en"><strong>Hotel Akademos</strong>, "Alexandru Ioan Cuza" University of Iași. Places are limited — allocated on a first-come, first-served basis upon fee payment.</span>
+          </p>
+        </div>
+
+        <!-- Trimitere lucrări -->
+        <div class="info-card">
+          <h3 lang="ro">Trimiterea Lucrărilor</h3>
+          <h3 lang="en">Paper Submissions</h3>
+          <p>
+            <span lang="ro">Rezumate și lucrări in extenso (15–20 pag.) se trimit la:</span>
+            <span lang="en">Abstracts and full papers (15–20 pp.) should be sent to:</span><br>
+			<strong>Radu Gabriel PÎRNĂU</strong><br>
+            <a href="mailto:radupirnau@yahoo.com">&#9993; radupirnau@yahoo.com</a>,
+			<a href="mailto:radu.pirnau@acadiasi.ro">&#9993; radu.pirnau@acadiasi.ro</a><br>
+			<span style="font-size:0.82rem;">✆ +40 723 503 262</span>
+          </p>
+          <p style="margin-top:6px;font-size:0.85rem;">
+            <span lang="ro">Termen limită: <strong style="color:#b71c1c;">15 iulie 2026</strong></span>
+            <span lang="en">Deadline: <strong style="color:#b71c1c;">15 July 2026</strong></span>
+          </p>
+        </div>
+
+        <!-- Descarcă circulare -->
+        <div class="info-card">
+          <h3 lang="ro">Circulara</h3>
+          <h3 lang="en">Circular</h3>
+          <p style="display:flex;flex-direction:column;gap:8px;">
+            <a href="docs/Circulara_2_FPPZT_2026.pdf" download class="download-btn">
+              <span lang="ro">⬇ Circulara 2 (PDF)</span><span lang="en">⬇ Circular 2 (PDF)</span>
+            </a>
+          </p>
+        </div>
+
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ============================================================
+     FIELD TRIP — MAP + PROFILE PREVIEWS
+     ============================================================ -->
+<section class="section section-alt" id="fieldtrip">
+  <div class="container fade-in">
+    <div class="section-divider"></div>
+
+    <h2 lang="ro">Traseul Aplicației de Teren</h2>
+    <h2 lang="en">Field Trip Route</h2>
+
+    <p class="section-subtitle" lang="ro">12 septembrie — Podișul Moldovei: Iași → Cucuteni → Stroești</p>
+    <p class="section-subtitle" lang="en">12 September — Moldavian Plateau: Iași → Cucuteni → Stroești</p>
+
+    <p lang="ro">Traseul include prezentarea a patru profile de sol pe teritoriile administrative Cucuteni și Stroești, precum și vizitarea sitului arheologic Cucuteni-Cetățuie și a Rezervației Arheologice Cucuteni. Aplicația de teren va oferi o perspectivă integrată asupra relației dintre substraturile carbonatice, solurile dezvoltate pe acestea și patrimoniul cultural al regiunii.</p>
+    <p lang="en">The route includes the presentation of four soil profiles in the Cucuteni and Stroești administrative territories, as well as visits to the Cucuteni-Cetățuie archaeological site and the Cucuteni Archaeological Reserve. The field trip will provide an integrated perspective on the relationship between carbonate substrates, the soils developed upon them, and the region's cultural heritage.</p>
+
+    <div id="map"></div>
+
+    <div class="map-legend">
+      <span><span class="map-dot map-dot--venue"></span>
+        <span lang="ro">Locație simpozion</span><span lang="en">Symposium venue</span>
+      </span>
+      <span><span class="map-dot map-dot--field"></span>
+        <span lang="ro">Staționări aplicație de teren</span><span lang="en">Field trip stops</span>
+      </span>
+    </div>
+
+    <!-- PROFILE PREVIEWS -->
+    <div class="profile-previews" id="profilePreviews">
+      <a href="profiles.html#P1-2026" class="profile-preview-card" id="preview-P1">
+        <div class="profile-preview-sketch">
+          <img src="photos/2026/P1.jpeg" alt="Profil P1 — Cucuteni" style="width:100%;height:100%;object-fit:cover;">
+        </div>
+        <div class="profile-preview-info">
+          <h4 lang="ro">Profilul 1 — Cucuteni (Dl. lui Viteaz)</h4>
+          <h4 lang="en">Profile 1 — Cucuteni (Dl. lui Viteaz)</h4>
+          <div class="profile-preview-class">Cernoziom tipic · Haplic Chernozem</div>
+          <p class="profile-preview-desc" lang="ro">Cernoziom tipic moderat humifer pe depozit loessoid carbonatic. Teren arabil — grâu de toamnă.</p>
+          <p class="profile-preview-desc" lang="en">Typical moderately humic Chernozem on calcareous loessoid deposit. Arable land — winter wheat.</p>
+          <span class="profile-preview-link"><span lang="ro">Detalii profil →</span><span lang="en">Profile details →</span></span>
+        </div>
+      </a>
+
+      <a href="profiles.html#P2-2026" class="profile-preview-card" id="preview-P2">
+        <div class="profile-preview-sketch">
+          <img src="photos/2026/P2.jpeg" alt="Profil P2 — Cucuteni" style="width:100%;height:100%;object-fit:cover;">
+        </div>
+        <div class="profile-preview-info">
+          <h4 lang="ro">Profilul 2 — Cucuteni (Dl. Spinișului)</h4>
+          <h4 lang="en">Profile 2 — Cucuteni (Dl. Spinișului)</h4>
+          <div class="profile-preview-class">Cernoziom cambic · Cambic Chernozem</div>
+          <p class="profile-preview-desc" lang="ro">Cernoziom cambic moderat humifer pe depozit deluvio-proluvial. Pășune pe sit arheologic protejat.</p>
+          <p class="profile-preview-desc" lang="en">Cambic moderately humic Chernozem on deluvio-proluvial deposit. Pasture on protected archaeological site.</p>
+          <span class="profile-preview-link"><span lang="ro">Detalii profil →</span><span lang="en">Profile details →</span></span>
+        </div>
+      </a>
+
+      <a href="profiles.html#P3-2026" class="profile-preview-card" id="preview-P3">
+        <div class="profile-preview-sketch">
+          <img src="photos/2026/P3.jpeg" alt="Profil P3 — Cucuteni" style="width:100%;height:100%;object-fit:cover;">
+        </div>
+        <div class="profile-preview-info">
+          <h4 lang="ro">Profilul 3 — Cucuteni (Muzeu)</h4>
+          <h4 lang="en">Profile 3 — Cucuteni (Muzeu)</h4>
+          <div class="profile-preview-class">Rendzină tipică · Rendzic Leptosol</div>
+          <p class="profile-preview-desc" lang="ro">Rendzină tipică pe calcar recifal sarmatic. Pășune naturală în Rezervația Arheologică Cucuteni.</p>
+          <p class="profile-preview-desc" lang="en">Typical Rendzina on Sarmatian reef limestone. Natural pasture in the Cucuteni Archaeological Reserve.</p>
+          <span class="profile-preview-link"><span lang="ro">Detalii profil →</span><span lang="en">Profile details →</span></span>
+        </div>
+      </a>
+      <a href="profiles.html#P4-2026" class="profile-preview-card" id="preview-P4">
+        <div class="profile-preview-sketch">
+          <img src="photos/2026/P4.jpeg" alt="Profil P4 — Stroești" style="width:100%;height:100%;object-fit:cover;">
+        </div>
+        <div class="profile-preview-info">
+          <h4 lang="ro">Profilul 4 — Stroești</h4>
+          <h4 lang="en">Profile 4 — Stroești</h4>
+          <div class="profile-preview-class">Rendzină tipică · Rendzic Leptosol</div>
+          <p class="profile-preview-desc" lang="ro">Rendzină tipică pe calcar recifal sarmatic. Pășune naturală în Rezervația Arheologică Cucuteni.</p>
+          <p class="profile-preview-desc" lang="en">Typical Rendzina on Sarmatian reef limestone. Natural pasture in the Cucuteni Archaeological Reserve.</p>
+          <span class="profile-preview-link"><span lang="ro">Detalii profil →</span><span lang="en">Profile details →</span></span>
+        </div>
+      </a>
+    </div>
+  </div>
+</section>
+
+
+<!-- ============================================================
+     ORGANIZATORI & COLABORATORI
+     ============================================================ -->
+<section class="section" id="venue">
+  <div class="container fade-in">
+    <div class="section-divider"></div>
+
+    <div class="org-grid">
+
+      <!-- ── COLOANA STÂNGA: Organizatori ── -->
+      <div class="org-column">
+        <h2 lang="ro">Organizatori</h2>
+        <h2 lang="en">Organizers</h2>
+
+        <div class="org-card">
+          <img src="UAIC.png" alt="UAIC" class="org-card-logo">
+          <div class="org-card-text">
+            <h3>Universitatea „Alexandru Ioan Cuza" din Iași</h3>
+            <p lang="ro">Facultatea de Geografie și Geologie<br>Departamentul de Geografie</p>
+            <p lang="en">Faculty of Geography and Geology<br>Department of Geography</p>
+          </div>
+        </div>
+
+        <div class="org-card">
+          <img src="Academia_Romana_transparent.png" alt="Academia Română" class="org-card-logo">
+          <div class="org-card-text">
+            <h3 lang="ro">Academia Română — Filiala Iași</h3>
+            <h3 lang="en">Romanian Academy — Iași Branch</h3>
+            <p lang="ro">Centrul de Cercetări Geografice</p>
+            <p lang="en">Centre for Geographical Research</p>
+          </div>
+        </div>
+      </div>
+
+      <!-- ── COLOANA DREAPTA: Colaboratori ── -->
+      <div class="org-column">
+        <h2 lang="ro">Colaboratori</h2>
+        <h2 lang="en">Collaborators</h2>
+
+        <div class="org-card" style="flex-direction:column;align-items:flex-start;">
+          <div class="org-card-text">
+            <p lang="ro">Facultatea de Istorie, UAIC Iași</p>
+            <p lang="en">Faculty of History, UAIC Iași</p>
+            <p lang="ro">Centrul Arheoinvest, Institutul de Cercetări Interdisciplinare, UAIC Iași</p>
+            <p lang="en">Arheoinvest Center, Interdisciplinary Research Institute, UAIC Iași</p>
+            <p lang="ro">Baza de Cercetare Arheologică „Acad. Mircea Petrescu-Dîmbovița", Cucuteni-Băiceni</p>
+            <p lang="en">"Acad. Mircea Petrescu-Dîmbovița" Archaeological Research Base, Cucuteni-Băiceni</p>
+            <p lang="ro">Oficiul de Studii Pedologice și Agrochimice Botoșani</p>
+            <p lang="en">Soil and Agrochemical Survey Office, Botoșani</p>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<<!-- ============================================================
+     COMMITTEES
+     ============================================================ -->
+<section class="section" id="committees">
+  <div class="container fade-in">
+    <div class="section-divider"></div>
+
+    
+
+    <!-- Comitetul de Organizare — full width, 2 coloane -->
+    <div class="committee-card committee-card--wide">
+      <h3 lang="ro">Comitetul de Organizare</h3>
+      <h3 lang="en">Organizing Committee</h3>
+      <ul class="committee-list committee-list--2col">
+        <li>Conf. dr. ing. habil. Lilian <strong>NIACȘU</strong><br><span class="affiliation" lang="ro">Prorector, Universitatea „Alexandru Ioan Cuza" din Iași</span><span class="affiliation" lang="en">Vice-Rector, "Alexandru Ioan Cuza" University of Iași</span></li>
+        <li>Conf. dr. Adrian <strong>URSU</strong><br><span class="affiliation" lang="ro">Decan, Facultatea de Geografie și Geologie, UAIC</span><span class="affiliation" lang="en">Dean, Faculty of Geography and Geology, UAIC</span></li>
+        <li>Conf. dr. Ionuț <strong>MINEA</strong><br><span class="affiliation" lang="ro">Director, Departamentul de Geografie, UAIC</span><span class="affiliation" lang="en">Director, Department of Geography, UAIC</span></li>
+        <li>Lect. dr. CS III Ionuț <strong>VASILINIUC</strong><br><span class="affiliation">Fac. de Geografie și Geologie, UAIC / ARFI, CCG</span></li>
+        <li>CS III dr. Radu Gabriel <strong>PÎRNĂU</strong><br><span class="affiliation">ARFI, Centrul de Cercetări Geografice</span></li>
+        <li>CS II dr. Bogdan <strong>ROȘCA</strong><br><span class="affiliation">ARFI, Centrul de Cercetări Geografice</span></li>
+        <li>Prof. dr. CS I Dumitru <strong>BULGARIU</strong><br><span class="affiliation">Fac. de Geografie și Geologie, UAIC / ARFI, CCG</span></li>
+        <li>CS I dr. Cristian Valeriu <strong>PATRICHE</strong><br><span class="affiliation">ARFI, Centrul de Cercetări Geografice</span></li>
+        <li>Lect. dr. CS III Cristina Oana <strong>STAN</strong><br><span class="affiliation">Fac. de Geografie și Geologie, UAIC / ARFI, CCG</span></li>
+        <li>Dir. Iulian <strong>AXINCIUC</strong><br><span class="affiliation">OSPA Botoșani</span></li>
+        <li>Lect. dr. CS II Andrei <strong>ASĂNDULESEI</strong><br><span class="affiliation">Facultatea de Istorie, UAIC / Centrul Arheoinvest, UAIC</span></li>
+        <li>CS II dr. Felix-Adrian <strong>TENCARIU</strong><br><span class="affiliation">Centrul Arheoinvest, UAIC</span></li>
+      </ul>
+    </div>
+
+    <!-- Comitetul Științific — full width, 2 coloane -->
+    <div class="committee-card committee-card--wide" style="margin-top:32px;">
+      <h3 lang="ro">Comitetul Științific</h3>
+      <h3 lang="en">Scientific Committee</h3>
+      <div class="committee-honorary">
+        <span lang="ro">Președinte de onoare:</span>
+        <span lang="en">Honorary Chair:</span>
+        <strong>Prof. dr. emerit CS I Constantin RUSU</strong>
+      </div>
+      <ul class="committee-list committee-list--2col">
+        <li>CS I dr. Cristian Valeriu <strong>PATRICHE</strong><br><span class="affiliation">ARFI, Centrul de Cercetări Geografice</span></li>
+        <li>Prof. dr. CS I Dumitru <strong>BULGARIU</strong><br><span class="affiliation">Fac. de Geografie și Geologie, UAIC / ARFI, CCG</span></li>
+        <li>Conf. dr. ing. habil. Lilian <strong>NIACȘU</strong><br><span class="affiliation">Facultatea de Geografie și Geologie, UAIC</span></li>
+        <li>Lect. dr. CS III Ionuț <strong>VASILINIUC</strong><br><span class="affiliation">Fac. de Geografie și Geologie, UAIC / ARFI, CCG</span></li>
+        <li>CS III dr. Radu Gabriel <strong>PÎRNĂU</strong><br><span class="affiliation">ARFI, Centrul de Cercetări Geografice</span></li>
+        <li>CS II dr. Bogdan <strong>ROȘCA</strong><br><span class="affiliation">ARFI, Centrul de Cercetări Geografice</span></li>
+        <li>Lect. dr. CS II Andrei <strong>ASĂNDULESEI</strong><br><span class="affiliation">Facultatea de Istorie, UAIC / Centrul Arheoinvest, UAIC</span></li>
+        <li>CS II dr. Felix-Adrian <strong>TENCARIU</strong><br><span class="affiliation">Centrul Arheoinvest, UAIC</span></li>
+      </ul>
+    </div>
+
+  </div>
+</section>
+
+<!-- ============================================================
+     FOOTER
+     ============================================================ -->
+<footer class="footer">
+  <div class="container">
+    <div class="footer-logos">
+      <div class="footer-logo-placeholder" style="background:none;border:none;">
+        <img src="UAIC.png" alt="Facultatea de Geografie și Geologie" style="height:70px;width:auto;">
+      </div>
+      <div class="footer-logo-placeholder" style="background:none;border:none;">
+        <img src="Academia_Romana_transparent.png" alt="Academia Română" style="height:70px;width:auto;">
+      </div>
+    </div>
+
+    <p lang="ro">Simpozionul Național „Factori și procese pedogenetice din zona temperată" — Ediția a XXXV-a</p>
+    <p lang="en">National Symposium "Pedogenic Factors and Processes in the Temperate Zone" — XXXV<sup>th</sup> Edition</p>
+
+    <p style="margin-top: 16px;">
+      <span lang="ro">Contact: </span><span lang="en">Contact: </span>
+      <a href="mailto:radupirnau@yahoo.com">radupirnau@yahoo.com</a>
+    </p>
+
+    <p style="margin-top: 24px; font-size: 0.8rem; color: var(--color-earth-400);">© 2026 FPPZT. Iași, România.</p>
+  </div>
+</footer>
+
+<!-- ============================================================
+     SCRIPTS
+     ============================================================ -->
+<script src="https://unpkg.com/leaflet@1.9.4/dist/leaflet.js"></script>
+
+<script src="js/main.js"></script>
+<script src="js/map.js"></script>
+<script src="js/profiles-preview.js"></script>
+
+</body>
+</html>
