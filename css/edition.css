@@ -365,3 +365,13 @@
   font-size: 0.85rem;
   color: var(--earth-400, #8D6E63);
 }
+
+#routeTitleRo, #routeTitleEn {
+  text-align: center;
+}
+.edition-meta {
+  font-weight: 400;
+  font-size: 0.75em;
+  color: var(--earth-500, #6D4C41);
+  letter-spacing: 0.03em;
+}

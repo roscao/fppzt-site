@@ -51,6 +51,11 @@
     document.getElementById('loading').style.display = 'none';
     document.getElementById('editionContent').style.display = 'block';
 
+    document.getElementById('routeTitleRo').innerHTML =
+      '<span class="edition-meta">FPPZT, ' + d.dates + ', ediția a ' + d.edition + '-a</span><br>' + d.title.ro;
+    document.getElementById('routeTitleEn').innerHTML =
+      '<span class="edition-meta">FPPZT, ' + d.dates + ', edition ' + d.edition + '</span><br>' + d.title.en;
+
     renderRoute(d.route);
     initMap(d);
     renderProfileTabs(d.profiles);
@@ -257,7 +262,7 @@
     if (p.analyticalData && typeof window.renderTexturalTriangle === 'function' && typeof window.renderDepthChart === 'function') {
       var fp = buildFakeProfileForCharts(p);
       var triangleSvg = window.renderTexturalTriangle(fp) || '';
-      var phSvg = window.renderDepthChart(fp, 'pH', 'pH', '', '#4A6B8B', 5.8, 9) || '';
+      var phSvg = window.renderDepthChart(fp, 'pH', 'pH', '', '#4A6B8B', 3.5, 9) || '';
       var humusSvg = window.renderDepthChart(fp, 'humus', 'Humus', '%', '#4A7C5C', 0, 8) || '';
 
       // ★ Fallback: CaCO₃ sau T
