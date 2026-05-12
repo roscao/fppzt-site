@@ -48,13 +48,13 @@
       'Ediția a ' + d.edition + '-a — ' + d.location.ro + ' (' + d.year + ')';
     document.getElementById('editionSubtitle').textContent = d.title.ro;
 
+    document.getElementById('loading').style.display = 'none';
+    document.getElementById('editionContent').style.display = 'block';
+
     renderRoute(d.route);
     initMap(d);
     renderProfileTabs(d.profiles);
     renderGallery(d.gallery);
-
-    document.getElementById('loading').style.display = 'none';
-    document.getElementById('editionContent').style.display = 'block';
   }
 
   // ── Secțiunea traseu ────────────────────────────
@@ -187,9 +187,11 @@
       tab.dataset.id = p.id;
 
       tab.innerHTML =
-        '<div class="tab-placeholder">\u{1F52C}</div>' +
-        '<span class="tab-label">' + p.id + '</span>' +
-        '<span class="tab-soil">' + truncate(p.soilType, 35) + '</span>';
+    (p.photo
+      ? '<img src="' + p.photo + '" alt="' + p.id + '">'
+      : '<div class="tab-placeholder">\u{1F52C}</div>') +
+    '<span class="tab-label">' + p.id + '</span>' +
+    '<span class="tab-soil">' + truncate(p.soilType, 35) + '</span>';
 
       tab.addEventListener('click', function () { selectProfile(p.id); });
       container.appendChild(tab);
@@ -363,12 +365,37 @@
         '<span lang="en">Photos will be added after the symposium.</span></div>';
       return;
     }
-    gallery.images.forEach(function (img) {
-      var el = document.createElement('img');
-      el.src = gallery.folder + img;
-      el.alt = img;
-      el.loading = 'lazy';
-      grid.appendChild(el);
+
+    var current = 0;
+    var images = gallery.images;
+
+    grid.innerHTML =
+      '<div class="gallery-carousel">' +
+        '<button class="carousel-arrow carousel-prev" aria-label="Previous">&#10094;</button>' +
+        '<div class="carousel-slide">' +
+          '<img src="' + gallery.folder + images[0] + '" alt="' + images[0] + '">' +
+        '</div>' +
+        '<button class="carousel-arrow carousel-next" aria-label="Next">&#10095;</button>' +
+      '</div>' +
+      '<div class="carousel-counter">' +
+        '<span class="carousel-index">1</span> / ' + images.length +
+      '</div>';
+
+    var slideDiv = grid.querySelector('.carousel-slide img');
+    var counter = grid.querySelector('.carousel-index');
+
+    function showSlide(i) {
+      current = (i + images.length) % images.length;
+      slideDiv.src = gallery.folder + images[current];
+      slideDiv.alt = images[current];
+      counter.textContent = current + 1;
+    }
+
+    grid.querySelector('.carousel-prev').addEventListener('click', function () {
+      showSlide(current - 1);
+    });
+    grid.querySelector('.carousel-next').addEventListener('click', function () {
+      showSlide(current + 1);
     });
   }
 	// ── Convertește datele din format edition-JSON în format profiles-engine ──

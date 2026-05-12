@@ -48,21 +48,6 @@ var EDITION_DATA =
     ],
     "mapCenter": [46.30, 25.80],
     "mapZoom": 10,
-    "waypoints": [
-      {"name": "Miercurea Ciuc", "lat": 46.3583, "lng": 25.8028},
-      {"name": "Sâncrăieni", "lat": 46.3000, "lng": 25.8167},
-      {"name": "Sânsimion", "lat": 46.2667, "lng": 25.8500},
-      {"name": "Vrabia", "lat": 46.2200, "lng": 25.9083},
-      {"name": "Tușnad", "lat": 46.2100, "lng": 25.9139},
-      {"name": "Băile Tușnad", "lat": 46.1500, "lng": 25.8833},
-      {"name": "Harghita Băi", "lat": 46.3833, "lng": 25.6444},
-      {"name": "Vlăhița", "lat": 46.3333, "lng": 25.5667},
-      {"name": "Băile Homorod", "lat": 46.2667, "lng": 25.4833},
-      {"name": "Zetea", "lat": 46.3167, "lng": 25.4500},
-      {"name": "Izvorul Mureșului", "lat": 46.4333, "lng": 25.7333},
-      {"name": "Sândominic", "lat": 46.4167, "lng": 25.7667},
-      {"name": "Racu", "lat": 46.4000, "lng": 25.8000}
-    ],
     "routeFile": "routes-2025"
   },
   "profiles": [
@@ -330,7 +315,7 @@ var EDITION_DATA =
         "unit": "Depresiunea Ciucului / Compartimentul sudic"
       },
       "climate": {"tma": 6.1, "pma": 596},
-      "photo": "photos/2025/2025P3.jpg",
+      "photo": "photos/2025/2025_P3.jpg",
       "horizons": [
         {"symbol": "Ap", "top": 0, "bottom": 21, "texture": "nisip lutos grosier", "munsell": "10YR 6/3",
          "description": {"ro": "nisip lutos grosier; brun deschis (10YR 6/3); structură distrusă prin lucrările agricole; uscat; porozitate mare; fără efervescență; rădăcini subțiri foarte frecvente; trecere treptată."}},
@@ -406,7 +391,7 @@ var EDITION_DATA =
         "unit": "Depresiunea Ciucului / Compartimentul sudic"
       },
       "climate": {"tma": 6.1, "pma": 596},
-      "photo": "photos/2025/P4.jpg",
+      "photo": "photos/2025/2025_P4.jpg",
       "horizons": [
         {"symbol": "Ap", "top": 0, "bottom": 15, "texture": "nisip lutos mijlociu", "munsell": "10YR 6/3",
          "description": {"ro": "nisip lutos mijlociu; brun pal (10YR 6/3); structură grăunțoasă instabilă, distrusă parțial; necoeziv; fără efervescență; rădăcini subțiri și medii foarte frecvente; trecere clară."}},
