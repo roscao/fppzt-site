@@ -38,5 +38,5 @@ var EDITIONS_LIST = [
   {year:1994,edition:"IV",location:"Iași",region:"Moldova",theme:"",current:false,hasData:false},
   {year:1993,edition:"III",location:"Iași",region:"Moldova",theme:"",current:false,hasData:false},
   {year:1992,edition:"II",location:"Iași",region:"Moldova",theme:"",current:false,hasData:false},
-  {year:1988,edition:"I",location:"Iași",region:"Moldova",theme:"",current:false,hasData:false}
+  {year:1991,edition:"I",location:"Iași",region:"Moldova",theme:"",current:false,hasData:false}
 ];
