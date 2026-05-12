@@ -516,7 +516,7 @@ var EDITION_DATA =
   ],
   "gallery": {
     "folder": "photos/2025/gallery/",
-    "images": [FPPZT_1.jpg]
+    "images": ["FPPZT_1.jpg", "FPPZT_2.jpg", "FPPZT_3.jpg", "FPPZT_4.jpg", "FPPZT_5.jpg", "FPPZT_6.jpg"]
   }
 }
 ;
