@@ -64,17 +64,33 @@
 
   // ── Secțiunea traseu ────────────────────────────
   function renderRoute(route) {
-    if (!route || !route.days) return;
+    if (!route) return;
     var container = document.getElementById('routeDays');
-    route.days.forEach(function (day) {
+
+    if (route.description && route.description.ro) {
       var div = document.createElement('div');
-      div.className = 'route-day';
+      div.className = 'route-day route-description';
       div.innerHTML =
-        '<h3>' + day.date + ' — ' + day.title.ro + '</h3>' +
-        '<div class="route-itinerary">' + day.itinerary + '</div>' +
-        '<div class="route-desc">' + day.description.ro + '</div>';
+        '<div class="route-desc" lang="ro">' +
+          route.description.ro.split('\n').map(function (p) {
+            if (p.startsWith('•')) {
+              return '<div class="route-bullet">' + p + '</div>';
+            }
+            return '<p>' + p + '</p>';
+          }).join('') +
+        '</div>' +
+        (route.description.en
+          ? '<div class="route-desc" lang="en">' +
+              route.description.en.split('\n').map(function (p) {
+                if (p.startsWith('•')) {
+                  return '<div class="route-bullet">' + p + '</div>';
+                }
+                return '<p>' + p + '</p>';
+              }).join('') +
+            '</div>'
+          : '');
       container.appendChild(div);
-    });
+    }
   }
 
   // ── Harta Leaflet ───────────────────────────────

@@ -375,3 +375,14 @@
   color: var(--earth-500, #6D4C41);
   letter-spacing: 0.03em;
 }
+
+.route-description p {
+  margin: 0 0 0.8rem 0;
+  text-align: justify;
+  line-height: 1.7;
+}
+.route-description .route-bullet {
+  padding-left: 1.2rem;
+  margin-bottom: 0.5rem;
+  line-height: 1.6;
+}
