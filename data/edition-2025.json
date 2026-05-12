@@ -95,7 +95,7 @@
         "landUse": "arabil (loturi experimentale)",
         "previousLandUse": "forestieră"
       },
-      "photo": "photos/2025/P1.jpg",
+      "photo": "photos/2025/2025_P1.jpg",
       "horizons": [
         {
           "symbol": "Ap", "top": 0, "bottom": 21,
@@ -230,7 +230,7 @@
         "landUse": "pajiște",
         "previousLandUse": "pajiște"
       },
-      "photo": "photos/2025/P2.jpg",
+      "photo": "photos/2025/2025_P2.jpg",
       "horizons": [
         {
           "symbol": "Tsp₁", "top": 0, "bottom": 28,
@@ -328,7 +328,7 @@
         "unit": "Depresiunea Ciucului / Compartimentul sudic"
       },
       "climate": {"tma": 6.1, "pma": 596},
-      "photo": "photos/2025/P3.jpg",
+      "photo": "photos/2025/1015_P3.jpg",
       "horizons": [
         {"symbol": "Ap", "top": 0, "bottom": 21, "texture": "nisip lutos grosier", "munsell": "10YR 6/3",
          "description": {"ro": "nisip lutos grosier; brun deschis (10YR 6/3); structură distrusă prin lucrările agricole; uscat; porozitate mare; fără efervescență; rădăcini subțiri foarte frecvente; trecere treptată."}},
@@ -404,7 +404,7 @@
         "unit": "Depresiunea Ciucului / Compartimentul sudic"
       },
       "climate": {"tma": 6.1, "pma": 596},
-      "photo": "photos/2025/P4.jpg",
+      "photo": "photos/2025/2025_P4.jpg",
       "horizons": [
         {"symbol": "Ap", "top": 0, "bottom": 15, "texture": "nisip lutos mijlociu", "munsell": "10YR 6/3",
          "description": {"ro": "nisip lutos mijlociu; brun pal (10YR 6/3); structură grăunțoasă instabilă, distrusă parțial; necoeziv; fără efervescență; rădăcini subțiri și medii foarte frecvente; trecere clară."}},
@@ -476,7 +476,7 @@
         "unit": "Munții Harghita / Masivul Harghita-Mădăraș"
       },
       "climate": {"tma": 2.8, "pma": 785},
-      "photo": "photos/2025/P5.jpg",
+      "photo": "photos/2025/2025_P5.jpg",
       "horizons": [],
       "analyticalData": null,
       "incomplete": true,
@@ -504,7 +504,7 @@
         "unit": "Munții Harghita / Platoul vulcanic"
       },
       "climate": {"tma": 5.0, "pma": 700},
-      "photo": "photos/2025/P6.jpg",
+      "photo": "photos/2025/2025_P6.jpg",
       "horizons": [],
       "analyticalData": null,
       "incomplete": true,
