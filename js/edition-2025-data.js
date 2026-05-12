@@ -506,7 +506,7 @@ var EDITION_DATA =
         "unit": "Munții Harghita / Platoul vulcanic"
       },
       "climate": {"tma": 5.0, "pma": 700},
-      "photo": "photos/2025/P6.jpg",
+      "photo": "photos/2025/2025_P6.jpg",
       "horizons": [],
       "analyticalData": null,
       "incomplete": true,
@@ -516,7 +516,7 @@ var EDITION_DATA =
   ],
   "gallery": {
     "folder": "photos/2025/gallery/",
-    "images": [FPPZT_1.jpg]
+    "images": [photos/2025/gallery/FPPZT_1.jpg]
   }
 }
 ;
