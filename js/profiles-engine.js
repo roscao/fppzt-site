@@ -328,6 +328,40 @@ function renderDepthChart(profile, paramKey, paramLabel, unit, color, xMin, xMax
 }
 
 // ================================================================
+//  ★ FALLBACK: CaCO₃ sau T (capacitatea de schimb cationic)
+// ================================================================
+function renderCaCO3OrT(profile) {
+  // Verifică dacă cel puțin un orizont are CaCO₃ > 0.5
+  const hasCaCO3 = profile.horizons.some(hz =>
+    hz.parameters.CaCO3 != null && hz.parameters.CaCO3 > 0.5
+  );
+
+  if (hasCaCO3) {
+    return renderDepthChart(profile, 'CaCO3', 'CaCO₃', '%', '#C8A951', 0, 25);
+  }
+
+  // Fallback → graficul T
+  // Calculăm xMax dinamic (rotunjit la zecimala superioară de 10)
+  const tValues = profile.horizons
+    .map(hz => hz.parameters.T)
+    .filter(v => v != null);
+
+  if (tValues.length < 2) return ''; // nu avem suficiente date
+
+  const tMax = Math.ceil(Math.max(...tValues) / 10) * 10;
+
+  return renderDepthChart(
+    profile,
+    'T',
+    lang === 'ro' ? 'T (cap. schimb cat.)' : 'T (CEC)',
+    'me/100g',
+    '#8B6B4A',   // maro-bej, diferit de celelalte grafice
+    0,
+    tMax
+  );
+}
+
+// ================================================================
 //  RENDER PROFILE PAGE
 // ================================================================
 let currentProfileIndex = 0;
@@ -430,7 +464,7 @@ function renderProfile(i) {
       </div>
       <div class="card">
         <div class="card-body" style="text-align:center;">
-          ${renderDepthChart(p, 'pH', 'pH', '', '#4A6B8B',5.8, 9)}
+          // ${renderDepthChart(p, 'pH', 'pH', '', '#4A6B8B',5.8, 9)}
         </div>
       </div>
     </div>
@@ -443,7 +477,7 @@ function renderProfile(i) {
       </div>
       <div class="card">
         <div class="card-body" style="text-align:center;">
-          ${renderDepthChart(p, 'CaCO3', 'CaCO₃', '%', '#C8A951', 0, 25)}
+          ${renderCaCO3OrT(p)}
         </div>
       </div>
     </div>    
