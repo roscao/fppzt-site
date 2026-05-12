@@ -97,7 +97,7 @@ var EDITION_DATA =
         "landUse": "arabil (loturi experimentale)",
         "previousLandUse": "forestieră"
       },
-      "photo": "photos/2025/P1.jpg",
+      "photo": "photos/2025/2025_P1.jpg",
       "horizons": [
         {
           "symbol": "Ap", "top": 0, "bottom": 21,
@@ -232,7 +232,7 @@ var EDITION_DATA =
         "landUse": "pajiște",
         "previousLandUse": "pajiște"
       },
-      "photo": "photos/2025/P2.jpg",
+      "photo": "photos/2025/2025_P2.jpg",
       "horizons": [
         {
           "symbol": "Tsp₁", "top": 0, "bottom": 28,
