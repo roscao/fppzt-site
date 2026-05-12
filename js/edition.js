@@ -76,7 +76,7 @@
   function initMap(d) {
     if (!d.route) return;
     var center = d.route.mapCenter || [46.35, 25.80];
-    var zoom = d.route.mapZoom || 10;
+    var zoom = d.route.mapZoom || 17;
 
     map = L.map('editionMap', { scrollWheelZoom: false }).setView(center, zoom);
     L.tileLayer('https://{s}.tile.openstreetmap.org/{z}/{x}/{y}.png', {
@@ -84,10 +84,10 @@
     }).addTo(map);
 
     // ── Markere profile de sol (auriu) ──────────
-    var allBounds = [];
+    var allCoords = [];
     d.profiles.forEach(function (p) {
       if (!p.location || !p.location.lat) return;
-      allBounds.push([p.location.lat, p.location.lng]);
+      allCoords.push([p.location.lat, p.location.lng]);
       var marker = L.circleMarker([p.location.lat, p.location.lng], {
         radius: 9, fillColor: '#C8A951', fillOpacity: 0.9,
         color: '#3E2723', weight: 2
@@ -101,7 +101,7 @@
     // ── Waypoints (puncte mici maro) ────────────
     if (d.route.waypoints) {
       d.route.waypoints.forEach(function (wp) {
-        allBounds.push([wp.lat, wp.lng]);
+        allCoords.push([wp.lat, wp.lng]);
         L.circleMarker([wp.lat, wp.lng], {
           radius: 4, fillColor: '#8D6E63', fillOpacity: 0.6,
           color: '#5D4037', weight: 1
@@ -109,12 +109,17 @@
       });
     }
 
+    // Fit imediat pe profile + waypoints
+    if (allCoords.length > 0) {
+      map.fitBounds(allCoords, { padding: [30, 30] });
+    }
+
     // ── GeoJSON trasee (încărcare dinamică) ──────
     if (d.route.routeFile) {
       var routeScript = document.createElement('script');
       routeScript.src = 'js/' + d.route.routeFile + '.js';
       routeScript.onload = function () {
-        // Caută variabila globală ROUTES_YYYY
+												
         var varName = 'ROUTES_' + d.year;
         var routeData = window[varName];
         if (!routeData || !routeData.length) return;
@@ -126,24 +131,24 @@
             style: {
               color: r.color,
               weight: 4,
-              opacity: 0.8,
-              dashArray: null
+              opacity: 0.8
+							 
             }
           }).addTo(map);
 
-          // Extend bounds cu traseul
-          var layerBounds = layer.getBounds();
-          if (layerBounds.isValid()) {
-            allBounds.push(layerBounds.getSouthWest());
-            allBounds.push(layerBounds.getNorthEast());
+          // Extinde bounds cu traseul
+          var b = layer.getBounds();
+          if (b.isValid()) {
+            allCoords.push([b.getSouthWest().lat, b.getSouthWest().lng]);
+            allCoords.push([b.getNorthEast().lat, b.getNorthEast().lng]);
           }
 
           legendItems.push(r);
         });
 
-        // Fit la toate elementele (profile + trasee)
-        if (allBounds.length > 0) {
-          map.fitBounds(allBounds, { padding: [30, 30] });
+        // Re-fit cu trasee incluse
+        if (allCoords.length > 0) {
+          map.fitBounds(allCoords, { padding: [30, 30] });
         }
 
         // ── Legendă pe hartă ──────────────────────
@@ -164,9 +169,12 @@
         };
         legend.addTo(map);
       };
+      routeScript.onerror = function () {
+        console.warn('Nu s-a putut încărca fișierul trasee: js/' + d.route.routeFile + '.js');
+      };
       document.head.appendChild(routeScript);
-    } else if (allBounds.length > 0) {
-      map.fitBounds(allBounds, { padding: [30, 30] });
+									  
+													  
     }
   }
 
@@ -249,7 +257,21 @@
       var triangleSvg = window.renderTexturalTriangle(fp) || '';
       var phSvg = window.renderDepthChart(fp, 'pH', 'pH', '', '#4A6B8B', 5.8, 9) || '';
       var humusSvg = window.renderDepthChart(fp, 'humus', 'Humus', '%', '#4A7C5C', 0, 8) || '';
-      var caco3Svg = window.renderDepthChart(fp, 'CaCO3', 'CaCO\u2083', '%', '#C8A951', 0, 25) || '';
+
+      // ★ Fallback: CaCO₃ sau T
+      var fourthSvg = '';
+      var hasCaCO3 = fp.horizons.some(function (hz) {
+        return hz.parameters.CaCO3 != null && hz.parameters.CaCO3 > 0.5;
+      });
+      if (hasCaCO3) {
+        fourthSvg = window.renderDepthChart(fp, 'CaCO3', 'CaCO\u2083', '%', '#C8A951', 0, 25) || '';
+      } else {
+        var tVals = fp.horizons.map(function (hz) { return hz.parameters.T; }).filter(function (v) { return v != null; });
+        if (tVals.length >= 2) {
+          var tMax = Math.ceil(Math.max.apply(null, tVals) / 10) * 10;
+          fourthSvg = window.renderDepthChart(fp, 'T', 'T (CEC)', 'me/100g', '#8B6B4A', 0, tMax) || '';
+        }
+      }
 
       detail.innerHTML +=
         '<div class="profile-subsection">' +
@@ -261,7 +283,7 @@
           '</div>' +
           '<div class="diagrams-row">' +
             '<div class="card"><div class="card-body" style="text-align:center;">' + humusSvg + '</div></div>' +
-            '<div class="card"><div class="card-body" style="text-align:center;">' + caco3Svg + '</div></div>' +
+            '<div class="card"><div class="card-body" style="text-align:center;">' + fourthSvg + '</div></div>' +
           '</div>' +
         '</div>';
     }
@@ -369,7 +391,8 @@
         parameters: {
           pH: chem.pH ? chem.pH[i] : null,
           humus: chem.humus ? chem.humus[i] : null,
-          CaCO3: chem.CaCO3 ? chem.CaCO3[i] : null
+          CaCO3: chem.CaCO3 ? chem.CaCO3[i] : null,
+          T: chem.T ? chem.T[i] : null
         }
       });
     }
