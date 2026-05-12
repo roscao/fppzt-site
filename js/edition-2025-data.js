@@ -330,7 +330,7 @@ var EDITION_DATA =
         "unit": "Depresiunea Ciucului / Compartimentul sudic"
       },
       "climate": {"tma": 6.1, "pma": 596},
-      "photo": "photos/2025/P3.jpg",
+      "photo": "photos/2025/2025P3.jpg",
       "horizons": [
         {"symbol": "Ap", "top": 0, "bottom": 21, "texture": "nisip lutos grosier", "munsell": "10YR 6/3",
          "description": {"ro": "nisip lutos grosier; brun deschis (10YR 6/3); structură distrusă prin lucrările agricole; uscat; porozitate mare; fără efervescență; rădăcini subțiri foarte frecvente; trecere treptată."}},
@@ -478,7 +478,7 @@ var EDITION_DATA =
         "unit": "Munții Harghita / Masivul Harghita-Mădăraș"
       },
       "climate": {"tma": 2.8, "pma": 785},
-      "photo": "photos/2025/P5.jpg",
+      "photo": "photos/2025/2025_P5.jpg",
       "horizons": [],
       "analyticalData": null,
       "incomplete": true,
