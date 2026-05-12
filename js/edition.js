@@ -78,13 +78,16 @@
     var center = d.route.mapCenter || [46.35, 25.80];
     var zoom = d.route.mapZoom || 10;
 
-    map = L.map('editionMap').setView(center, zoom);
+    map = L.map('editionMap', { scrollWheelZoom: false }).setView(center, zoom);
     L.tileLayer('https://{s}.tile.openstreetmap.org/{z}/{x}/{y}.png', {
       attribution: '© OpenStreetMap'
     }).addTo(map);
 
+    // ── Markere profile de sol (auriu) ──────────
+    var allBounds = [];
     d.profiles.forEach(function (p) {
       if (!p.location || !p.location.lat) return;
+      allBounds.push([p.location.lat, p.location.lng]);
       var marker = L.circleMarker([p.location.lat, p.location.lng], {
         radius: 9, fillColor: '#C8A951', fillOpacity: 0.9,
         color: '#3E2723', weight: 2
@@ -95,13 +98,75 @@
       marker.on('click', function () { selectProfile(p.id); });
     });
 
+    // ── Waypoints (puncte mici maro) ────────────
     if (d.route.waypoints) {
       d.route.waypoints.forEach(function (wp) {
+        allBounds.push([wp.lat, wp.lng]);
         L.circleMarker([wp.lat, wp.lng], {
           radius: 4, fillColor: '#8D6E63', fillOpacity: 0.6,
           color: '#5D4037', weight: 1
         }).addTo(map).bindTooltip(wp.name, { direction: 'top' });
       });
+    }
+
+    // ── GeoJSON trasee (încărcare dinamică) ──────
+    if (d.route.routeFile) {
+      var routeScript = document.createElement('script');
+      routeScript.src = 'js/' + d.route.routeFile + '.js';
+      routeScript.onload = function () {
+        // Caută variabila globală ROUTES_YYYY
+        var varName = 'ROUTES_' + d.year;
+        var routeData = window[varName];
+        if (!routeData || !routeData.length) return;
+
+        var legendItems = [];
+
+        routeData.forEach(function (r) {
+          var layer = L.geoJSON(r.geojson, {
+            style: {
+              color: r.color,
+              weight: 4,
+              opacity: 0.8,
+              dashArray: null
+            }
+          }).addTo(map);
+
+          // Extend bounds cu traseul
+          var layerBounds = layer.getBounds();
+          if (layerBounds.isValid()) {
+            allBounds.push(layerBounds.getSouthWest());
+            allBounds.push(layerBounds.getNorthEast());
+          }
+
+          legendItems.push(r);
+        });
+
+        // Fit la toate elementele (profile + trasee)
+        if (allBounds.length > 0) {
+          map.fitBounds(allBounds, { padding: [30, 30] });
+        }
+
+        // ── Legendă pe hartă ──────────────────────
+        var legend = L.control({ position: 'bottomright' });
+        legend.onAdd = function () {
+          var div = L.DomUtil.create('div', 'route-legend');
+          var html = '';
+          legendItems.forEach(function (r) {
+            html += '<div class="route-legend-item">' +
+              '<span class="route-legend-line" style="background:' + r.color + '"></span>' +
+              '<span>' + r.label + '</span></div>';
+          });
+          html += '<div class="route-legend-item">' +
+            '<span class="route-legend-dot" style="background:#C8A951"></span>' +
+            '<span>Profile</span></div>';
+          div.innerHTML = html;
+          return div;
+        };
+        legend.addTo(map);
+      };
+      document.head.appendChild(routeScript);
+    } else if (allBounds.length > 0) {
+      map.fitBounds(allBounds, { padding: [30, 30] });
     }
   }
 

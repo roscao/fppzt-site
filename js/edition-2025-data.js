@@ -62,7 +62,8 @@ var EDITION_DATA =
       {"name": "Izvorul Mureșului", "lat": 46.4333, "lng": 25.7333},
       {"name": "Sândominic", "lat": 46.4167, "lng": 25.7667},
       {"name": "Racu", "lat": 46.4000, "lng": 25.8000}
-    ]
+    ],
+    "routeFile": "routes-2025"
   },
   "profiles": [
     {

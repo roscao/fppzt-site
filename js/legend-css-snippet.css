@@ -1,0 +1,32 @@
+/* ── Route Legend (adaugă la finalul lui css/edition.css) ───── */
+.route-legend {
+  background: rgba(250, 246, 240, 0.92);
+  padding: 8px 12px;
+  border-radius: 6px;
+  border: 1px solid #BCAAA4;
+  font-family: var(--font-body, 'Source Sans 3', sans-serif);
+  font-size: 0.8rem;
+  line-height: 1.6;
+  box-shadow: 0 2px 6px rgba(0,0,0,0.15);
+}
+.route-legend-item {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+  white-space: nowrap;
+}
+.route-legend-line {
+  display: inline-block;
+  width: 22px;
+  height: 4px;
+  border-radius: 2px;
+  flex-shrink: 0;
+}
+.route-legend-dot {
+  display: inline-block;
+  width: 12px;
+  height: 12px;
+  border-radius: 50%;
+  border: 2px solid #3E2723;
+  flex-shrink: 0;
+}
