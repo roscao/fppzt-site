@@ -6,7 +6,7 @@
 var EDITIONS_LIST = [
   /*{year:2026,edition:"XXXV",location:"Iași",region:"Podișul Moldovei",theme:"Solurile și peisajele culturale ale Podișului Moldovei",current:true,hasData:true},  */
   {year:2025,edition:"XXXIV",location:"Miercurea Ciuc",region:"Harghita",theme:"Particularități pedogenetice în aria vulcanică a Harghitei și Depresiunea Ciucului",current:false,hasData:true},
-  {year:2024,edition:"XXXIII",location:"Brașov",region:"Țara Bârsei",theme:"",current:false,hasData:false},
+  {year:2024,edition:"XXXIII",location:"Piatra Neamț",region:"Neamț",theme:"Asamblajul pedologic din aria pericarpatică și piemontană din estul României",current:false,hasData:true},
   {year:2023,edition:"XXXII",location:"Suceava",region:"Bucovina",theme:"",current:false,hasData:false},
   {year:2022,edition:"XXXI",location:"Baia Mare",region:"Maramureș",theme:"",current:false,hasData:false},
   {year:2021,edition:"XXX",location:"Deva",region:"Hunedoara",theme:"",current:false,hasData:false},
