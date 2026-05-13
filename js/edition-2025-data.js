@@ -447,61 +447,269 @@ var EDITION_DATA =
       "describedBy": "Constantin Rusu, Bőjte Gyárfás, Abos Hunor, Sándor Béla, Bogdan Roșca, Dumitru Bulgariu, Radu Gabriel Pîrnău"
     },
     {
-      "id": "P5",
-      "name": {
-        "ro": "Harghita Băi (U.A.T. Miercurea Ciuc)",
-        "en": "Harghita Băi (Miercurea Ciuc commune)"
-      },
-      "soilType": "Andosol distric scheletic",
-      "soilTypeEn": "Dystric Skeletic Andosol",
-      "texture": "argilă nisipoasă / nisip lutos mijlociu",
-      "srts": "SRTS 2012",
-      "location": {
-        "county": "Harghita",
-        "uat": "Miercurea Ciuc",
-        "locality": "Harghita Băi",
-        "placement": "extremitatea sud-estică a stațiunii",
-        "lat": 46.38314,
-        "lng": 25.64436,
-        "altitude": 1340,
-        "unit": "Munții Harghita / Masivul Harghita-Mădăraș"
-      },
-      "climate": {"tma": 2.8, "pma": 785},
-      "photo": "photos/2025/2025_P5.jpg",
-      "horizons": [],
-      "analyticalData": null,
-      "incomplete": true,
-      "observations": {"ro": ["Date analitice în curs de prelucrare"]},
-      "describedBy": "Constantin Rusu, Radu Gabriel Pîrnău"
+  "id": "P5",
+  "name": {
+    "ro": "Harghita Băi (U.A.T. Miercurea Ciuc)",
+    "en": "Harghita Băi (U.A.T. Miercurea Ciuc)"
+  },
+  "soilType": "Andosol distric scheletic",
+  "soilTypeEn": "Cambic Phaeozem, vermic",
+  "texture": "argilă nisipoasă / nisip lutos mijlociu",
+  "srts": "SRTS 2012",
+  "location": {
+    "county": "Harghita",
+    "uat": "Miercurea Ciuc",
+    "locality": "Harghita Băi",
+    "placement": "Harghita Băi, extremitatea sud-estică",
+    "lat": 46.383,
+    "lng": 25.644,
+    "altitude": 1340,
+    "unit": "Munții Harghita /Masivul Harghita-Mădăraș"
+  },
+  "climate": {
+    "tma": 2.8,
+    "pma": 785
+  },
+  "conditions": {
+    "relief": "culme montană secundară; versant, treimea mijlocie; 5% /SV",
+    "parentMaterial": "deluviu andezitic",
+    "bedrock": "andezite",
+    "groundwater": "sub 10 m, nepermanent, oscilant",
+    "drainage": "rapid",
+    "vegetation": "zonă forestieră, pădure de conifere (molid)",
+    "landUse": "pădure de conifere",
+    "previousLandUse": "pădure de conifere"
+  },
+  "photo": "photos/2025/2025_P5.jpg",
+  "horizons": [
+    {
+      "symbol": "Ol+f",
+      "top": 0,
+      "bottom": 0,
+      "texture": "orizont organic",
+      "munsell": "10YR 2/1",
+      "description": {
+        "ro": "orizont organic nehidromorf constituit din litieră și orizont de fermentație cu materie organică incomplet descompusă"
+      }
     },
     {
-      "id": "P6",
-      "name": {
-        "ro": "Băile Homorod",
-        "en": "Băile Homorod"
-      },
-      "soilType": "Luvosol albic-stagnic",
-      "soilTypeEn": "Albic Stagnic Luvisol",
-      "texture": "argilă / lut",
-      "srts": "SRTS 2012",
-      "location": {
-        "county": "Harghita",
-        "uat": "Vlăhița",
-        "locality": "Băile Homorod",
-        "placement": "platoul vulcano-sedimentar Homorod",
-        "lat": 46.361,
-        "lng": 25.453,
-        "altitude": 850,
-        "unit": "Munții Harghita / Platoul vulcanic"
-      },
-      "climate": {"tma": 5.0, "pma": 700},
-      "photo": "photos/2025/2025_P6.jpg",
-      "horizons": [],
-      "analyticalData": null,
-      "incomplete": true,
-      "observations": {"ro": ["Date analitice în curs de prelucrare"]},
-      "describedBy": "Constantin Rusu, Radu Gabriel Pîrnău"
+      "symbol": "Au",
+      "top": 0,
+      "bottom": 20,
+      "texture": "argilă nisipoasă",
+      "munsell": "10YR 3/1",
+      "description": {
+        "ro": "argilă nisipoasă; negru (10YR 3/1) în stare umedă; reavăn; structură granulară pulverulentă; poros; moderat plastic; moderat adeziv; fără efervescenţă; rădăcini subţiri și medii foarte frecvente; trecere treptată."
+      }
+    },
+    {
+      "symbol": "AB",
+      "top": 20,
+      "bottom": 30,
+      "texture": "lut mediu",
+      "munsell": "10YR 3/2",
+      "description": {
+        "ro": "lut mediu; schelet 10%; brun foarte închis (10YR 3/2) în stare umedă; structură grăunțoasă, pulverulent; moderat plastic și adeziv; poros; fără efervescenţă; rădăcini subţiri și medii frecvente; trecere treptată"
+      }
+    },
+    {
+      "symbol": "Bv1",
+      "top": 30,
+      "bottom": 50,
+      "texture": "nisip lutos mijlociu",
+      "munsell": "7.5YR 3/2",
+      "description": {
+        "ro": "nisip lutos mijlociu; schelet 15%; brun închis (7.5YR 3/2) în stare umedă; structură poliedric subangulară mică-medie instabilă; poros; fără efervescenţă; rădăcini subţiri frecvente; trecere treptată."
+      }
+    },
+    {
+      "symbol": "Bv2q",
+      "top": 50,
+      "bottom": 80,
+      "texture": "nisip lutos mijlociu",
+      "munsell": "7.5YR 3/3",
+      "description": {
+        "ro": "nisip lutos mijlociu; schelet 25%; brun roșcat închis (7.5YR 3/3) în stare umedă; structură poliedric subangulară medie pulverulentă; fără efervescenţă; trecere treptată"
+      }
+    },
+    {
+      "symbol": "BCq+R",
+      "top": 80,
+      "bottom": 100,
+      "texture": "nisip lutos mijlociu",
+      "munsell": "7.5YR 4/3",
+      "description": {
+        "ro": "nisip lutos mijlociu; schelet 50-60%; brun (7.5YR 4/3) în stare umedă; nestructurat; trecere treptată-clară"
+      }
     }
+  ],
+  "analyticalData": {
+    "granulometry": {
+      "headers": ["Au", "AB", "Bv1", "Bv2q", "BCq+R"],
+      "depths": ["0-20", "20-30", "30-50", "50-80", "80-100"],
+      "sandCoarse": [18.4, 23.8, 22.48, 27.83, 34.03],
+      "sandFine": [30.4, 36.24, 53.05, 49.27, 37.27],
+      "silt": [13.8, 18.4, 15.33, 13.1, 19.3],
+      "clay": [37.4, 21.56, 9.14, 9.8, 9.4],
+      "textureClass": [null, null, null, null, null]
+    },
+    "chemistry": {
+      "pH": [4.71, 5.01, 5.12, 5.42, 5.88],
+      "CaCO3": [0, 0, 0, 0, 0],
+      "humus": [21.92, 11.4, 9.04, 0, 0],
+      "Nt": [null, 0.83, 0.41, null, null, null],
+      "PAL": [null, 10, 9, null, null, null],
+      "KAL": [null, 219, 71, null, null, null],
+      "SB": [null, 3.96, 2.77, 1.19, 6.34, 5.94],
+      "SH": [null, 39.79, 25.48, 23.72, 21.56, 16.27],
+      "T": [43.75, 28.25, 24.9, 27.9, 22.21],
+      "Vsh": [null, 9.05, 9.81, 4.77, 22.71, 26.75]
+    }
+  },
+  "observations": {
+    "ro": ["Conținut mare de materie organică în orizonturile superioare, caracteristic andosolurilor", "Valorile foarte scăzute ale SiO2 față de alte soluri indică, cel mai probabil, alterarea intensivă a piroclastitelor și formarea de minerale amorfe cu pierdere de silice și implicit formarea andosolurilor în acest areal. Se observă și tendința de acumulare de oxizi de Al și Fe, tipice pentru procesele de andosolizare (formare de minerale amorfe)", "Valorile foarte mari ale SH sugerează un conținut ridicat în oxizi amorfi, tipic andosolurilor", "Deși argila scade semnificativ (de la 37% la 9%), Al₂O₃ crește (de la 2.39 la 3.82%), ceea ce sugerează că Al nu mai e stocat în mineralele argiloase, ci în oxizi amorfi sau în complexe organo-minerale. Fierul se comportă similar, ambele elemente indicând prezența unor procese de formare de minerale amorfe, tipice pentru andosoluri"]
+  },
+  "describedBy": "Constantin Rusu, Bőjte Gyárfás, Abos Hunor, Sándor Béla, Bogdan Roșca, Dumitru Bulgariu, Radu Gabriel Pîrnău"
+},
+    {
+  "id": "P6",
+  "name": {
+    "ro": "Băile Homorod",
+    "en": "Băile Homorod"
+  },
+  "soilType": "Luvosol albic planic stagnic",
+  "soilTypeEn": null,
+  "texture": "lut prăfos / argilă lutoasă",
+  "srts": "SRTS12",
+  "location": {
+    "county": "Harghita",
+    "uat": "Satu Mare",
+    "locality": "Băile Homorod",
+    "placement": "pajiște, la SV de Băile Homorod, spre marginea pădurii",
+    "lat": 46.361,
+    "lng": 25.447,
+    "altitude": 945,
+    "unit": "Munții Harghita / Platoul vulcanic-sedimentar vestic"
+  },
+  "climate": {
+    "tma": 6.8,
+    "pma": 657
+  },
+  "conditions": {
+    "relief": "platou vulcanic, partea marginal vestică",
+    "parentMaterial": "argile",
+    "bedrock": "formațiune vulcanogen-sedimentară (tufuri și argile cineritice)",
+    "groundwater": "sub 7 m, permanent",
+    "drainage": "lent",
+    "vegetation": "forestieră, păduri de amestec fag-conifere",
+    "landUse": "pajiște",
+    "previousLandUse": "pajiște"
+  },
+  "photo": "photos/2025/2025_P6.jpg",
+  "horizons": [
+    {
+      "symbol": "Ao",
+      "top": 0,
+      "bottom": 21,
+      "texture": "lut prăfos",
+      "munsell": "2.5Y 5/2",
+      "description": {
+        "ro": "lut prăfos; cenușiu oliv deschis (2.5Y 5/2) în stare umedă; reavăn; structură grăunțoasă instabilă; slab plastic; slab-moderat adeziv; fără efervescenţă; rădăcini subţiri foarte frecvente; trecere treptată"
+      }
+    },
+    {
+      "symbol": "AE",
+      "top": 21,
+      "bottom": 32,
+      "texture": "lut prăfos",
+      "munsell": "2.5Y 5/3",
+      "description": {
+        "ro": "lut prăfos; brun oliv deschis (2.5Y 5/3) în stare umedă; reavăn; structură grăunțoasă instabilă; slab plastic; slab adeziv; pori mici și mijlocii frecvenți; fără efervescenţă; rădăcini subţiri frecvente; trecere clară"
+      }
+    },
+    {
+      "symbol": "Eaw",
+      "top": 32,
+      "bottom": 47,
+      "texture": "lut prăfos",
+      "munsell": "2.5Y 6/2",
+      "description": {
+        "ro": "lut prăfos; oliv pal (2.5Y 6/2) în stare umedă; structură mic poliedrică instabilă; slab plastic; slab adeziv; mici pete și concrețiuni Fe-Mn (w=10-15%); fără efervescenţă; trecere treptată"
+      }
+    },
+    {
+      "symbol": "EBtw",
+      "top": 47,
+      "bottom": 57,
+      "texture": "lut argilos mediu",
+      "munsell": "2.5Y 6/2",
+      "munsellSecondary": "7.5YR 6/4",
+      "description": {
+        "ro": "lut argilos mediu; oliv pal (2.5Y 6/2) cu pete brun deschise (7.5YR 6/4) în stare umedă; reavăn; structură poliedric angulară medie; moderat plastic; moderat adeziv; frecvente pete de oxidare (w=35%); fără efervescenţă; trecere clară"
+      }
+    },
+    {
+      "symbol": "Bt1W",
+      "top": 57,
+      "bottom": 75,
+      "texture": "argilă lutoasă",
+      "munsell": "2.5Y 6/2",
+      "munsellSecondary": "7.5YR 6/6",
+      "description": {
+        "ro": "argilă lutoasă; oliv pal (2.5Y 6/2) cu pete brune (7.5YR 6/6) în stare umedă; reavăn; structură prismatică mică-medie; moderat plastic; moderat adeziv; pete de oxido-reducere (w=40-50%); fără efervescenţă; trecere treptată"
+      }
+    },
+    {
+      "symbol": "Bt2W",
+      "top": 75,
+      "bottom": 105,
+      "texture": "argilă lutoasă",
+      "munsell": "2.5Y 6/2",
+      "munsellSecondary": "7.5YR 5/6",
+      "description": {
+        "ro": "argilă lutoasă; oliv pal (2.5Y 6/2) cu pete brun închise (7.5YR 5/6) în stare umedă; structură prismatică medie; plastic; adeziv; frecvente pete de oxido-reducere (w=50-60%); fără efervescenţă; trecere treptată"
+      }
+    },
+    {
+      "symbol": "Bt3W",
+      "top": 105,
+      "bottom": 125,
+      "texture": "argilă lutoasă",
+      "munsell": "7.5YR 6/6",
+      "munsellSecondary": "2.5Y 6/3",
+      "description": {
+        "ro": "argilă lutoasă; brun (7.5YR 6/6) cu pete oliv (2.5Y 6/3) în stare umedă; structură prismatică medie-mare; plastic; adeziv; pete de reducere vineții (w=50-60%); fără efervescență"
+      }
+    }
+  ],
+  "analyticalData": {
+    "granulometry": {
+      "headers": ["Ao", "AE", "Eaw", "EBtw", "Bt1W", "Bt2W", "Bt3W"],
+      "depths": ["0-21", "21-32", "32-47", "47-57", "57-75", "75-105", "105-125"],
+      "sandCoarse": [8.22, 8.31, 7.05, 2.19, 3.17, 4.43, 2.24],
+      "sandFine": [32.68, 26.89, 25.96, 25.61, 20.83, 20.57, 21.36],
+      "silt": [34.1, 40.5, 39.9, 31.8, 30, 24.3, 22.3],
+      "clay": [25, 24.3, 27.1, 40.4, 46, 50.7, 54.1],
+      "textureClass": ["LP", "LP", "LP", "TT", "AL", "AL", "AL"]
+    },
+    "chemistry": {
+      "pH": [5.78, 5.66, 5.3, 5.33, 5.35, 5.34, 5.36],
+      "CaCO3": [0, 0, 0, 0, 0, 0, 0],
+      "humus": [2.06, 2.25, 1.41, null, null, null, null],
+      "Nt": [0.28, 0.13, 0.07, null, null, null, null],
+      "PAL": [12, 9, 9, null, null, null, null],
+      "KAL": [205, 89, 93, null, null, null, null],
+      "SB": [6.73, 5.94, 4.75, 10.69, 14.26, 15.84, 15.05],
+      "SH": [10.78, 10.88, 11.37, 13.82, 11.66, 12.94, 11.96],
+      "T": [17.51, 16.82, 16.12, 24.51, 25.92, 28.78, 27],
+      "Vsh": [38.44, 35.32, 29.48, 43.62, 55, 55.05, 55.73]
+    }
+  },
+  "observations": {
+    "ro": ["Profil foarte evoluat din punct de vedere pedogenetic, pe pajiște cu caracter higrofil (mezohigrofil)", "Argilele de pe profil provin din tufuri și cinerite, generând argile de tip caolinitic, care rețin puternic apa și generează procese de stagnogleizare intense", "Valori foarte mari ale titanului (Ti) și mari în cazul zirconiului (Zr), care reflectă natura vulcanică a materialului parental, cu un conținut semnificativ de minerale bogate în titan, de tip ilmenit (FeTiO₃) sau rutil (TiO₂)"]
+  },
+  "describedBy": "Constantin Rusu, Bőjte Gyárfás, Sándor Béla,  Abos Hunor, Bogdan Roșca, Dumitru Bulgariu, Radu Gabriel Pîrnău"
+}
   ],
   "gallery": {
     "folder": "photos/2025/gallery/",

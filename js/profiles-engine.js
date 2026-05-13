@@ -245,6 +245,21 @@ function renderTexturalTriangle(profile) {
 //  DEPTH FUNCTION CHARTS (SVG)
 // ================================================================
 function renderDepthChart(profile, paramKey, paramLabel, unit, color, xMin, xMax) {
+  // ── Auto-bounds: calculate from data when xMin or xMax is null ──
+  if (xMin == null || xMax == null) {
+    var vals = profile.horizons
+      .map(function(hz) { return hz.parameters[paramKey]; })
+      .filter(function(v) { return v != null && !isNaN(v); });
+    if (vals.length) {
+      var dataMin = Math.min.apply(null, vals);
+      var dataMax = Math.max.apply(null, vals);
+      if (xMin == null) xMin = Math.max(0, Math.floor(dataMin) - 1);
+      if (xMax == null) xMax = Math.ceil(dataMax) + 1;
+    } else {
+      if (xMin == null) xMin = 0;
+      if (xMax == null) xMax = 10;
+    }
+  }
   const W = 260, H = 400, PAD = { t: 35, r: 20, b: 35, l: 50 };
   const plotW = W - PAD.l - PAD.r;
   const plotH = H - PAD.t - PAD.b;
