@@ -283,8 +283,8 @@
     if (p.analyticalData && typeof window.renderTexturalTriangle === 'function' && typeof window.renderDepthChart === 'function') {
       var fp = buildFakeProfileForCharts(p);
       var triangleSvg = window.renderTexturalTriangle(fp) || '';
-      var phSvg = window.renderDepthChart(fp, 'pH', 'pH', '', '#4A6B8B', 3.5, 9) || '';
-      var humusSvg = window.renderDepthChart(fp, 'humus', 'Humus', '%', '#4A7C5C', 0, 8) || '';
+      var phSvg = window.renderDepthChart(fp, 'pH', 'pH', '', '#4A6B8B', null, null) || '';
+      var humusSvg = window.renderDepthChart(fp, 'humus', 'Humus', '%', '#4A7C5C', null, null) || '';
 
       // ★ Fallback: CaCO₃ sau T
       var fourthSvg = '';
@@ -292,12 +292,12 @@
         return hz.parameters.CaCO3 != null && hz.parameters.CaCO3 > 0.5;
       });
       if (hasCaCO3) {
-        fourthSvg = window.renderDepthChart(fp, 'CaCO3', 'CaCO\u2083', '%', '#C8A951', 0, 25) || '';
+        fourthSvg = window.renderDepthChart(fp, 'CaCO3', 'CaCO\u2083', '%', '#C8A951', null, null) || '';
       } else {
         var tVals = fp.horizons.map(function (hz) { return hz.parameters.T; }).filter(function (v) { return v != null; });
         if (tVals.length >= 2) {
           var tMax = Math.ceil(Math.max.apply(null, tVals) / 10) * 10;
-          fourthSvg = window.renderDepthChart(fp, 'T', 'T (CEC)', 'me/100g', '#8B6B4A', 0, tMax) || '';
+          fourthSvg = window.renderDepthChart(fp, 'T', 'T (CEC)', 'me/100g', '#8B6B4A', null, null) || '';
         }
       }
 
