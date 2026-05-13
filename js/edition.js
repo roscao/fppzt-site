@@ -109,9 +109,14 @@
     d.profiles.forEach(function (p) {
       if (!p.location || !p.location.lat) return;
       allCoords.push([p.location.lat, p.location.lng]);
-      var marker = L.circleMarker([p.location.lat, p.location.lng], {
-        radius: 7, fillColor: '#C8A951', fillOpacity: 0.9,
-        color: '#3E2723', weight: 2, pane: 'markerPane'
+      var marker = L.marker([p.location.lat, p.location.lng], {
+        pane: 'markerPane',
+        icon: L.divIcon({
+          className: 'profile-map-icon',
+          html: '<span>' + p.id.replace('P','') + '</span>',
+          iconSize: [22, 22],
+          iconAnchor: [11, 11]
+        })
       }).addTo(map);
       marker.bindTooltip('<b>' + p.id + '</b> — ' + p.soilType, {
         direction: 'top', offset: [0, -10]
