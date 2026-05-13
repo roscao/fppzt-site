@@ -4,7 +4,7 @@
    Când o ediție are date complete, setați hasData: true.
    ============================================================ */
 var EDITIONS_LIST = [
-  {year:2026,edition:"XXXV",location:"Iași",region:"Podișul Moldovei",theme:"Solurile și peisajele culturale ale Podișului Moldovei",current:true,hasData:true},
+  /*{year:2026,edition:"XXXV",location:"Iași",region:"Podișul Moldovei",theme:"Solurile și peisajele culturale ale Podișului Moldovei",current:true,hasData:true},  */
   {year:2025,edition:"XXXIV",location:"Miercurea Ciuc",region:"Harghita",theme:"Particularități pedogenetice în aria vulcanică a Harghitei și Depresiunea Ciucului",current:false,hasData:true},
   {year:2024,edition:"XXXIII",location:"Brașov",region:"Țara Bârsei",theme:"",current:false,hasData:false},
   {year:2023,edition:"XXXII",location:"Suceava",region:"Bucovina",theme:"",current:false,hasData:false},
