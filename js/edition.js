@@ -110,8 +110,8 @@
       if (!p.location || !p.location.lat) return;
       allCoords.push([p.location.lat, p.location.lng]);
       var marker = L.circleMarker([p.location.lat, p.location.lng], {
-        radius: 9, fillColor: '#C8A951', fillOpacity: 0.9,
-        color: '#3E2723', weight: 2
+        radius: 7, fillColor: '#C8A951', fillOpacity: 0.9,
+        color: '#3E2723', weight: 2, pane: 'markerPane'
       }).addTo(map);
       marker.bindTooltip('<b>' + p.id + '</b> — ' + p.soilType, {
         direction: 'top', offset: [0, -10]
@@ -418,6 +418,42 @@
     grid.querySelector('.carousel-next').addEventListener('click', function () {
       showSlide(current + 1);
     });
+    // ── Lightbox zoom ──────────────────────────
+    var lightbox = document.createElement('div');
+    lightbox.className = 'lightbox';
+    lightbox.innerHTML =
+      '<button class="lightbox-close" aria-label="Close">&times;</button>' +
+      '<button class="lightbox-arrow lightbox-prev" aria-label="Previous">&#10094;</button>' +
+      '<img src="" alt="">' +
+      '<button class="lightbox-arrow lightbox-next" aria-label="Next">&#10095;</button>';
+    document.body.appendChild(lightbox);
+
+    var lbImg = lightbox.querySelector('img');
+
+    function openLightbox() {
+      lbImg.src = gallery.folder + images[current];
+      lightbox.classList.add('active');
+    }
+
+    lightbox.querySelector('.lightbox-close').addEventListener('click', function () {
+      lightbox.classList.remove('active');
+    });
+    lightbox.addEventListener('click', function (e) {
+      if (e.target === lightbox) lightbox.classList.remove('active');
+    });
+    lightbox.querySelector('.lightbox-prev').addEventListener('click', function (e) {
+      e.stopPropagation();
+      showSlide(current - 1);
+      lbImg.src = gallery.folder + images[current];
+    });
+    lightbox.querySelector('.lightbox-next').addEventListener('click', function (e) {
+      e.stopPropagation();
+      showSlide(current + 1);
+      lbImg.src = gallery.folder + images[current];
+    });
+
+    slideDiv.style.cursor = 'zoom-in';
+    slideDiv.addEventListener('click', openLightbox);
   }
 	// ── Convertește datele din format edition-JSON în format profiles-engine ──
   function buildFakeProfileForCharts(p) {
