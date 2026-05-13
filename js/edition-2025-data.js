@@ -70,8 +70,8 @@ var EDITION_DATA =
         "uat": "Miercurea Ciuc",
         "locality": "Miercurea Ciuc",
         "placement": "sectorul nord-vestic al incintei ICDCRM",
-        "lat": 46.37758,
-        "lng": 25.80606,
+        "lat": 46.378,
+        "lng": 25.806,
         "altitude": 677,
         "unit": "Depresiunea Ciucului / Compartimentul central"
       },
@@ -205,8 +205,8 @@ var EDITION_DATA =
         "uat": "Miercurea Ciuc",
         "locality": "Miercurea Ciuc",
         "placement": "lunca Oltului, în partea vestică a municipiului (Str. Zorilor, nr. 34)",
-        "lat": 46.36467,
-        "lng": 25.77378,
+        "lat": 46.365,
+        "lng": 25.774,
         "altitude": 660,
         "unit": "Depresiunea Ciucului / Compartimentul central"
       },
@@ -489,8 +489,8 @@ var EDITION_DATA =
         "uat": "Vlăhița",
         "locality": "Băile Homorod",
         "placement": "platoul vulcano-sedimentar Homorod",
-        "lat": 46.2667,
-        "lng": 25.4833,
+        "lat": 46.361,
+        "lng": 25.453,
         "altitude": 850,
         "unit": "Munții Harghita / Platoul vulcanic"
       },
