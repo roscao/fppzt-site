@@ -4,693 +4,787 @@ var EDITION_DATA =
   "edition": "XXXIII",
   "title": {
     "ro": "Asamblajul pedologic din aria pericarpatică și piemontană din estul României",
-    "en": "The pedological assemblage in the pericarpathian and piedmont areas of eastern Romania"
+    "en": "Soil Assemblage of the Pericarpathian and Piedmont Areas of Eastern Romania"
   },
-  "dates": "2–6 octombrie 2024",
+  "dates": "1–5 octombrie 2024",
   "location": {
     "ro": "Piatra Neamț, jud. Neamț",
     "en": "Piatra Neamț, Neamț County"
   },
-  "organizers": [
-    "Academia Română – Filiala Iași, Centrul de Cercetări Geografice",
-    "Institutul de Cercetare-Dezvoltare pentru Cinegetică și Resurse Montane, Miercurea Ciuc"
-  ],
+  "organizers": ["Academia Română – Filiala Iași, Centrul de Cercetări Geografice"],
   "route": {
-    "days": [
-      {
-        "day": 1,
-        "date": "Vineri, 3 octombrie 2025",
-        "title": {
-          "ro": "Depresiunea Ciucului",
-          "en": "The Ciuc Depression"
-        },
-        "itinerary": "Miercurea Ciuc – Sâncrăieni – Sânsimion – Vrabia – Băile Tușnad – Miercurea Ciuc",
-        "profiles": ["P1", "P2", "P3", "P4"],
-        "description": {
-          "ro": "Traseul primei zile pornește din Miercurea Ciuc cu două profile (P1 și P2), traversează Compartimentul inferior al Depresiunii Ciucului prin localitățile Sântimbru, Sânsimion, Cetățuia, apoi Vrabia (P3) și Tușnad (P4), cu oprire la Stațiunea Băile Tușnad.",
-          "en": "The first day starts from Miercurea Ciuc with two profiles (P1 and P2), crosses the Lower Compartment of the Ciuc Depression through Sântimbru, Sânsimion, Cetățuia, then Vrabia (P3) and Tușnad (P4), with a stop at Băile Tușnad Resort."
-        }
-      },
-      {
-        "day": 2,
-        "date": "Sâmbătă, 4 octombrie 2025",
-        "title": {
-          "ro": "Munții Harghita",
-          "en": "The Harghita Mountains"
-        },
-        "itinerary": "Miercurea Ciuc – Harghita Băi – Băile Homorod – Brădiște – Zetea – Liban – Senetea – Izvorul Mureșului – Sândominic – Racu – Miercurea Ciuc",
-        "profiles": ["P5", "P6"],
-        "description": {
-          "ro": "Traseul traversează de la est la vest Munții Harghita prin Harghita Băi (P5), Vlăhița, Căpâlnița, Băile Homorod (P6), coboară în Depresiunea Transilvaniei prin Zetea, urcă pe valea Șicasău, peste Pasul Șicaș și revine prin Izvorul Mureșului în Depresiunea Ciucului.",
-          "en": "The route crosses the Harghita Mountains from east to west through Harghita Băi (P5), Vlăhița, Căpâlnița, Băile Homorod (P6), descends into the Transylvanian Depression through Zetea, climbs along the Șicasău valley, over Șicaș Pass and returns through Izvorul Mureșului to the Ciuc Depression."
-        }
-      }
-    ],
-    "mapCenter": [46.30, 25.80],
-    "mapZoom": 10,
+    "days": [],
+    "mapCenter": [46.98, 26.53],
+    "mapZoom": 12,
     "description": {
-      "ro": "Ediția XXXIV din anul 2025 a simpozionului factori și procese pedogenetice s-a desfășurat în perioada 1 – 5 octombrie, la Miercurea Ciuc. Această manifestare științifică a inclus o aplicație de teren complexă în Munții Harghita și Depresiunea Ciucului, având ca obiectiv prioritar analiza asamblajului de sol privit ca resursă fundamentală a peisajului montan. Investigația a vizat unități morfo-structurale marcate de un vulcanism neogen intens, desfășurat între Sarmațian și Pleistocen, care a condiționat formarea unui aliniament montan impunător și a unui „uluc morfotectonic\" cu o evoluție lacustră prelungită până în Pleistocen.\nDepresiunea Ciucului este definită ca o unitate de baraj tectonic și vulcanic, compartimentată în trei sectoare distincte — nordic (Mădăraș), central (Miercurea Ciuc) și inferior (Tușnad) — separate prin pragurile eruptive și cristaline de la Racu și Jigodin. Relieful depresiunii este caracterizat prin șesuri aluviale vaste și un sistem de terase clar conturate, în special nivelul de 20 m altitudine relativă. În aceste condiții de relief, excesul de umiditate și vegetația higrofilă au favorizat dezvoltarea Hidrisolurilor și Histisolurilor. Din punct de vedere climatic, regiunea este recunoscută drept „polul frigului\" din România, prezentând minime termice absolute deosebit de scăzute și o umiditate relativă ridicată.\nÎn cadrul Munților Harghita, analiza morfostructurală evidențiază două etaje geomorfologice principale:\n• Etajul conurilor vulcanice (central-estic): Cuprinde zece aparate vulcanice majore, atingând altitudinea maximă de 1800 m în Vârful Harghita-Mădăraș, unde se conservă cratere și forme de degradare specifice.\n• Etajul platourilor vulcano-sedimentare (vestic și sud-vestic): Este format din succesiuni de depozite piroclastice și epiclastice (aglomerate, tufuri, argile marnoase).\nUn aspect central al pedogenezei în această regiune este prezența argilelor preponderent caolinitice la partea superioară a complexului vulcano-sedimentar, rezultate din alterarea in situ a vulcanitelor fine în condiții de umiditate ridicată. Această constituție litologică a determinat o evoluție pedogenetică extrem de avansată, caracterizată prin predominanța luvosolurilor albice-stagnice și a stagnosolurilor, asociație de soluri considerată definitorie pentru platourile vulcanice ale Harghitei.",
+      "ro": "",
       "en": ""
     },
-    "routeFile": "routes-2025"
+	"routeFile": "routes-2024"
   },
   "profiles": [
     {
       "id": "P1",
       "name": {
-        "ro": "ICDCRM (Miercurea Ciuc)",
-        "en": "ICDCRM (Miercurea Ciuc)"
+        "ro": "Corni (U.A.T. Bodești)",
+        "en": "Corni (Bodești commune)"
       },
-      "soilType": "Faeoziom cambic, cu caracter vermic",
-      "soilTypeEn": "Cambic Phaeozem, vermic",
-      "texture": "lut mediu / lut nisipos prăfos",
+      "soilType": "Luvosol albic stagnic, colmatat puternic prin apă",
+      "soilTypeEn": "Albic Stagnic Luvisol, colluvic",
+      "texture": "lut nisipos / lut nisipo-argilos",
       "srts": "SRTS 2012",
       "location": {
-        "county": "Harghita",
-        "uat": "Miercurea Ciuc",
-        "locality": "Miercurea Ciuc",
-        "placement": "sectorul nord-vestic al incintei ICDCRM",
-        "lat": 46.378,
-        "lng": 25.806,
-        "altitude": 677,
-        "unit": "Depresiunea Ciucului / Compartimentul central"
+        "county": "Neamț",
+        "uat": "Bodești",
+        "locality": "Corni",
+        "placement": "Masivul Corni, partea terminal-estică a dl. Arsurilor",
+        "lat": 47.04647,
+        "lng": 26.48444,
+        "altitude": 500,
+        "unit": "Podișul piemontan al Bozienilor / Masivul Corni"
       },
-      "climate": {"tma": 6.1, "pma": 596},
+      "climate": {
+        "tma": 9.3,
+        "pma": 610
+      },
       "conditions": {
-        "relief": "câmp interfluvial, terasa de 20 m a Oltului",
-        "parentMaterial": "luturi",
-        "bedrock": "depozite de terasă luto-nisipoase",
-        "groundwater": "sub 7 m, permanent, oscilant",
-        "drainage": "moderat",
-        "vegetation": "zonă forestieră de foioase (păduri de cvercinee)",
-        "landUse": "arabil (loturi experimentale)",
-        "previousLandUse": "forestieră"
+        "relief": "înșeuare slab conturată, partea axială; 0-2%/V",
+        "parentMaterial": "nisipuri fine",
+        "bedrock": "nisipuri și pietrișuri piemontane basarabiene",
+        "groundwater": "sub 7 m, semi-permanent, oscilant",
+        "drainage": "moderat-bun",
+        "vegetation": "zonă forestieră de foioase, păduri de cvercinee",
+        "landUse": "arabil (grâu, 2024)",
+        "previousLandUse": "pajiști secundare"
       },
-      "photo": "photos/2025/2025_P1.jpg",
+      "photo": "photos/2024/2024_P1.jpg",
       "horizons": [
         {
-          "symbol": "Ap", "top": 0, "bottom": 21,
-          "texture": "lut mediu",
-          "munsell": "10YR 3/2",
+          "symbol": "Ap1",
+          "top": 0,
+          "bottom": 20,
+          "texture": "lut nisipos mijlociu",
+          "munsell": "10YR 5/4",
           "description": {
-            "ro": "lut mediu; brun cenușiu foarte închis (10YR 3/2); structură distrusă prin lucrările agricole; neplastic; neadeziv; afânat; friabil; slab coeziv în stare uscată; porozitate mare; fără efervescență; rădăcini subțiri rare; coprolite frecvente; trecere treptată."
+            "ro": "lut nisipos mijlociu; brun gălbui (10YR 5/4) în stare umedă; structură distrusă prin lucrările agricole; neplastic; neadeziv; afânat; friabil; slab coeziv; porozitate mare; fără efervescență; rădăcini subțiri și medii frecvente; trecere clară."
           }
         },
         {
-          "symbol": "Atp", "top": 21, "bottom": 41,
-          "texture": "lut mediu",
-          "munsell": "10YR 3/1",
+          "symbol": "Ap2",
+          "top": 20,
+          "bottom": 32,
+          "texture": "lut nisipos mijlociu",
+          "munsell": "10YR 4/6",
           "description": {
-            "ro": "lut mediu; slab tasat; cenușiu foarte închis (10YR 3/1); structură grăunțoasă mică, distrusă parțial prin lucrările agricole; neplastic; neadeziv; slab coeziv în stare uscată; porozitate mare; fără efervescență; rădăcini subțiri foarte rare; trecere clară."
+            "ro": "lut nisipos mijlociu; 5% schelet; brun gălbui închis (10YR 4/6) în stare umedă; slab tasat; structură grăunțoasă mică; neplastic; neadeziv; slab coeziv; porozitate mare; fără efervescență; rădăcini subțiri frecvente; trecere treptată."
           }
         },
         {
-          "symbol": "Am", "top": 41, "bottom": 63,
-          "texture": "lut mediu",
-          "munsell": "10YR 2/1",
-          "description": {
-            "ro": "lut mediu; negru (10YR 2/1); structură grăunțos-glomerulară; slab plastic; slab adeziv; slab coeziv în stare uscată; porozitate mare; fără efervescență; rădăcini subțiri foarte rare; coprolite frecvente; trecere clară."
-          }
-        },
-        {
-          "symbol": "AB", "top": 63, "bottom": 81,
-          "texture": "lut mediu",
-          "munsell": "10YR 3/3",
-          "munsellSecondary": "10YR 4/6",
-          "description": {
-            "ro": "lut mediu; dominant brun închis (10YR 3/3) cu 20% culori brun gălbui închise (10YR 4/6); structură grăunțoasă-poliedric angulară mică; slab plastic; slab adeziv; porozitate medie; fără efervescență; trecere treptată."
-          }
-        },
-        {
-          "symbol": "Bv₁(t)", "top": 81, "bottom": 102,
-          "texture": "lut nisipos prăfos",
+          "symbol": "Ao",
+          "top": 32,
+          "bottom": 43,
+          "texture": "lut nisipos mijlociu",
           "munsell": "10YR 4/4",
-          "munsellSecondary": "10YR 3/3",
           "description": {
-            "ro": "lut nisipos prăfos cu pelicule organo-minerale incipiente; dominant brun gălbui (10YR 4/4) cu 40% brun închis (10YR 3/3); structură poliedric subangulară medie; neplastic; neadeziv; porozitate mare; efervescență slabă cu HCl; coprolite frecvente, cervotocine și crotovine rare; trecere treptată."
+            "ro": "lut nisipos mijlociu; 10% schelet; brun gălbui închis (10YR 4/4) în stare umedă; structură grăunțoasă mică instabilă; neplastic; neadeziv; afânat; slab coeziv; porozitate mare; fără efervescență; rădăcini subțiri rare; trecere treptată."
           }
         },
         {
-          "symbol": "Bv₂(t)", "top": 102, "bottom": 133,
-          "texture": "lut nisipos prăfos",
+          "symbol": "AE",
+          "top": 43,
+          "bottom": 55,
+          "texture": "lut nisipos mijlociu",
+          "munsell": "10YR 5/3",
+          "description": {
+            "ro": "lut nisipos mijlociu; 3-5% schelet; slab tasat; brun (10YR 5/3) cu 5-10% culori de reducere; structură grăunțoasă-poliedrică mică instabilă; neplastic; neadeziv; porozitate mare; fără efervescență; concretiini ferimanganice punctiforme rare; trecere clară."
+          }
+        },
+        {
+          "symbol": "Eaw",
+          "top": 55,
+          "bottom": 68,
+          "texture": "nisip lutos mijlociu",
+          "munsell": "2.5Y 5/3",
+          "description": {
+            "ro": "nisip lutos mijlociu; 5% schelet; brun oliv deschis (2,5Y 5/3) cu 30-40% culori de reducere; structură grăunțoasă instabilă; neplastic; neadeziv; porozitate mare; fără efervescență; bobovine mici și punctuațiuni ferimanganice relativ frecvente; trecere clară."
+          }
+        },
+        {
+          "symbol": "BEW",
+          "top": 68,
+          "bottom": 83,
+          "texture": "lut nisipos mijlociu",
           "munsell": "2.5Y 4/3",
-          "munsellSecondary": "10YR 4/3",
           "description": {
-            "ro": "lut nisipos prăfos cu pelicule organo-minerale incipiente; dominant brun oliv deschis (2,5Y 4/3) cu 30% culori brune (10YR 4/3); structură poliedric angulară medie spre mare; neplastic; neadeziv; porozitate mare; efervescență foarte slabă; coprolite, cervotocine și crotovine frecvente; trecere treptată."
+            "ro": "lut nisipos mijlociu; 10% schelet; brun oliv deschis (2,5Y 4/3) cu pete vineții și ruginii (50-60%); structură mic poliedric angulară, ușor instabilă; neplastic; neadeziv; porozitate mare; fără efervescență; concretiini ferimanganice punctiforme frecvente; trecere treptată."
           }
         },
         {
-          "symbol": "Bv", "top": 133, "bottom": 160,
-          "texture": "lut nisipos prăfos",
-          "munsell": "2.5Y 5/6",
-          "munsellSecondary": "10YR 4/4",
+          "symbol": "Bt1W",
+          "top": 83,
+          "bottom": 104,
+          "texture": "lut nisipo-argilos",
+          "munsell": "2.5Y 4/2",
           "description": {
-            "ro": "lut nisipos prăfos; galben oliv (2,5Y 5/6) cu 10% pete brun gălbui (10YR 4/4); structură poliedrică medie; neplastic; neadeziv; porozitate mijlocie; efervescență slabă; crotovine de dimensiuni mari; trecere treptată."
+            "ro": "lut nisipo-argilos; 15% schelet; brun cenușiu închis (2,5Y 4/2) cu pete ruginii (50-60%); structură poliedrică medie; slab plastic; slab adeziv; porozitate mijlocie-mare; fără efervescență; trecere treptată."
           }
         },
         {
-          "symbol": "BCk", "top": 160, "bottom": 170,
-          "texture": "lut nisipos prăfos",
-          "munsell": "2.5Y 5/6",
+          "symbol": "Bt2w",
+          "top": 104,
+          "bottom": 130,
+          "texture": "lut nisipo-argilos",
+          "munsell": "2.5Y 4/4",
           "description": {
-            "ro": "lut nisipos prăfos; galben oliv (2,5Y 5/6); slab structurat poliedric; neplastic; neadeziv; porozitate mijlocie-mică; efervescență slab-moderată."
+            "ro": "lut nisipo-argilos; 20-25% schelet; brun oliv (2,5Y 4/4) cu pete ruginii (30-35%); structură poliedrică medie-prismatică mică-medie; slab plastic; slab adeziv; porozitate mijlocie-mare; fără efervescență; trecere treptată."
+          }
+        },
+        {
+          "symbol": "BCnw",
+          "top": 130,
+          "bottom": 150,
+          "texture": "argilă nisipoasă",
+          "munsell": "2.5Y 6/3",
+          "description": {
+            "ro": "argilă nisipoasă; 20-25% schelet; brun gălbui deschis (2,5Y 6/3) cu pete ruginii (20-25%); structură prismatică medie; slab plastic; moderat adeziv; porozitate mijlocie; fără efervescență."
           }
         }
       ],
       "analyticalData": {
         "granulometry": {
-          "headers": ["Ap","Atp","Am","AB","Bv₁(t)","Bv₂(t)","Bv","BCk"],
-          "depths":   ["0-21","21-41","41-63","63-81","81-102","102-133","133-160","160-170"],
-          "sandCoarse": [3.33, 4.32, 4.90, 2.90, 4.81, 6.49, 7.95, 2.12],
-          "sandFine":   [39.37, 35.49, 35.80, 40.40, 37.39, 36.71, 44.65, 47.88],
-          "silt":       [27.60, 32.30, 28.40, 29.60, 43.00, 41.10, 34.90, 39.10],
-          "clay":       [29.70, 27.90, 30.90, 27.10, 14.80, 15.70, 12.50, 10.90],
-          "textureClass":["LL","LL","LL","LL","SS","SS","SS","SS"]
+          "headers": ["Ap1", "Ap2", "Ao", "AE", "Eaw", "BEW", "Bt1W", "Bt2w", "BCnw"],
+          "depths": ["0-20", "20-32", "32-43", "43-55", "55-68", "68-83", "83-104", "104-130", "130-150"],
+          "sandCoarse": [17.0, 17.6, 15.5, 18.7, 16.6, 15.9, 12.1, 13.5, 7.9],
+          "sandFine": [52.9, 53.5, 49.1, 51.0, 59.4, 57.4, 54.2, 48.4, 41.3],
+          "silt": [15.0, 15.9, 18.2, 16.6, 12.8, 12.0, 10.8, 13.0, 13.6],
+          "clay": [15.1, 13.0, 17.2, 13.7, 11.2, 14.7, 22.9, 25.1, 37.2],
+          "textureClass": ["SM", "SM", "SM", "SM", "UM", "SM", "LN", "LN", "TN"]
         },
         "chemistry": {
-          "pH":     [6.11, 6.24, 6.71, 6.98, 7.21, 7.26, 7.28, 7.38],
-          "CaCO3":  [null, null, null, 0.72, 2.18, 0.76, 1.46, 2.06],
-          "humus":  [4.68, 4.13, 4.11, 2.61, null, null, null, null],
-          "Nt":     [0.240, 0.200, 0.15, null, null, null, null, null],
-          "PAL":    [310, 185, 238, null, null, null, null, null],
-          "KAL":    [499, 276, 219, null, null, null, null, null],
-          "SB":     [25.34, 29.30, 31.68, 32.08, 28.12, 27.72, 25.74, 28.12],
-          "SH":     [6.57, 6.17, 5.19, 4.21, 2.74, 3.82, 5.19, 2.74],
-          "T":      [31.91, 35.48, 36.87, 36.29, 30.86, 31.54, 30.93, 30.86],
-          "Vsh":    [79.42, 82.60, 85.91, 88.40, 91.12, 87.89, 83.22, 91.11]
+          "pH": [4.94, 5.01, 5.12, 5.86, 6.15, 6.38, 6.57, 6.5, 6.22],
+          "CaCO3": [null, null, null, null, null, null, null, null, null],
+          "humus": [2.28, 2.13, 1.74, 1.38, null, null, null, null, null],
+          "Nt": [0.14, 0.08, 0.09, 0.06, null, null, null, null, null],
+          "PAL": [14.8, 13.4, 13.4, 7.0, null, null, null, null, null],
+          "KAL": [110, 120, 110, 60, null, null, null, null, null],
+          "SB": [6.08, 4.9, 6.08, 7.45, 4.9, 7.84, 10.78, 11.17, 15.48],
+          "SH": [5.21, 4.25, 4.19, 2.2, 1.75, 1.66, 2.41, 2.74, 3.12],
+          "T": [11.29, 9.15, 10.27, 9.65, 6.65, 9.5, 13.19, 13.91, 18.6],
+          "Vsh": [53.85, 53.55, 59.2, 77.2, 73.68, 82.53, 81.73, 80.3, 83.23]
         }
       },
       "observations": {
         "ro": [
-          "Sol de tip faeoziom, tipic pentru depresiunile intramontane, cu acumulări de materie organică de până la 80 cm",
-          "Activitate faunistică bogată, cu coprolite și crotovine adânci până la 140–150 cm (caracter vermic)",
-          "Valori mari ale fosforului și potasiului mobil în partea superioară (0–60 cm)",
-          "Ușoară regradare în orizonturile B"
+          "Prezența certă a formațiunilor piemontane (pietrișuri și nisipuri), in situ sau remaniate, imediat la est de fruntea pânzei pericarpatice",
+          "Procese intense de coluvionare prin apă (e43), pe o adâncime de 43 cm, evidențiate atât morfologic cât și textural"
         ]
       },
-      "describedBy": "Constantin Rusu, Bogdan Roșca, Dumitru Bulgariu, Radu Gabriel Pîrnău"
+      "describedBy": "Constantin Rusu, Florin Chelaru, Radu Pîrnău, Ionuț Saulea, Dumitru Bulgariu, Victor Stoenescu, Bogdan Roșca, Alin Balan"
     },
     {
       "id": "P2",
       "name": {
-        "ro": "Miercurea Ciuc (Str. Zorilor, 34)",
-        "en": "Miercurea Ciuc (Zorilor St. 34)"
+        "ro": "Ghigoiești Nord (U.A.T. Ștefan cel Mare)",
+        "en": "Ghigoiești Nord (Ștefan cel Mare commune)"
       },
-      "soilType": "Histosol teric, cu caracter sapric",
-      "soilTypeEn": "Teric Histosol, sapric",
-      "texture": "pe nisipuri lutoase",
+      "soilType": "Luvosol tipic, cu stagnogleizare în adâncime, colmatat puternic prin apă",
+      "soilTypeEn": "Typical Luvisol, stagnic, colluvic",
+      "texture": "nisip lutos / lut nisipo-argilos",
       "srts": "SRTS 2012",
       "location": {
-        "county": "Harghita",
-        "uat": "Miercurea Ciuc",
-        "locality": "Miercurea Ciuc",
-        "placement": "lunca Oltului, în partea vestică a municipiului (Str. Zorilor, nr. 34)",
-        "lat": 46.365,
-        "lng": 25.774,
-        "altitude": 660,
-        "unit": "Depresiunea Ciucului / Compartimentul central"
+        "county": "Neamț",
+        "uat": "Ștefan cel Mare",
+        "locality": "Ghigoiești",
+        "placement": "extremitatea vestică a Podișului piemontan, la 500 m est de Stânca Șerbești",
+        "lat": 46.99522,
+        "lng": 26.55417,
+        "altitude": 397,
+        "unit": "Podișul piemontan al Bozienilor"
       },
-      "climate": {"tma": 6.1, "pma": 596},
+      "climate": {
+        "tma": 9.3,
+        "pma": 610
+      },
       "conditions": {
-        "relief": "depresiune intramontană, lunca Oltului",
-        "parentMaterial": "nisipuri lutoase",
-        "bedrock": "nisipuri și argile",
-        "groundwater": "0,8 m, permanent",
-        "drainage": "imperfect",
-        "vegetation": "vegetație de luncă, alternațe de tufărișuri și vegetație ierboasă higrofilă",
-        "landUse": "pajiște",
-        "previousLandUse": "pajiște"
+        "relief": "revers de cuestă, partea mediană; 3-5%/S",
+        "parentMaterial": "nisipuri piemontane",
+        "bedrock": "nisipuri și pietrișuri piemontane",
+        "groundwater": "sub 7 m, permanent",
+        "drainage": "moderat-rapid",
+        "vegetation": "zonă forestieră de foioase, păduri de cvercinee",
+        "landUse": "arabil (lucernă, 2024)",
+        "previousLandUse": "pajiști secundare"
       },
-      "photo": "photos/2025/2025_P2.jpg",
+      "photo": "photos/2024/2024_P2.jpg",
       "horizons": [
         {
-          "symbol": "Tsp₁", "top": 0, "bottom": 28,
-          "texture": "material turbos sapric",
-          "munsell": "10YR 2/1",
-          "description": {
-            "ro": "material turbos sapric puternic descompus; negru (10YR 2/1); reavăn; nestructurat; slab plastic și adeziv; efervescență slab-moderată; rădăcini subțiri foarte frecvente; trecere clară."
-          }
-        },
-        {
-          "symbol": "Tsp₂", "top": 28, "bottom": 44,
-          "texture": "material turbos sapric",
-          "munsell": "10YR 2/1",
-          "description": {
-            "ro": "material turbos sapric puternic descompus; negru (10YR 2/1); reavăn; nestructurat; slab aderent; efervescență slab-moderată; rădăcini subțiri frecvente; trecere netă."
-          }
-        },
-        {
-          "symbol": "Tsp₃", "top": 44, "bottom": 55,
-          "texture": "material turbos sapric, parțial hemic",
-          "munsell": "10YR 2.5/1",
-          "description": {
-            "ro": "material turbos sapric, parțial hemic intermediar descompus; negru (10YR 2.5/1); structură mic grăunțoasă instabilă; umed; rădăcini subțiri rare; efervescență slab-moderată; coprolite; trecere netă."
-          }
-        },
-        {
-          "symbol": "CGrT", "top": 55, "bottom": 80,
+          "symbol": "Ap",
+          "top": 0,
+          "bottom": 31,
           "texture": "nisip lutos mijlociu",
-          "munsell": "2.5Y 5/3",
-          "munsellSecondary": "10YR 2.5/1",
+          "munsell": "10YR 4/3",
           "description": {
-            "ro": "nisip lutos mijlociu cu material hemic; brun oliv deschis (2.5Y 5/3) cu 30% pete negre (10YR 2.5/1); nestructurat; ud; slab plastic; slab aderent; rădăcini subțiri rare; efervescență foarte slabă; trecere treptată."
+            "ro": "nisip lutos mijlociu; brun (10YR 4/3) în stare umedă; reavăn; structură distrusă prin lucrările agricole; neplastic; neadeziv; foarte slab coeziv; porozitate mare; fără efervescență; rădăcini subțiri frecvente; trecere netă."
           }
         },
         {
-          "symbol": "CGr", "top": 80, "bottom": 100,
+          "symbol": "Elv",
+          "top": 31,
+          "bottom": 40,
           "texture": "nisip lutos mijlociu",
-          "munsell": "10GY 5/1",
+          "munsell": "10YR 4/4",
           "description": {
-            "ro": "nisip lutos mijlociu; cenușiu-verzui (10GY 5/1); nestructurat; submers; friabil; slab plastic; slab aderent; efervescență slabă."
+            "ro": "nisip lutos mijlociu; brun gălbui închis (10YR 4/4) în stare umedă; reavăn; structură distrusă; neplastic; neadeziv; foarte slab coeziv; porozitate mare; fără efervescență; rădăcini subțiri frecvente; trecere neregulată."
+          }
+        },
+        {
+          "symbol": "EB",
+          "top": 40,
+          "bottom": 58,
+          "texture": "lut nisipo-argilos",
+          "munsell": "10YR 4/6",
+          "description": {
+            "ro": "lut nisipo-argilos; brun gălbui închis (10YR 4/6) în stare umedă; umed; structură grăunțoasă; friabil; slab plastic; slab adeziv; porozitate medie; rădăcini subțiri rare; fără efervescență; coprolite și cervotocine frecvente; trecere treptată."
+          }
+        },
+        {
+          "symbol": "Bt1w",
+          "top": 58,
+          "bottom": 74,
+          "texture": "lut nisipo-argilos",
+          "munsell": "10YR 4/6",
+          "description": {
+            "ro": "lut nisipo-argilos; brun gălbui închis (10YR 4/6) cu pete gălbui și ruginii (10%); structură poliedric angulară mică; friabil; slab plastic; slab adeziv; porozitate medie; fără efervescență; coprolite și cervotocine frecvente; trecere treptată."
+          }
+        },
+        {
+          "symbol": "Bt2w",
+          "top": 74,
+          "bottom": 90,
+          "texture": "lut nisipo-argilos",
+          "munsell": "10YR 5/6",
+          "description": {
+            "ro": "lut nisipo-argilos; brun gălbui (10YR 5/6) cu pete ruginii (10-15%); structură poliedric angulară mijlocie; friabil; slab plastic; slab adeziv; porozitate medie; fără efervescență; coprolite și cervotocine rare; trecere treptată."
+          }
+        },
+        {
+          "symbol": "Bt3w",
+          "top": 90,
+          "bottom": 105,
+          "texture": "lut nisipo-argilos",
+          "munsell": "10YR 5/4",
+          "description": {
+            "ro": "lut nisipo-argilos; brun gălbui (10YR 5/4) cu pete ruginii (10-15%); structură poliedric angulară mare; slab plastic; slab adeziv; porozitate medie; fără efervescență; trecere treptată."
+          }
+        },
+        {
+          "symbol": "Bt4",
+          "top": 105,
+          "bottom": 125,
+          "texture": "lut nisipo-argilos",
+          "munsell": "10YR 5/4",
+          "description": {
+            "ro": "lut nisipo-argilos; brun gălbui (10YR 5/4) în stare umedă; structură poliedric angulară mare; slab plastic; slab adeziv; porozitate mică-medie; fără efervescență; trecere treptată."
+          }
+        },
+        {
+          "symbol": "BCn1",
+          "top": 125,
+          "bottom": 140,
+          "texture": "lut nisipos mijlociu",
+          "munsell": "10YR 5/6",
+          "description": {
+            "ro": "lut nisipos mijlociu; brun gălbui (10YR 5/6) în stare umedă; slab structurat poliedric angular; slab coeziv; fără efervescență; trecere treptată."
+          }
+        },
+        {
+          "symbol": "BCn2",
+          "top": 140,
+          "bottom": 150,
+          "texture": "lut nisipos fin",
+          "munsell": "10YR 6/6",
+          "description": {
+            "ro": "lut nisipos fin; galben brun (10YR 6/6) în stare umedă; slab structurat poliedric angular, friabil; slab coeziv; fără efervescență."
           }
         }
       ],
       "analyticalData": {
         "granulometry": {
-          "headers": ["Tsp₁","Tsp₂","Tsp₃","CGrT","CGr"],
-          "depths":   ["0-28","28-44","44-55","55-80","80-100"],
-          "sandCoarse": [null, null, null, 21.88, 22.68],
-          "sandFine":   [null, null, null, 48.32, 50.92],
-          "silt":       [null, null, null, 24.20, 20.90],
-          "clay":       [null, null, null, 5.60, 5.60],
-          "textureClass":[null, null, null, "UM","UM"],
-          "note": "Orizonturile T sunt formate exclusiv din materie organică puternic descompusă (material turbos sapric)"
+          "headers": ["Ap", "Elv", "EB", "Bt1w", "Bt2w", "Bt3w", "Bt4", "BCn1", "BCn2"],
+          "depths": ["0-31", "31-40", "40-58", "58-74", "74-90", "90-105", "105-125", "125-140", "140-150"],
+          "sandCoarse": [3.5, 4.5, 7.8, 2.9, 3.0, 3.6, 3.3, 3.4, 3.0],
+          "sandFine": [69.7, 66.9, 56.3, 54.5, 57.0, 60.4, 62.2, 66.4, 64.4],
+          "silt": [15.6, 16.2, 14.1, 14.0, 13.5, 13.5, 12.2, 10.7, 13.5],
+          "clay": [11.2, 12.4, 21.8, 28.6, 26.5, 22.5, 22.3, 19.5, 19.1],
+          "textureClass": ["UM", "UM", "LN", "LN", "LN", "LN", "LN", "SM", "SF"]
         },
         "chemistry": {
-          "pH":     [7.22, 7.31, 7.75, 7.84, 7.84],
-          "CaCO3":  [2.38, 1.48, 1.42, 0.58, 1.52],
-          "humus":  [30.55, 30.55, 29.83, null, null],
-          "Nt":     [2.31, 2.41, 4.53, null, null],
-          "PAL":    [117, 33, 17, null, null],
-          "KAL":    [500, 114, 138, null, null],
-          "SB":     [86.72, 91.87, 90.29, 27.32, 20.99],
-          "SH":     [5.59, 4.70, 4.12, 2.35, 1.67],
-          "T":      [92.31, 96.58, 94.40, 29.67, 22.66],
-          "Vsh":    [93.95, 95.13, 95.64, 92.07, 92.65]
+          "pH": [5.9, 5.46, 6.19, 6.57, 6.57, 6.68, 6.31, 6.25, 6.27],
+          "CaCO3": [null, null, null, null, null, null, null, null, null],
+          "humus": [0.9, 0.87, 0.57, null, null, null, null, null, null],
+          "Nt": [0.05, 0.05, 0.03, null, null, null, null, null, null],
+          "PAL": [65.0, 55.8, 13.6, null, null, null, null, null, null],
+          "KAL": [170, 150, 295, null, null, null, null, null, null],
+          "SB": [6.47, 5.88, 10.98, 13.72, 15.09, 13.72, 11.37, 11.56, 18.74],
+          "SH": [3.02, 2.96, 2.16, 2.52, 2.1, 1.65, 1.39, 1.51, 1.51],
+          "T": [9.49, 8.84, 13.14, 16.24, 17.19, 15.37, 12.76, 13.07, 20.25],
+          "Vsh": [68.16, 66.52, 83.56, 84.48, 87.78, 89.26, 89.11, 88.45, 92.54]
         }
       },
       "observations": {
         "ro": [
-          "Grosimea stratului de turbă (>50 cm) → încadrare la Histosol",
-          "Materialul organic este intens transformat (material sapric), susținut de un orizont nisipo-lutos cu exces de umiditate permanent",
-          "Nivel hidrostatic la 0,8–1 m cu variații sezoniere"
+          "Zonă de tranziție de la luvosoluri la preluvosoluri",
+          "Stagnogleizare slabă în adâncime",
+          "Prezența formațiunilor piemontane (nisipuri) remaniate explică coluvionarea în primii 40 cm"
         ]
       },
-      "describedBy": "Constantin Rusu, Bőjte Gyárfás, Abos Hunor, Sándor Béla, Bogdan Roșca, Dumitru Bulgariu, Radu Gabriel Pîrnău"
+      "describedBy": "Constantin Rusu, Florin Chelaru, Radu Pîrnău, Ionuț Saulea, Dumitru Bulgariu, Victor Stoenescu, Bogdan Roșca, Alin Balan"
     },
     {
       "id": "P3",
       "name": {
-        "ro": "Vrabia (U.A.T. Tușnad)",
-        "en": "Vrabia (Tușnad commune)"
+        "ro": "Ghigoiești Sud (U.A.T. Ștefan cel Mare)",
+        "en": "Ghigoiești Sud (Ștefan cel Mare commune)"
       },
-      "soilType": "Psamosol eutric, cu caracter hipolamelar",
-      "soilTypeEn": "Eutric Psamosol, hypolamelar",
-      "texture": "nisip lutos grosier / nisip grosier",
+      "soilType": "Faeoziom cambic",
+      "soilTypeEn": "Cambic Phaeozem",
+      "texture": "lut mediu / lut mediu",
       "srts": "SRTS 2012",
       "location": {
-        "county": "Harghita",
-        "uat": "Tușnad",
-        "locality": "Vrabia",
-        "placement": "la sud de localitatea Vrabia, pe dreapta șoselei Vrabia-Tușnad",
-        "lat": 46.21978,
-        "lng": 25.90928,
-        "altitude": 665,
-        "unit": "Depresiunea Ciucului / Compartimentul sudic"
+        "county": "Neamț",
+        "uat": "Ștefan cel Mare",
+        "locality": "Ghigoiești",
+        "placement": "revers de cuestă, partea central-sudică, la sud de localitatea Ghigoiești",
+        "lat": 46.96964,
+        "lng": 26.58389,
+        "altitude": 342,
+        "unit": "Podișul piemontan al Bozienilor"
       },
-      "climate": {"tma": 6.1, "pma": 596},
-      "photo": "photos/2025/2025_P3.jpg",
+      "climate": {
+        "tma": 9.3,
+        "pma": 610
+      },
+      "conditions": {
+        "relief": "revers de cuestă, partea terminal-sudică; 3-5%/S",
+        "parentMaterial": "luturi medii și nisipo-argiloase",
+        "bedrock": "luturi nisipo-argiloase și argile basarabiene",
+        "groundwater": "5-7 m, permanent",
+        "drainage": "moderat",
+        "vegetation": "silvostepă",
+        "landUse": "arabil (lucernă 2023/2024)",
+        "previousLandUse": "arabil (utilizare agricolă veche)"
+      },
+      "photo": "photos/2024/2024_P3.jpg",
       "horizons": [
-        {"symbol": "Ap", "top": 0, "bottom": 21, "texture": "nisip lutos grosier", "munsell": "10YR 6/3",
-         "description": {"ro": "nisip lutos grosier; brun deschis (10YR 6/3); structură distrusă prin lucrările agricole; uscat; porozitate mare; fără efervescență; rădăcini subțiri foarte frecvente; trecere treptată."}},
-        {"symbol": "Ao", "top": 21, "bottom": 32, "texture": "nisip lutos grosier", "munsell": "10YR 5/4",
-         "description": {"ro": "nisip lutos grosier; brun (10YR 5/4); structură monogranulară; porozitate mare; fără efervescență; rădăcini subțiri frecvente; trecere clară."}},
-        {"symbol": "AC", "top": 32, "bottom": 45, "texture": "nisip grosier", "munsell": "10YR 4/4",
-         "description": {"ro": "nisip grosier; brun închis (10YR 4/4); astructurat; afânat; porozitate mare; fără efervescență; rădăcini subțiri rare; trecere clară."}},
-        {"symbol": "C₁ la", "top": 45, "bottom": 54, "texture": "nisip lutos grosier", "munsell": "10YR 4/4", "isLamella": true,
-         "description": {"ro": "lamelă; nisip lutos grosier; brun închis (10YR 4/4); nestructurat; slab cimentat; porozitate medie; fără efervescență; rădăcini subțiri foarte rare; trecere netă."}},
-        {"symbol": "C₂", "top": 54, "bottom": 64, "texture": "nisip grosier", "munsell": "10YR 5/4",
-         "description": {"ro": "nisip grosier; brun (10YR 5/4); nestructurat; porozitate mare; fără efervescență; trecere netă."}},
-        {"symbol": "C₃ la", "top": 64, "bottom": 70, "texture": "nisip lutos grosier", "munsell": "7.5YR 5/4", "isLamella": true,
-         "description": {"ro": "lamelă; nisip lutos grosier; brun (7.5YR 5/4); nestructurat; porozitate medie; fără efervescență; trecere netă."}},
-        {"symbol": "C₄", "top": 70, "bottom": 80, "texture": "nisip grosier", "munsell": "7.5YR 4/6",
-         "description": {"ro": "nisip grosier; brun roșcat închis (7.5YR 4/6); nestructurat; porozitate medie; fără efervescență; trecere clară."}},
-        {"symbol": "C₅(la)", "top": 80, "bottom": 100, "texture": "nisip grosier", "munsell": "7.5YR 4/6", "isLamella": true,
-         "description": {"ro": "lamelă slab conturată; nisip grosier; brun roșcat închis (7.5YR 4/6); nestructurat; fără efervescență; trecere treptată."}},
-        {"symbol": "C₆", "top": 100, "bottom": 140, "texture": "nisip grosier", "munsell": "10YR 4/6",
-         "description": {"ro": "nisip grosier; brun gălbui închis (10YR 4/6); nestructurat; afânat; fără efervescență; trecere treptată."}},
-        {"symbol": "C₇", "top": 140, "bottom": 160, "texture": "nisip grosier", "munsell": "10YR 5/4",
-         "description": {"ro": "nisip grosier; brun (10YR 5/4); nestructurat; fără efervescență."}}
+        {
+          "symbol": "Ap",
+          "top": 0,
+          "bottom": 30,
+          "texture": "lut mediu",
+          "munsell": "10YR 2/2",
+          "description": {
+            "ro": "lut mediu; brun foarte închis (10YR 2/2) în stare umedă; reavăn; structură distrusă prin lucrările agricole; slab plastic; slab adeziv; porozitate mare; fără efervescență; rădăcini subțiri foarte frecvente; trecere clară."
+          }
+        },
+        {
+          "symbol": "Am1",
+          "top": 30,
+          "bottom": 49,
+          "texture": "lut nisipo-argilos",
+          "munsell": "10YR 2/1",
+          "description": {
+            "ro": "lut nisipo-argilos; negru (10YR 2/1) în stare umedă; reavăn; structură grăunțos-glomerulară; slab plastic; slab adeziv; porozitate mare; fără efervescență; rădăcini subțiri frecvente; coprolite frecvente; trecere clară."
+          }
+        },
+        {
+          "symbol": "Am2",
+          "top": 49,
+          "bottom": 67,
+          "texture": "lut nisipo-argilos",
+          "munsell": "10YR 2/1",
+          "description": {
+            "ro": "lut nisipo-argilos; negru (10YR 2/1) în stare umedă; umed; structură glomerulară; friabil; slab plastic; slab adeziv; porozitate medie; fără efervescență; coprolite frecvente; trecere treptată."
+          }
+        },
+        {
+          "symbol": "AB",
+          "top": 67,
+          "bottom": 77,
+          "texture": "lut mediu",
+          "munsell": "10YR 2/2",
+          "description": {
+            "ro": "lut mediu; brun foarte închis (10YR 2/2) în stare umedă; reavăn; structură poliedric subangulară mică; friabil; slab plastic; slab adeziv; porozitate medie; fără efervescență; crotovine; trecere treptată."
+          }
+        },
+        {
+          "symbol": "Bv1",
+          "top": 77,
+          "bottom": 95,
+          "texture": "lut mediu",
+          "munsell": "10YR 4/2",
+          "description": {
+            "ro": "lut mediu; brun cenușiu închis (10YR 4/2) în stare umedă; structură poliedric subangulară mijlocie; friabil; slab plastic; slab adeziv; porozitate medie; fără efervescență; crotovine; trecere clară."
+          }
+        },
+        {
+          "symbol": "Bv2",
+          "top": 95,
+          "bottom": 112,
+          "texture": "lut mediu",
+          "munsell": "10YR 4/4",
+          "description": {
+            "ro": "lut mediu; brun gălbui închis (10YR 4/4) în stare umedă; structură poliedric angulară medie; slab plastic; slab adeziv; porozitate medie; fără efervescență; crotovine; trecere treptată."
+          }
+        },
+        {
+          "symbol": "Bv3",
+          "top": 112,
+          "bottom": 130,
+          "texture": "lut nisipo-argilos",
+          "munsell": "10YR 4/6",
+          "description": {
+            "ro": "lut nisipo-argilos; brun gălbui închis (10YR 4/6) în stare umedă; structură poliedric subangulară mare; slab plastic; slab adeziv; porozitate mică-medie; fără efervescență; trecere treptată."
+          }
+        },
+        {
+          "symbol": "BCn",
+          "top": 130,
+          "bottom": 150,
+          "texture": "lut nisipo-argilos",
+          "munsell": "10YR 5/6",
+          "description": {
+            "ro": "lut nisipo-argilos; brun gălbui (10YR 5/6) în stare umedă; slab structurat poliedric subangular; fără efervescență."
+          }
+        }
       ],
       "analyticalData": {
         "granulometry": {
-          "headers": ["Ap","Ao","AC","C₁la","C₂","C₃la","C₄","C₅(la)","C₆","C₇"],
-          "depths":   ["0-21","21-32","32-45","45-54","54-64","64-70","70-80","80-90","90-140","140-160"],
-          "sandCoarse": [56.22, 57.14, 65.68, 71.75, 70.16, 61.34, 70.19, 84.85, 79.64, 83.68],
-          "sandFine":   [30.68, 30.16, 25.62, 16.35, 22.24, 23.66, 20.61, 8.75, 14.26, 11.32],
-          "silt":       [4.30, 1.80, 4.80, 4.70, 3.90, 9.40, 4.00, 2.20, 1.90, 2.80],
-          "clay":       [8.80, 10.90, 3.90, 7.20, 3.70, 5.60, 5.20, 4.20, 4.20, 2.20],
-          "textureClass":["UG","UG","NG","UG","NG","UG","NG","NG","NG","NG"]
+          "headers": ["Ap", "Am1", "Am2", "AB", "Bv1", "Bv2", "Bv3", "BCn"],
+          "depths": ["0-30", "30-49", "49-67", "67-77", "77-95", "95-112", "112-130", "130-150"],
+          "sandCoarse": [1.5, 1.0, 1.7, 2.3, 1.2, 1.0, 1.1, 1.1],
+          "sandFine": [59.1, 60.5, 61.1, 57.1, 60.0, 60.0, 61.6, 60.2],
+          "silt": [18.1, 13.3, 12.1, 15.8, 14.4, 14.5, 13.2, 15.2],
+          "clay": [21.3, 25.2, 25.1, 24.8, 24.4, 24.5, 24.1, 23.5],
+          "textureClass": ["LL", "LN", "LN", "LL", "LL", "LL", "LN", "LN"]
         },
         "chemistry": {
-          "pH":     [5.85, 6.23, 6.34, 6.68, 6.66, 6.88, 6.92, 6.91, 6.96, 6.73],
-          "CaCO3":  [null, null, null, null, null, null, null, null, null, null],
-          "humus":  [1.10, 0.96, 0.24, null, null, null, null, null, null, null],
-          "Nt":     [0.07, 0.04, 0.01, null, null, null, null, null, null, null],
-          "PAL":    [107, 90, 67, null, null, null, null, null, null, null],
-          "KAL":    [319, 384, 300, null, null, null, null, null, null, null],
-          "SB":     [0.79, 5.54, 7.92, 9.90, 6.73, 8.32, 9.50, 5.54, 3.17, 5.15],
-          "SH":     [4.21, 3.63, 2.25, 3.04, 2.55, 2.16, 1.57, 1.67, 1.67, 2.74],
-          "T":      [5.01, 9.17, 10.17, 12.94, 9.28, 10.47, 11.07, 7.21, 4.84, 7.89],
-          "Vsh":    [15.82, 60.46, 77.85, 76.52, 72.54, 79.41, 85.83, 76.88, 65.55, 65.24]
+          "pH": [5.98, 6.0, 6.18, 6.4, 6.58, 6.58, 6.66, 6.63],
+          "CaCO3": [null, null, null, null, null, null, null, null],
+          "humus": [2.7, 1.92, 1.32, 0.9, 1.14, 0.84, null, null],
+          "Nt": [0.09, 0.06, 0.06, 0.03, 0.02, 0.02, null, null],
+          "PAL": [8.0, 5.6, 6.0, null, null, null, null, null],
+          "KAL": [100, 110, 120, null, null, null, null, null],
+          "SB": [13.52, 14.7, 15.48, 16.46, 16.86, 17.44, 16.66, 16.66],
+          "SH": [4.36, 4.22, 3.25, 2.76, 2.1, 2.27, 2.59, 2.22],
+          "T": [17.88, 18.92, 18.73, 19.22, 18.96, 19.71, 19.25, 18.88],
+          "Vsh": [75.62, 77.7, 82.65, 85.64, 88.92, 88.48, 86.55, 88.24]
         }
       },
       "observations": {
         "ro": [
-          "Conținut de nisip grosier extrem de ridicat pe profil — sortare eoliană a formațiunilor nisipoase",
-          "Diferențiere texturală față de P4 → sedimentarea diferită: modelare eoliană (P3) vs. fluvio-lacustră (P4)",
-          "Valori foarte mici ale titanului, sub limita de detecție ale zirconiului (analize XRF) → sortare eoliană"
+          "Structură geologică tipică de podiș (monoclin orientat NNV-SSE)",
+          "Facies tipic de faeoziomuri, cu acumulări profunde de humus până la 1-1,2 m",
+          "Omogenitate texturală pe profil",
+          "Aprovizionare slabă cu azot total și fosfor mobil"
         ]
       },
-      "describedBy": "Constantin Rusu, Bőjte Gyárfás, Sándor Béla, Abos Hunor, Bogdan Roșca, Dumitru Bulgariu, Radu Gabriel Pîrnău"
+      "describedBy": "Constantin Rusu, Florin Chelaru, Radu Pîrnău, Ionuț Saulea, Dumitru Bulgariu, Victor Stoenescu, Bogdan Roșca, Alin Balan"
     },
     {
       "id": "P4",
       "name": {
-        "ro": "Tușnad (U.A.T. Tușnad)",
-        "en": "Tușnad (Tușnad commune)"
+        "ro": "Ștefan cel Mare (U.A.T. Ștefan cel Mare)",
+        "en": "Ștefan cel Mare (Ștefan cel Mare commune)"
       },
-      "soilType": "Psamosol eutric / Arenosol eutric (?)",
-      "soilTypeEn": "Eutric Psamosol / Eutric Arenosol (?)",
-      "texture": "nisip lutos mijlociu / nisip lutos grosier",
+      "soilType": "Cernoziom calcaric gleic sodic, cu gleizare relictă",
+      "soilTypeEn": "Calcaric Gleyic Sodic Chernozem",
+      "texture": "lut mediu / lut mediu",
       "srts": "SRTS 2012",
       "location": {
-        "county": "Harghita",
-        "uat": "Tușnad",
-        "locality": "Tușnad",
-        "placement": "la nord de localitatea Tușnad, pe dreapta șoselei Vrabia-Tușnad",
-        "lat": 46.21100,
-        "lng": 25.91461,
-        "altitude": 670,
-        "unit": "Depresiunea Ciucului / Compartimentul sudic"
+        "county": "Neamț",
+        "uat": "Ștefan cel Mare",
+        "locality": "Ștefan cel Mare",
+        "placement": "bazin depresionar, la sud de Stânca (Măgura) Șerbești",
+        "lat": 46.96211,
+        "lng": 26.55081,
+        "altitude": 335,
+        "unit": "Subcarpații Moldovei / Depresiunea Cracău-Bistrița"
       },
-      "climate": {"tma": 6.1, "pma": 596},
-      "photo": "photos/2025/2025_P4.jpg",
+      "climate": {
+        "tma": 9.3,
+        "pma": 610
+      },
+      "conditions": {
+        "relief": "bazin depresionar, arie microdepresionară cu exces de umiditate",
+        "parentMaterial": "depozite lutoase ușor stratificate",
+        "bedrock": "argile sarmatice",
+        "groundwater": "2-3 m, permanent, mineralizare moderată",
+        "drainage": "moderat-lent",
+        "vegetation": "zonă forestieră de foioase, păduri de amestec",
+        "landUse": "arabil (porumb, 2024)",
+        "previousLandUse": "bazin lacustru / zonă umedă"
+      },
+      "photo": "photos/2024/2024_P4.jpg",
       "horizons": [
-        {"symbol": "Ap", "top": 0, "bottom": 15, "texture": "nisip lutos mijlociu", "munsell": "10YR 6/3",
-         "description": {"ro": "nisip lutos mijlociu; brun pal (10YR 6/3); structură grăunțoasă instabilă, distrusă parțial; necoeziv; fără efervescență; rădăcini subțiri și medii foarte frecvente; trecere clară."}},
-        {"symbol": "Atp", "top": 15, "bottom": 23, "texture": "lut nisipos mijlociu", "munsell": "10YR 4/4",
-         "description": {"ro": "lut nisipos mijlociu; ușor tasat; brun închis (10YR 4/4); structură distrusă; slab coeziv; fără efervescență; rădăcini subțiri și medii frecvente; trecere clară."}},
-        {"symbol": "Ao", "top": 23, "bottom": 30, "texture": "nisip lutos mijlociu", "munsell": "10YR 4/6",
-         "description": {"ro": "nisip lutos mijlociu; brun gălbui închis (10YR 4/6); structură grăunțoasă instabilă; necoeziv; fără efervescență; rădăcini subțiri și medii rare; trecere clară."}},
-        {"symbol": "AC", "top": 30, "bottom": 42, "texture": "nisip lutos mijlociu", "munsell": "10YR 4/6",
-         "description": {"ro": "nisip lutos mijlociu; brun gălbui închis (10YR 4/6); structură poliedrică subangulară mică-medie instabilă; necoeziv; fără efervescență; trecere treptată."}},
-        {"symbol": "C₁", "top": 42, "bottom": 60, "texture": "nisip lutos mijlociu", "munsell": "10YR 5/3",
-         "description": {"ro": "nisip lutos mijlociu; brun deschis (10YR 5/3); nestructurat; necoeziv; fără efervescență; trecere clară."}},
-        {"symbol": "C₂", "top": 60, "bottom": 100, "texture": "nisip lutos mijlociu", "munsell": "10YR 5/4",
-         "description": {"ro": "nisip lutos mijlociu; brun (10YR 5/4); slab structurat poliedric subangular; moderat coeziv; fără efervescență; trecere clară."}},
-        {"symbol": "C₃", "top": 100, "bottom": 130, "texture": "nisip lutos grosier", "munsell": "2.5Y 5/4",
-         "description": {"ro": "nisip lutos grosier; brun gălbui (2.5Y 5/4); nestructurat; slab-moderat coeziv; fără efervescență."}},
-        {"symbol": "C₄", "top": 130, "bottom": 150, "texture": "nisip lutos grosier", "munsell": "2.5Y 6/4",
-         "description": {"ro": "nisip lutos grosier; cu caracter lamelar incipient; brun gălbui deschis (2.5Y 6/4); nestructurat; fără efervescență."}}
+        {
+          "symbol": "Ap",
+          "top": 0,
+          "bottom": 30,
+          "texture": "lut mediu",
+          "munsell": "10YR 2/1",
+          "description": {
+            "ro": "lut mediu; negru (10YR 2/1) în stare umedă; structură grăunțoasă instabilă; moderat plastic; moderat adeziv; pori mici-mijlocii frecvenți; efervescență slabă; rădăcini subțiri și medii frecvente; trecere clară."
+          }
+        },
+        {
+          "symbol": "Am",
+          "top": 30,
+          "bottom": 41,
+          "texture": "lut mediu",
+          "munsell": "10YR 2/1",
+          "description": {
+            "ro": "lut mediu; negru (10YR 2/1) în stare umedă; structură grăunțos-poliedrică instabilă; moderat plastic; moderat adeziv; pori mici-mijlocii frecvenți; efervescență slabă; rădăcini subțiri și medii frecvente; trecere clară."
+          }
+        },
+        {
+          "symbol": "Amk",
+          "top": 41,
+          "bottom": 53,
+          "texture": "lut mediu",
+          "munsell": "10YR 2/2",
+          "description": {
+            "ro": "lut mediu; brun foarte închis (10YR 2/2) în stare umedă; structură poliedrică instabilă; slab plastic; moderat adeziv; efervescență slab-moderată; CaCO₃ sub formă de eflorescențe și pete; rădăcini subțiri și medii rare; trecere treptată."
+          }
+        },
+        {
+          "symbol": "ACkg",
+          "top": 53,
+          "bottom": 66,
+          "texture": "lut mediu",
+          "munsell": "10YR 2/2",
+          "munsellSecondary": "10YR 3/3",
+          "description": {
+            "ro": "lut mediu; brun foarte închis (10YR 2/2-3/3) cu pete ruginii rare (10-15%); structură poliedrică subangulară mică-medie; moderat plastic; moderat adeziv; efervescență puternică; CaCO₃ sub formă de eflorescențe, pete și concretiini mici; punctuațiuni ferimanganice; trecere clară."
+          }
+        },
+        {
+          "symbol": "Ck1Gox",
+          "top": 66,
+          "bottom": 77,
+          "texture": "lut nisipo-argilos",
+          "munsell": "2.5Y 5/4",
+          "description": {
+            "ro": "lut nisipo-argilos; brun oliv deschis (2.5Y 5/4) cu pete brun gălbui (30%); masiv; slab plastic; moderat adeziv; efervescență moderat-puternică; CaCO₃ sub formă de concretiini medii; punctuațiuni ferimanganice frecvente; bobovine rare; trecere treptată."
+          }
+        },
+        {
+          "symbol": "Ck2Gox",
+          "top": 77,
+          "bottom": 100,
+          "texture": "lut mediu",
+          "munsell": "2.5Y 5/4",
+          "description": {
+            "ro": "lut mediu; brun oliv deschis (2.5Y 5/4) cu pete brun gălbui (40%); masiv; moderat plastic; moderat adeziv; efervescență puternică; CaCO₃ sub formă de concretiini mari; punctuațiuni ferimanganice foarte frecvente; bobovine frecvente; trecere treptată."
+          }
+        },
+        {
+          "symbol": "Ck3Gox",
+          "top": 100,
+          "bottom": 120,
+          "texture": "lut nisipos mijlociu",
+          "munsell": "2.5Y 5/6",
+          "description": {
+            "ro": "lut nisipos mijlociu; brun oliv deschis (2.5Y 5/6) cu pete cenușii verzui (50-55%) și ruginii (5%); masiv; slab plastic; moderat adeziv; efervescență puternică; CaCO₃ sub formă de concretiini mari; punctuațiuni ferimanganice și bobovine foarte frecvente."
+          }
+        }
       ],
       "analyticalData": {
         "granulometry": {
-          "headers": ["Ap","Atp","Ao","AC","C₁","C₂","C₃","C₄"],
-          "depths":   ["0-15","15-23","23-30","30-42","42-60","60-100","100-130","130-150"],
-          "sandCoarse": [23.14, 24.67, 26.64, 29.08, 26.70, 26.29, 41.11, 55.33],
-          "sandFine":   [46.67, 46.93, 45.26, 42.42, 46.70, 47.32, 38.39, 20.87],
-          "silt":       [18.60, 15.10, 16.20, 16.90, 17.00, 18.70, 11.30, 14.40],
-          "clay":       [11.60, 13.30, 11.90, 11.60, 9.60, 7.70, 9.20, 9.40],
-          "textureClass":["UM","SM","UM","UM","UM","UM","UG","UG"]
+          "headers": ["Ap", "Am", "Amk", "ACkg", "Ck1Gox", "Ck2Gox", "Ck3Gox"],
+          "depths": ["0-30", "30-41", "41-53", "53-66", "66-77", "77-100", "100-120"],
+          "sandCoarse": [2.1, 2.4, 1.7, 1.5, 3.8, 4.4, 6.2],
+          "sandFine": [51.9, 53.5, 48.9, 53.2, 64.1, 52.1, 56.9],
+          "silt": [17.2, 16.6, 17.4, 16.4, 10.8, 16.3, 16.9],
+          "clay": [28.8, 27.5, 32.0, 28.9, 21.3, 27.2, 20.0],
+          "textureClass": ["LL", "LL", "LL", "LL", "LN", "LL", "SM"]
         },
         "chemistry": {
-          "pH":     [6.10, 5.94, 5.92, 5.77, 5.75, 6.38, 6.40, 6.68],
-          "CaCO3":  [null, null, null, null, null, null, null, null],
-          "humus":  [1.82, 1.60, 1.39, 0.62, null, null, null, null],
-          "Nt":     [0.08, 0.01, 0.10, 0.03, null, null, null, null],
-          "PAL":    [null, 1.02, 0.74, 0.26, null, null, null, null],
-          "KAL":    [196, 253, 137, 175, null, null, null, null],
-          "SB":     [9.50, 5.94, 4.36, 2.38, 5.94, 8.32, 5.54, 10.30],
-          "SH":     [5.88, 5.29, 5.39, 4.41, 4.31, 3.23, 3.43, 2.94],
-          "T":      [15.38, 11.23, 9.75, 6.79, 10.25, 11.55, 8.97, 13.24],
-          "Vsh":    [61.78, 52.88, 44.70, 35.01, 57.94, 72.00, 61.78, 77.79]
+          "pH": [8.35, 8.34, 8.5, 8.68, 9.13, 9.43, 9.52],
+          "CaCO3": [1.43, 1.61, 4.3, 11.29, 7.71, 11.65, 9.5],
+          "humus": [3.42, 2.82, 1.38, null, null, null, null],
+          "Nt": [0.13, 0.11, 0.02, null, null, null, null],
+          "PAL": [58.8, 46.4, 6.3, null, null, null, null],
+          "KAL": [175, 155, 155, null, null, null, null],
+          "SB": [null, null, null, null, null, null, null],
+          "SH": [null, null, null, null, null, null, null],
+          "T": [null, null, null, null, null, null, null],
+          "Vsh": [null, null, null, null, null, null, null]
         }
       },
       "observations": {
         "ro": [
-          "Nisipurile depuse în lacul pleistocen, imediat în amonte de defileul de la Tușnad",
-          "SiO₂ foarte mare la suprafață (33,56%), scade în profunzime (21,72%) — stratificare verticală neomogenă, transport fluvio-lacustru",
-          "Problema: încadrare taxonomică la Psamosol (eolian) vs. Arenosol (fluvio-lacustru)"
+          "Profilul este situat într-o arie microdepresionară ce a funcționat ca un mic lac pleistocen și ulterior ca zonă umedă (mlaștină)",
+          "Lucrări ample de desecare-drenaj realizate în perioada comunistă",
+          "Solul actual provine dintr-o fostă lăcoviște, astăzi drenată",
+          "Probleme de încadrare taxonomică: Cernoziom calcaric gleic sodic sau Gleiosol calcaric molic sodic?"
         ]
       },
-      "describedBy": "Constantin Rusu, Bőjte Gyárfás, Abos Hunor, Sándor Béla, Bogdan Roșca, Dumitru Bulgariu, Radu Gabriel Pîrnău"
+      "describedBy": "Constantin Rusu, Radu Pîrnău, Ionuț Saulea, Dumitru Bulgariu, Victor Stoenescu, Bogdan Roșca"
     },
     {
       "id": "P5",
       "name": {
-        "ro": "Harghita Băi (U.A.T. Miercurea Ciuc)",
-        "en": "Harghita Băi (Miercurea Ciuc commune)"
+        "ro": "Ferma Vălenii Doamnei (U.A.T. Dochia)",
+        "en": "Vălenii Doamnei Farm (Dochia commune)"
       },
-      "soilType": "Andosol distric scheletic",
-      "soilTypeEn": "Dystric Skeletic Andosol",
-      "texture": "argilă nisipoasă / nisip lutos mijlociu",
+      "soilType": "Faeoziom cambic",
+      "soilTypeEn": "Cambic Phaeozem",
+      "texture": "lut mediu / lut nisipo-argilos",
       "srts": "SRTS 2012",
       "location": {
-        "county": "Harghita",
-        "uat": "Miercurea Ciuc",
-        "locality": "Harghita Băi",
-        "placement": "Harghita Băi, extremitatea sud-estică",
-        "lat": 46.383,
-        "lng": 25.644,
-        "altitude": 1340,
-        "unit": "Munții Harghita / Masivul Harghita-Mădăraș"
+        "county": "Neamț",
+        "uat": "Dochia",
+        "locality": "Dochia",
+        "placement": "pe partea stângă a pârâului Văleni, în zona de înșeuare de lângă sediul fermei Vălenii Doamnei",
+        "lat": 46.93658,
+        "lng": 26.56961,
+        "altitude": 330,
+        "unit": "Subcarpații Moldovei / Depresiunea Cracău-Bistrița"
       },
-      "climate": {"tma": 2.8, "pma": 785},
+      "climate": {
+        "tma": 9.3,
+        "pma": 610
+      },
       "conditions": {
-        "relief": "culme montană secundară; versant, treimea mijlocie; 5% /SV",
-        "parentMaterial": "deluviu andezitic",
-        "bedrock": "andezite",
-        "groundwater": "sub 10 m, nepermanent, oscilant",
-        "drainage": "rapid",
-        "vegetation": "zonă forestieră, pădure de conifere (molid)",
-        "landUse": "pădure de conifere",
-        "previousLandUse": "pădure de conifere"
+        "relief": "interfluviu secundar estompat, ușoară înșeuare; 1-2%",
+        "parentMaterial": "depozite lutoase (provenite prin coluvionare)",
+        "bedrock": "intercalații de marne și argile basarabiene",
+        "groundwater": "sub 8-9 m, permanent, oscilant",
+        "drainage": "bine drenat",
+        "vegetation": "silvostepă",
+        "landUse": "arabil (fasole, 2024)",
+        "previousLandUse": "arabil (utilizare agricolă veche, urme de locuire neolitică)"
       },
-      "photo": "photos/2025/2025_P5.jpg",
+      "photo": "photos/2024/2024_P5.jpg",
       "horizons": [
         {
-          "symbol": "Ol+f", "top": 0, "bottom": 0,
-          "texture": "orizont organic",
+          "symbol": "Ap",
+          "top": 0,
+          "bottom": 28,
+          "texture": "lut mediu",
+          "munsell": "10YR 2/2",
+          "description": {
+            "ro": "lut mediu; brun foarte închis (10YR 2/2) în stare umedă; reavăn; structură distrusă prin lucrările agricole; slab plastic; moderat adeziv; pori mici și mijlocii frecvenți; fără efervescență; rădăcini subțiri foarte frecvente; trecere clară."
+          }
+        },
+        {
+          "symbol": "Am",
+          "top": 28,
+          "bottom": 40,
+          "texture": "lut mediu",
           "munsell": "10YR 2/1",
           "description": {
-            "ro": "orizont organic nehidromorf constituit din litieră și orizont de fermentație cu materie organică incomplet descompusă"
+            "ro": "lut mediu; negru (10YR 2/1) în stare umedă; reavăn; structură grăunțos-glomerulară; moderat plastic; moderat adeziv; fără efervescență; coprolite frecvente; rădăcini subțiri foarte frecvente; trecere clară."
           }
         },
         {
-          "symbol": "Au", "top": 0, "bottom": 20,
-          "texture": "argilă nisipoasă",
+          "symbol": "Atp",
+          "top": 40,
+          "bottom": 54,
+          "texture": "lut mediu",
+          "munsell": "10YR 2/1",
+          "description": {
+            "ro": "lut mediu; negru (10YR 2/1) în stare umedă; tasat; structură distrusă; moderat plastic; adeziv; pori mici frecvenți; fără efervescență; rădăcini subțiri foarte frecvente; trecere clară."
+          }
+        },
+        {
+          "symbol": "AB",
+          "top": 54,
+          "bottom": 70,
+          "texture": "lut mediu",
           "munsell": "10YR 3/1",
           "description": {
-            "ro": "argilă nisipoasă; negru (10YR 3/1) în stare umedă; reavăn; structură granulară pulverulentă; poros; moderat plastic; moderat adeziv; fără efervescență; rădăcini subțiri și medii foarte frecvente; trecere treptată."
+            "ro": "lut mediu; cenușiu foarte închis (10YR 3/1) în stare umedă; reavăn; structură poliedric subangulară mică-medie; moderat plastic; moderat adeziv; fără efervescență; cervotocine rare; rădăcini subțiri frecvente; trecere treptată."
           }
         },
         {
-          "symbol": "AB", "top": 20, "bottom": 30,
+          "symbol": "Bv1",
+          "top": 70,
+          "bottom": 98,
           "texture": "lut mediu",
           "munsell": "10YR 3/2",
           "description": {
-            "ro": "lut mediu; schelet 10%; brun foarte închis (10YR 3/2) în stare umedă; structură grăunțoasă, pulverulent; moderat plastic și adeziv; poros; fără efervescență; rădăcini subțiri și medii frecvente; trecere treptată."
+            "ro": "lut mediu; brun cenușiu foarte închis (10YR 3/2) în stare umedă; reavăn; structură poliedrică subangulară mijlocie; moderat plastic; moderat adeziv; fără efervescență; cervotocine frecvente; rădăcini subțiri frecvente; trecere treptată."
           }
         },
         {
-          "symbol": "Bv1", "top": 30, "bottom": 50,
-          "texture": "nisip lutos mijlociu",
-          "munsell": "7.5YR 3/2",
+          "symbol": "Bv2",
+          "top": 98,
+          "bottom": 120,
+          "texture": "lut nisipo-argilos",
+          "munsell": "10YR 4/2",
           "description": {
-            "ro": "nisip lutos mijlociu; schelet 15%; brun închis (7.5YR 3/2) în stare umedă; structură poliedric subangulară mică-medie instabilă; poros; fără efervescență; rădăcini subțiri frecvente; trecere treptată."
+            "ro": "lut nisipo-argilos; brun cenușiu închis (10YR 4/2) în stare umedă; structură poliedric subangulară medie-mare; slab plastic; slab adeziv; fără efervescență; cervotocine frecvente; rădăcini subțiri frecvente; trecere treptată."
           }
         },
         {
-          "symbol": "Bv2q", "top": 50, "bottom": 80,
-          "texture": "nisip lutos mijlociu",
-          "munsell": "7.5YR 3/3",
+          "symbol": "BCk",
+          "top": 120,
+          "bottom": 140,
+          "texture": "lut nisipo-argilos",
+          "munsell": "10YR 4/3",
           "description": {
-            "ro": "nisip lutos mijlociu; schelet 25%; brun roșcat închis (7.5YR 3/3) în stare umedă; structură poliedric subangulară medie pulverulentă; fără efervescență; trecere treptată."
+            "ro": "lut nisipo-argilos; brun (10YR 4/3) în stare umedă; structură poliedric subangulară mică instabilă; slab plastic; slab adeziv; efervescență slabă; CaCO₃ sub formă de eflorescențe și pseudomicelii; cervotocine și crotovine frecvente; trecere treptată-clară."
           }
         },
         {
-          "symbol": "BCq+R", "top": 80, "bottom": 100,
-          "texture": "nisip lutos mijlociu",
-          "munsell": "7.5YR 4/3",
+          "symbol": "Ck",
+          "top": 140,
+          "bottom": 160,
+          "texture": "lut nisipo-argilos",
+          "munsell": "10YR 4/4",
           "description": {
-            "ro": "nisip lutos mijlociu; schelet 50–60%; brun (7.5YR 4/3) în stare umedă; nestructurat; trecere treptată-clară."
+            "ro": "lut nisipo-argilos; brun gălbui închis (10YR 4/4) în stare umedă; nestructurat; slab plastic; slab adeziv; efervescență moderată; CaCO₃ sub formă de pseudomicelii și vinișoare; crotovine frecvente."
           }
         }
       ],
       "analyticalData": {
         "granulometry": {
-          "headers": ["Au", "AB", "Bv1", "Bv2q", "BCq+R"],
-          "depths": ["0-20", "20-30", "30-50", "50-80", "80-100"],
-          "sandCoarse": [18.40, 23.80, 22.48, 27.83, 34.03],
-          "sandFine": [30.40, 36.24, 53.05, 49.27, 37.27],
-          "silt": [13.80, 18.40, 15.33, 13.10, 19.30],
-          "clay": [37.40, 21.56, 9.14, 9.80, 9.40],
-          "textureClass": ["TN", "LL", "UM", "UM", "UM"]
+          "headers": ["Ap", "Am", "Atp", "AB", "Bv1", "Bv2", "BCk", "Ck"],
+          "depths": ["0-28", "28-40", "40-54", "54-70", "70-98", "98-120", "120-140", "140-160"],
+          "sandCoarse": [0.6, 1.0, 0.6, 0.4, 0.7, 0.8, 1.2, 1.0],
+          "sandFine": [62.8, 60.4, 61.7, 60.2, 62.1, 63.0, 62.3, 63.6],
+          "silt": [14.3, 14.7, 14.7, 15.5, 14.9, 13.8, 13.8, 13.1],
+          "clay": [22.3, 23.9, 23.0, 23.9, 22.3, 22.4, 22.7, 22.3],
+          "textureClass": ["LL", "LL", "LL", "LL", "LL", "LN", "LN", "LN"]
         },
         "chemistry": {
-          "pH":    [4.71, 5.01, 5.12, 5.42, 5.88],
-          "CaCO3": [null, null, null, null, null],
-          "humus": [21.92, 11.40, 9.04, null, null],
-          "Nt":    [0.83, 0.41, null, null, null],
-          "PAL":   [10, 9, null, null, null],
-          "KAL":   [219, 71, null, null, null],
-          "SB":    [3.96, 2.77, 1.19, 6.34, 5.94],
-          "SH":    [39.79, 25.48, 23.72, 21.56, 16.27],
-          "T":     [43.75, 28.25, 24.90, 27.90, 22.21],
-          "Vsh":   [9.05, 9.81, 4.77, 22.71, 26.75]
+          "pH": [6.18, 6.48, 6.76, 7.04, 7.26, 7.57, 8.06, 8.26],
+          "CaCO3": [null, null, null, null, null, null, 5.02, 7.35],
+          "humus": [2.97, 2.88, 2.7, 2.64, 1.77, 1.2, null, null],
+          "Nt": [0.11, 0.1, 0.07, null, null, null, null, null],
+          "PAL": [152.8, 121.8, 155.8, null, null, null, null, null],
+          "KAL": [170, 245, 140, null, null, null, null, null],
+          "SB": [20.58, 22.15, 24.7, 26.26, 24.7, null, null, null],
+          "SH": [3.45, 3.15, 1.82, 1.59, 1.45, null, null, null],
+          "T": [24.03, 25.3, 26.52, 27.85, 26.15, null, null, null],
+          "Vsh": [85.64, 87.55, 93.14, 94.29, 94.46, null, null, null]
         }
       },
       "observations": {
         "ro": [
-          "Conținut mare de materie organică în orizonturile superioare, caracteristic andosolurilor",
-          "Valorile foarte scăzute ale SiO₂ față de alte soluri indică alterarea intensivă a piroclastitelor și formarea de minerale amorfe cu pierdere de silice",
-          "Valorile foarte mari ale SH sugerează un conținut ridicat în oxizi amorfi, tipic andosolurilor",
-          "Deși argila scade semnificativ (de la 37% la 9%), Al₂O₃ crește (de la 2.39 la 3.82%), sugerând stocare în oxizi amorfi sau complexe organo-minerale"
+          "Depozitele de solificare cu texturi mijlocii maschează formațiunile basarabiene specifice zonei",
+          "Insula de silvostepă (P. Enculescu, 1924) și locuirea timpurie au favorizat dominanța cernisolurilor",
+          "Prezența carbonaților sub 120 cm și conținutul ridicat de humus (1,77% la 70-98 cm) au determinat încadrarea la faeoziom",
+          "Diferențieri semnificative privind aprovizionarea cu elemente nutritive"
         ]
       },
-      "describedBy": "Constantin Rusu, Bőjte Gyárfás, Abos Hunor, Sándor Béla, Bogdan Roșca, Dumitru Bulgariu, Radu Gabriel Pîrnău"
-    },
-    {
-      "id": "P6",
-      "name": {
-        "ro": "Băile Homorod",
-        "en": "Băile Homorod"
-      },
-      "soilType": "Luvosol albic planic stagnic",
-      "soilTypeEn": "Albic Planosolic Stagnic Luvisol",
-      "texture": "lut prăfos / argilă lutoasă",
-      "srts": "SRTS 2012",
-      "location": {
-        "county": "Harghita",
-        "uat": "Satu Mare",
-        "locality": "Băile Homorod",
-        "placement": "pajiște, la SV de Băile Homorod, spre marginea pădurii",
-        "lat": 46.361,
-        "lng": 25.447,
-        "altitude": 945,
-        "unit": "Munții Harghita / Platoul vulcanic-sedimentar vestic"
-      },
-      "climate": {"tma": 6.8, "pma": 657},
-      "conditions": {
-        "relief": "platou vulcanic, partea marginal vestică",
-        "parentMaterial": "argile",
-        "bedrock": "formațiune vulcanogen-sedimentară (tufuri și argile cineritice)",
-        "groundwater": "sub 7 m, permanent",
-        "drainage": "lent",
-        "vegetation": "forestieră, păduri de amestec fag-conifere",
-        "landUse": "pajiște",
-        "previousLandUse": "pajiște"
-      },
-      "photo": "photos/2025/2025_P6.jpg",
-      "horizons": [
-        {
-          "symbol": "Ao", "top": 0, "bottom": 21,
-          "texture": "lut prăfos",
-          "munsell": "2.5Y 5/2",
-          "description": {
-            "ro": "lut prăfos; cenușiu oliv deschis (2.5Y 5/2) în stare umedă; reavăn; structură grăunțoasă instabilă; slab plastic; slab-moderat adeziv; fără efervescență; rădăcini subțiri foarte frecvente; trecere treptată."
-          }
-        },
-        {
-          "symbol": "AE", "top": 21, "bottom": 32,
-          "texture": "lut prăfos",
-          "munsell": "2.5Y 5/3",
-          "description": {
-            "ro": "lut prăfos; brun oliv deschis (2.5Y 5/3) în stare umedă; reavăn; structură grăunțoasă instabilă; slab plastic; slab adeziv; pori mici și mijlocii frecvenți; fără efervescență; rădăcini subțiri frecvente; trecere clară."
-          }
-        },
-        {
-          "symbol": "Eaw", "top": 32, "bottom": 47,
-          "texture": "lut prăfos",
-          "munsell": "2.5Y 6/2",
-          "description": {
-            "ro": "lut prăfos; oliv pal (2.5Y 6/2) în stare umedă; structură mic poliedrică instabilă; slab plastic; slab adeziv; mici pete și concretiini Fe-Mn (w=10–15%); fără efervescență; trecere treptată."
-          }
-        },
-        {
-          "symbol": "EBtw", "top": 47, "bottom": 57,
-          "texture": "lut argilos mediu",
-          "munsell": "2.5Y 6/2",
-          "munsellSecondary": "7.5YR 6/4",
-          "description": {
-            "ro": "lut argilos mediu; oliv pal (2.5Y 6/2) cu pete brun deschise (7.5YR 6/4) în stare umedă; reavăn; structură poliedric angulară medie; moderat plastic; moderat adeziv; frecvente pete de oxidare (w=35%); fără efervescență; trecere clară."
-          }
-        },
-        {
-          "symbol": "Bt1W", "top": 57, "bottom": 75,
-          "texture": "argilă lutoasă",
-          "munsell": "2.5Y 6/2",
-          "munsellSecondary": "7.5YR 6/6",
-          "description": {
-            "ro": "argilă lutoasă; oliv pal (2.5Y 6/2) cu pete brune (7.5YR 6/6) în stare umedă; reavăn; structură prismatică mică-medie; moderat plastic; moderat adeziv; pete de oxido-reducere (w=40–50%); fără efervescență; trecere treptată."
-          }
-        },
-        {
-          "symbol": "Bt2W", "top": 75, "bottom": 105,
-          "texture": "argilă lutoasă",
-          "munsell": "2.5Y 6/2",
-          "munsellSecondary": "7.5YR 5/6",
-          "description": {
-            "ro": "argilă lutoasă; oliv pal (2.5Y 6/2) cu pete brun închise (7.5YR 5/6) în stare umedă; structură prismatică medie; plastic; adeziv; frecvente pete de oxido-reducere (w=50–60%); fără efervescență; trecere treptată."
-          }
-        },
-        {
-          "symbol": "Bt3W", "top": 105, "bottom": 125,
-          "texture": "argilă lutoasă",
-          "munsell": "7.5YR 6/6",
-          "munsellSecondary": "2.5Y 6/3",
-          "description": {
-            "ro": "argilă lutoasă; brun (7.5YR 6/6) cu pete oliv (2.5Y 6/3) în stare umedă; structură prismatică medie-mare; plastic; adeziv; pete de reducere vineții (w=50–60%); fără efervescență."
-          }
-        }
-      ],
-      "analyticalData": {
-        "granulometry": {
-          "headers": ["Ao", "AE", "Eaw", "EBtw", "Bt1W", "Bt2W", "Bt3W"],
-          "depths": ["0-21", "21-32", "32-47", "47-57", "57-75", "75-105", "105-125"],
-          "sandCoarse": [8.22, 8.31, 7.05, 2.19, 3.17, 4.43, 2.24],
-          "sandFine": [32.68, 26.89, 25.96, 25.61, 20.83, 20.57, 21.36],
-          "silt": [34.10, 40.50, 39.90, 31.80, 30.00, 24.30, 22.30],
-          "clay": [25.00, 24.30, 27.10, 40.40, 46.00, 50.70, 54.10],
-          "textureClass": ["LP", "LP", "LP", "TT", "AL", "AL", "AL"]
-        },
-        "chemistry": {
-          "pH":    [5.78, 5.66, 5.30, 5.33, 5.35, 5.34, 5.36],
-          "CaCO3": [null, null, null, null, null, null, null],
-          "humus": [2.06, 2.25, 1.41, null, null, null, null],
-          "Nt":    [0.28, 0.13, 0.07, null, null, null, null],
-          "PAL":   [12, 9, 9, null, null, null, null],
-          "KAL":   [205, 89, 93, null, null, null, null],
-          "SB":    [6.73, 5.94, 4.75, 10.69, 14.26, 15.84, 15.05],
-          "SH":    [10.78, 10.88, 11.37, 13.82, 11.66, 12.94, 11.96],
-          "T":     [17.51, 16.82, 16.12, 24.51, 25.92, 28.78, 27.00],
-          "Vsh":   [38.44, 35.32, 29.48, 43.62, 55.00, 55.05, 55.73]
-        }
-      },
-      "observations": {
-        "ro": [
-          "Profil foarte evoluat din punct de vedere pedogenetic, pe pajiște cu caracter higrofil (mezohigrofil)",
-          "Argilele de pe profil provin din tufuri și cinerite, generând argile de tip caolinitic, care rețin puternic apa și generează procese de stagnogleizare intense",
-          "Valori foarte mari ale titaniului (Ti) și mari în cazul zirconiului (Zr), reflectând natura vulcanică a materialului parental"
-        ]
-      },
-      "describedBy": "Constantin Rusu, Bőjte Gyárfás, Sándor Béla, Abos Hunor, Bogdan Roșca, Dumitru Bulgariu, Radu Gabriel Pîrnău"
+      "describedBy": "Constantin Rusu, Radu Pîrnău, Ionuț Saulea, Dumitru Bulgariu, Victor Stoenescu, Bogdan Roșca"
     }
   ],
   "gallery": {
-    "folder": "photos/2025/gallery/",
-    "images": ["FPPZT_1.jpg", "FPPZT_2.jpg", "FPPZT_3.jpg", "FPPZT_4.jpg", "FPPZT_5.jpg", "FPPZT_6.jpg"]
+    "folder": "photos/2024/gallery/",
+    "images": []
   }
 }
 ;

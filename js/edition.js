@@ -56,32 +56,37 @@
     document.getElementById('routeTitleEn').innerHTML =
       '<span class="edition-meta">FPPZT, ' + d.dates + ', edition ' + d.edition + '</span><br>' + d.title.en;
 
-    renderRoute(d.route);
+    renderRoute(d.route, d.year);
     initMap(d);
     renderProfileTabs(d.profiles);
     renderGallery(d.gallery);
   }
 
   // ── Secțiunea traseu ────────────────────────────
-  function renderRoute(route) {
+  function renderRoute(route, year) {
     if (!route) return;
     var container = document.getElementById('routeDays');
 
-    if (route.description && route.description.ro) {
+    // ★ Check external descriptions.js first, fallback to data file
+    var desc = (typeof DESCRIPTIONS !== 'undefined' && DESCRIPTIONS[year])
+      ? DESCRIPTIONS[year]
+      : (route.description || null);
+
+    if (desc && desc.ro) {
       var div = document.createElement('div');
       div.className = 'route-day route-description';
       div.innerHTML =
         '<div class="route-desc" lang="ro">' +
-          route.description.ro.split('\n').map(function (p) {
+          desc.ro.split('\n').map(function (p) {
             if (p.startsWith('•')) {
               return '<div class="route-bullet">' + p + '</div>';
             }
             return '<p>' + p + '</p>';
           }).join('') +
         '</div>' +
-        (route.description.en
+        (desc.en
           ? '<div class="route-desc" lang="en">' +
-              route.description.en.split('\n').map(function (p) {
+              desc.en.split('\n').map(function (p) {
                 if (p.startsWith('•')) {
                   return '<div class="route-bullet">' + p + '</div>';
                 }
