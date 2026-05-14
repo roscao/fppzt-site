@@ -78,7 +78,7 @@
       div.innerHTML =
         '<div class="route-desc" lang="ro">' +
           desc.ro.split('\n').map(function (p) {
-            if (p.startsWith('•')) {
+            if (p.startsWith('\u2022')) {
               return '<div class="route-bullet">' + p + '</div>';
             }
             return '<p>' + p + '</p>';
@@ -87,7 +87,7 @@
         (desc.en
           ? '<div class="route-desc" lang="en">' +
               desc.en.split('\n').map(function (p) {
-                if (p.startsWith('•')) {
+                if (p.startsWith('\u2022')) {
                   return '<div class="route-bullet">' + p + '</div>';
                 }
                 return '<p>' + p + '</p>';
@@ -494,19 +494,7 @@
   }
   
   // ── Munsell → RGB ───────────────────────────────
-  var MUNSELL = {
-    '10YR 2/1':'#1a1912','10YR 2.5/1':'#201f17','10YR 3/1':'#373022',
-    '10YR 3/2':'#423626','10YR 3/3':'#4b3a1c','10YR 4/3':'#664e32',
-    '10YR 4/4':'#6e4e2a','10YR 4/6':'#7a5514','10YR 5/3':'#846c4a',
-    '10YR 5/4':'#8a6a41','10YR 5/6':'#926426','10YR 6/3':'#a68c6c',
-    '10YR 6/4':'#ac8a5e','2.5Y 4/3':'#5e5838','2.5Y 5/2':'#7a7358',
-    '2.5Y 5/3':'#80704b','2.5Y 5/4':'#87703c','2.5Y 5/6':'#9a8a1e',
-    '2.5Y 6/2':'#9e967a','2.5Y 6/3':'#a5946c','2.5Y 6/4':'#ac915c',
-    '7.5YR 3/2':'#463024','7.5YR 3/3':'#4e301c','7.5YR 4/3':'#694a30',
-    '7.5YR 4/6':'#7d4416','7.5YR 5/4':'#8c663e','7.5YR 5/6':'#966026',
-    '7.5YR 6/4':'#af875f','7.5YR 6/6':'#b6803c',
-    '10GY 5/1':'#6e7e72'
-  };
+  var MUNSELL = (typeof MUNSELL_COLORS !== 'undefined') ? MUNSELL_COLORS : {};
   function munsellToRgb(code) {
     if (!code) return '#BCAAA4';
     if (typeof window.getMunsellRgb === 'function') return window.getMunsellRgb(code);
