@@ -245,7 +245,7 @@ function renderTexturalTriangle(profile) {
 //  DEPTH FUNCTION CHARTS (SVG)
 // ================================================================
 function renderDepthChart(profile, paramKey, paramLabel, unit, color, xMin, xMax) {
-  // ── Auto-bounds: calculate from data when xMin or xMax is null ──
+	// ── Auto-bounds: calculate from data when xMin or xMax is null ──
   if (xMin == null || xMax == null) {
     var vals = profile.horizons
       .map(function(hz) { return hz.parameters[paramKey]; })

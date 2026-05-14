@@ -242,7 +242,7 @@ var EDITION_DATA =
         {
           "symbol": "Tsp₃", "top": 44, "bottom": 55,
           "texture": "material turbos sapric, parțial hemic",
-          "munsell": "10YR 2.5/1",
+          "munsell": "10YR 3/1",
           "description": {
             "ro": "material turbos sapric, parțial hemic intermediar descompus; negru (10YR 2.5/1); structură mic grăunțoasă instabilă; umed; rădăcini subțiri rare; efervescență slab-moderată; coprolite; trecere netă."
           }
@@ -504,7 +504,7 @@ var EDITION_DATA =
           }
         },
         {
-          "symbol": "Bv1", "top": 30, "bottom": 50,
+          "symbol": "Bv₁", "top": 30, "bottom": 50,
           "texture": "nisip lutos mijlociu",
           "munsell": "7.5YR 3/2",
           "description": {
@@ -512,7 +512,7 @@ var EDITION_DATA =
           }
         },
         {
-          "symbol": "Bv2q", "top": 50, "bottom": 80,
+          "symbol": "Bv₂q", "top": 50, "bottom": 80,
           "texture": "nisip lutos mijlociu",
           "munsell": "7.5YR 3/3",
           "description": {
@@ -628,7 +628,7 @@ var EDITION_DATA =
           }
         },
         {
-          "symbol": "Bt1W", "top": 57, "bottom": 75,
+          "symbol": "Bt₁W", "top": 57, "bottom": 75,
           "texture": "argilă lutoasă",
           "munsell": "2.5Y 6/2",
           "munsellSecondary": "7.5YR 6/6",
@@ -637,7 +637,7 @@ var EDITION_DATA =
           }
         },
         {
-          "symbol": "Bt2W", "top": 75, "bottom": 105,
+          "symbol": "Bt₂W", "top": 75, "bottom": 105,
           "texture": "argilă lutoasă",
           "munsell": "2.5Y 6/2",
           "munsellSecondary": "7.5YR 5/6",
@@ -646,7 +646,7 @@ var EDITION_DATA =
           }
         },
         {
-          "symbol": "Bt3W", "top": 105, "bottom": 125,
+          "symbol": "Bt₃W", "top": 105, "bottom": 125,
           "texture": "argilă lutoasă",
           "munsell": "7.5YR 6/6",
           "munsellSecondary": "2.5Y 6/3",
