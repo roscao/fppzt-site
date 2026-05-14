@@ -63,7 +63,7 @@
   background: var(--cream-dk, #F0EAE0);
   min-width: 100px;
   flex: 1;
-  max-width: 260px;
+  max-width: 300px;
 }
 .profile-tab:hover {
   border-color: var(--earth-300, #A1887F);
