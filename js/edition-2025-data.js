@@ -70,8 +70,8 @@ var EDITION_DATA =
         "uat": "Miercurea Ciuc",
         "locality": "Miercurea Ciuc",
         "placement": "sectorul nord-vestic al incintei ICDCRM",
-        "lat": 46.378,
-        "lng": 25.806,
+        "lat": 46.37758,
+        "lng": 25.80606,
         "altitude": 677,
         "unit": "Depresiunea Ciucului / Compartimentul central"
       },
@@ -205,8 +205,8 @@ var EDITION_DATA =
         "uat": "Miercurea Ciuc",
         "locality": "Miercurea Ciuc",
         "placement": "lunca Oltului, în partea vestică a municipiului (Str. Zorilor, nr. 34)",
-        "lat": 46.365,
-        "lng": 25.774,
+        "lat": 46.36467,
+        "lng": 25.77378,
         "altitude": 660,
         "unit": "Depresiunea Ciucului / Compartimentul central"
       },

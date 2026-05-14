@@ -150,7 +150,6 @@
       var routeScript = document.createElement('script');
       routeScript.src = 'js/' + d.route.routeFile + '.js';
       routeScript.onload = function () {
-												
         var varName = 'ROUTES_' + d.year;
         var routeData = window[varName];
         if (!routeData || !routeData.length) return;
@@ -163,7 +162,6 @@
               color: r.color,
               weight: 4,
               opacity: 0.8
-							 
             }
           }).addTo(map);
 
@@ -204,8 +202,6 @@
         console.warn('Nu s-a putut încărca fișierul trasee: js/' + d.route.routeFile + '.js');
       };
       document.head.appendChild(routeScript);
-									  
-													  
     }
   }
 
@@ -257,26 +253,26 @@
       '<span class="soil-type-badge">' + p.soilType + '</span>' +
       '<div class="location-meta">' +
         '\u{1F4CD} ' + (p.location.placement || p.location.locality) +
-        ' · Alt. ' + p.location.altitude + ' m' +
-        ' · ' + p.location.lat.toFixed(4) + '°N, ' + p.location.lng.toFixed(4) + '°E' +
-        (p.climate ? '<br>\u{1F321} TMA: ' + p.climate.tma + ' °C · PMA: ' + p.climate.pma + ' mm' : '') +
+        ' \u00B7 Alt. ' + p.location.altitude + ' m' +
+        ' \u00B7 ' + p.location.lat.toFixed(4) + '\u00B0N, ' + p.location.lng.toFixed(4) + '\u00B0E' +
+        (p.climate ? '<br>\u{1F321} TMA: ' + p.climate.tma + ' \u00B0C \u00B7 PMA: ' + p.climate.pma + ' mm' : '') +
       '</div>';
 
     // Profil incomplet?
     if (p.incomplete || !p.horizons || p.horizons.length === 0) {
       detail.innerHTML += '<div class="incomplete-badge">' +
-        '<span lang="ro">Date analitice în curs de prelucrare</span>' +
+        '<span lang="ro">Date analitice \u00een curs de prelucrare</span>' +
         '<span lang="en">Analytical data being processed</span></div>';
       container.appendChild(detail);
       applyLang();
       return;
     }
 
-    // Schiță + Tabel morfologic
+    // Schi\u021B\u0103 + Tabel morfologic
     var sketchId = 'sketch-' + p.id;
     detail.innerHTML +=
       '<div class="profile-subsection">' +
-        '<h4 lang="ro">Descriere morfologică</h4>' +
+        '<h4 lang="ro">Descriere morfologic\u0103</h4>' +
         '<h4 lang="en">Morphological Description</h4>' +
         '<div class="sketch-desc-grid">' +
           '<div id="' + sketchId + '"></div>' +
@@ -284,14 +280,14 @@
         '</div>' +
       '</div>';
 
-    // Diagrame — layout 2×2 ca în profiles.html
+    // Diagrame
     if (p.analyticalData && typeof window.renderTexturalTriangle === 'function' && typeof window.renderDepthChart === 'function') {
       var fp = buildFakeProfileForCharts(p);
       var triangleSvg = window.renderTexturalTriangle(fp) || '';
       var phSvg = window.renderDepthChart(fp, 'pH', 'pH', '', '#4A6B8B', null, null) || '';
       var humusSvg = window.renderDepthChart(fp, 'humus', 'Humus', '%', '#4A7C5C', null, null) || '';
 
-      // ★ Fallback: CaCO₃ sau T
+      // Fallback: CaCO3 sau T
       var fourthSvg = '';
       var hasCaCO3 = fp.horizons.some(function (hz) {
         return hz.parameters.CaCO3 != null && hz.parameters.CaCO3 > 0.5;
@@ -321,11 +317,11 @@
         '</div>';
     }
 
-    // Observații
+    // Observa\u021Bii
     if (p.observations && p.observations.ro && p.observations.ro.length) {
       detail.innerHTML +=
         '<div class="profile-subsection">' +
-          '<h4 lang="ro">Observații</h4><h4 lang="en">Observations</h4>' +
+          '<h4 lang="ro">Observa\u021Bii</h4><h4 lang="en">Observations</h4>' +
           '<ul class="observations-list">' +
           p.observations.ro.map(function (o) { return '<li>' + o + '</li>'; }).join('') +
           '</ul></div>';
@@ -335,24 +331,25 @@
     drawProfileSketch(sketchId, p);
     applyLang();
   }
+
   // ── Tabel morfologic ────────────────────────────
   function buildMorphTable(p) {
     var html = '<table class="morph-table">' +
-      '<tr><th>Orizont</th><th>Adânc.</th><th>Textură</th><th>Culoare</th><th>Descriere</th></tr>';
+      '<tr><th>Orizont</th><th>Ad\u00E2nc.</th><th>Textur\u0103</th><th>Culoare</th><th>Descriere</th></tr>';
     p.horizons.forEach(function (hz) {
       var rgb = munsellToRgb(hz.munsell);
       html += '<tr>' +
         '<td class="hz-symbol">' + hz.symbol +
           (hz.isLamella ? '<span class="lamella-marker">L</span>' : '') + '</td>' +
-        '<td>' + hz.top + '–' + hz.bottom + '</td>' +
-        '<td>' + (hz.texture || '–') + '</td>' +
+        '<td>' + hz.top + '\u2013' + hz.bottom + '</td>' +
+        '<td>' + (hz.texture || '\u2013') + '</td>' +
         '<td><span class="color-chip" style="background:' + rgb + '"></span> ' + hz.munsell + '</td>' +
-        '<td>' + (hz.description ? hz.description.ro : '–') + '</td></tr>';
+        '<td>' + (hz.description ? hz.description.ro : '\u2013') + '</td></tr>';
     });
     return html + '</table>';
   }
 
-  // ── Schiță SVG a profilului ─────────────────────
+  // ── Schi\u021B\u0103 SVG a profilului ─────────────────────
   function drawProfileSketch(containerId, p) {
     var el = document.getElementById(containerId);
     if (!el || !p.horizons.length) return;
@@ -385,14 +382,12 @@
     el.innerHTML = svg;
   }
 
-  
-
   // ── Galerie foto ────────────────────────────────
   function renderGallery(gallery) {
     var grid = document.getElementById('galleryGrid');
     if (!gallery || !gallery.images || gallery.images.length === 0) {
       grid.innerHTML = '<div class="empty-gallery">' +
-        '<span lang="ro">Fotografiile vor fi adăugate după simpozion.</span>' +
+        '<span lang="ro">Fotografiile vor fi ad\u0103ugate dup\u0103 simpozion.</span>' +
         '<span lang="en">Photos will be added after the symposium.</span></div>';
       return;
     }
@@ -428,6 +423,7 @@
     grid.querySelector('.carousel-next').addEventListener('click', function () {
       showSlide(current + 1);
     });
+
     // ── Lightbox zoom ──────────────────────────
     var lightbox = document.createElement('div');
     lightbox.className = 'lightbox';
@@ -465,7 +461,8 @@
     slideDiv.style.cursor = 'zoom-in';
     slideDiv.addEventListener('click', openLightbox);
   }
-	// ── Convertește datele din format edition-JSON în format profiles-engine ──
+
+  // ── Convertește datele din format edition-JSON în format profiles-engine ──
   function buildFakeProfileForCharts(p) {
     var gran = p.analyticalData.granulometry;
     var chem = p.analyticalData.chemistry;
@@ -492,7 +489,7 @@
     }
     return { horizons: horizons };
   }
-  
+
   // ── Munsell → RGB ───────────────────────────────
   var MUNSELL = (typeof MUNSELL_COLORS !== 'undefined') ? MUNSELL_COLORS : {};
   function munsellToRgb(code) {

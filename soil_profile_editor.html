@@ -1,0 +1,727 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Soil Profile Editor</title>
+  <style>
+    :root {
+      --primary: #3d6b4f;
+      --primary-dark: #2d5240;
+      --accent: #8b6914;
+      --bg: #f4f1eb;
+      --card: #ffffff;
+      --border: #d8cfc0;
+      --text: #1e1e1e;
+      --muted: #666;
+      --input-bg: #fafaf7;
+    }
+    *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+    body {
+      font-family: 'Segoe UI', system-ui, sans-serif;
+      background: var(--bg);
+      color: var(--text);
+      font-size: 14px;
+      line-height: 1.5;
+      padding-bottom: 80px;
+    }
+    header {
+      background: var(--primary-dark);
+      color: white;
+      padding: 13px 24px;
+      position: sticky;
+      top: 0;
+      z-index: 200;
+      display: flex;
+      align-items: center;
+      gap: 14px;
+      box-shadow: 0 2px 8px rgba(0,0,0,0.2);
+    }
+    header h1 { font-size: 17px; font-weight: 600; }
+    header .sub { font-size: 12px; opacity: 0.65; margin-left: auto; }
+    .container { max-width: 1200px; margin: 0 auto; padding: 20px 16px; }
+
+    /* Sections */
+    .section {
+      background: var(--card);
+      border: 1px solid var(--border);
+      border-radius: 8px;
+      margin-bottom: 14px;
+      overflow: hidden;
+      box-shadow: 0 1px 3px rgba(0,0,0,0.05);
+    }
+    .sec-head {
+      background: linear-gradient(135deg,#e8e4db,#f0ede6);
+      padding: 9px 16px;
+      font-weight: 600;
+      font-size: 12px;
+      text-transform: uppercase;
+      letter-spacing: 0.6px;
+      color: var(--primary-dark);
+      border-bottom: 1px solid var(--border);
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+    }
+    .sec-body { padding: 14px 16px; }
+
+    /* Form grid */
+    .fg { display: grid; grid-template-columns: repeat(auto-fill,minmax(210px,1fr)); gap: 10px 14px; }
+    .g { display: flex; flex-direction: column; gap: 3px; }
+    .g label { font-size: 11px; color: var(--muted); font-weight: 600; text-transform: uppercase; letter-spacing: 0.4px; }
+    .g input, .g textarea {
+      border: 1px solid var(--border);
+      border-radius: 4px;
+      padding: 6px 9px;
+      font-size: 13px;
+      background: var(--input-bg);
+      color: var(--text);
+      font-family: inherit;
+      transition: border-color 0.15s, box-shadow 0.15s;
+    }
+    .g input:focus, .g textarea:focus {
+      outline: none; border-color: var(--primary);
+      box-shadow: 0 0 0 2px rgba(61,107,79,0.15);
+    }
+    .g textarea { resize: vertical; min-height: 58px; }
+    .g.s2 { grid-column: span 2; }
+    .g.sf { grid-column: 1/-1; }
+
+    /* Tables */
+    .tw { overflow-x: auto; margin-top: 4px; }
+    table { width: 100%; border-collapse: collapse; font-size: 12.5px; }
+    thead th {
+      background: #eceae3; padding: 7px 9px;
+      text-align: left; font-weight: 600; font-size: 11px;
+      color: #555; border-bottom: 2px solid var(--border);
+      white-space: nowrap; letter-spacing: 0.3px;
+    }
+    tbody td { padding: 4px 5px; border-bottom: 1px solid #f0eee8; vertical-align: middle; }
+    tbody tr:hover { background: #faf9f6; }
+    tbody td input, tbody td textarea {
+      width: 100%; border: 1px solid #e0ddd5; border-radius: 3px;
+      padding: 4px 6px; font-size: 12px; background: var(--input-bg);
+      font-family: inherit; transition: border-color 0.15s;
+    }
+    tbody td textarea { min-height: 50px; resize: vertical; }
+    tbody td input:focus, tbody td textarea:focus { outline: none; border-color: var(--primary); }
+
+    /* Analytical tables — sticky first col */
+    .at thead th:first-child, .at tbody td:first-child {
+      position: sticky; left: 0; z-index: 5;
+      background: #eceae3; min-width: 145px;
+      border-right: 1px solid var(--border);
+    }
+    .at tbody td:first-child {
+      background: #f8f6f1; font-weight: 500; color: #444; font-size: 12px;
+    }
+    .at thead th { text-align: center; min-width: 88px; }
+    .at tbody td:not(:first-child) input { text-align: right; }
+
+    /* Buttons */
+    .btn {
+      display: inline-flex; align-items: center; gap: 4px;
+      padding: 6px 13px; border-radius: 5px; border: none;
+      cursor: pointer; font-size: 13px; font-weight: 500;
+      font-family: inherit; transition: background 0.15s, opacity 0.15s;
+    }
+    .btn:active { opacity: 0.8; }
+    .btn-p  { background: var(--primary); color: #fff; }
+    .btn-p:hover { background: var(--primary-dark); }
+    .btn-o  { background: transparent; border: 1px solid var(--primary); color: var(--primary); }
+    .btn-o:hover { background: rgba(61,107,79,0.06); }
+    .btn-g  { background: transparent; border: 1px solid #bbb; color: #555; }
+    .btn-g:hover { background: #f0f0f0; }
+    .btn-d  { background: #c0392b; color: #fff; padding: 3px 7px; font-size: 11px; }
+    .btn-d:hover { background: #a93226; }
+
+    .abar { display: flex; gap: 9px; align-items: center; margin-bottom: 10px; }
+    .hint { font-size: 11px; color: var(--muted); }
+
+    /* Observations */
+    .obs-list { display: flex; flex-direction: column; gap: 7px; }
+    .obs-item { display: flex; gap: 7px; align-items: flex-start; }
+    .obs-item input {
+      flex: 1; border: 1px solid var(--border); border-radius: 4px;
+      padding: 6px 9px; font-size: 13px; background: var(--input-bg);
+      font-family: inherit;
+    }
+    .obs-item input:focus { outline: none; border-color: var(--primary); }
+
+    /* Badge */
+    .badge {
+      background: var(--primary); color: #fff; border-radius: 10px;
+      padding: 1px 8px; font-size: 11px;
+    }
+
+    /* Generate bar */
+    .gen-bar {
+      position: fixed; bottom: 0; left: 0; right: 0;
+      background: #fff; border-top: 2px solid var(--border);
+      padding: 11px 24px; display: flex; gap: 9px; align-items: center;
+      z-index: 100; box-shadow: 0 -2px 10px rgba(0,0,0,0.07);
+    }
+    .gen-bar .lbl { font-size: 12px; color: var(--muted); margin-left: auto; }
+
+    /* Output */
+    .out-pre {
+      background: #1a1b26; color: #c0caf5; padding: 18px;
+      border-radius: 6px; font-family: 'Consolas','Cascadia Code','Courier New',monospace;
+      font-size: 12.5px; white-space: pre; overflow-x: auto;
+      max-height: 60vh; overflow-y: auto; line-height: 1.55;
+    }
+
+    /* Toast */
+    .toast {
+      position: fixed; bottom: 75px; right: 22px;
+      background: #2d5240; color: #fff; padding: 9px 16px;
+      border-radius: 6px; font-size: 13px;
+      pointer-events: none; opacity: 0;
+      transform: translateY(6px);
+      transition: opacity 0.25s, transform 0.25s;
+    }
+    .toast.show { opacity: 1; transform: translateY(0); }
+  </style>
+</head>
+<body>
+
+<header>
+  <h1>Soil Profile Editor</h1>
+  <div class="sub">Generates structured JSON for soil web profiles</div>
+</header>
+
+<div class="container">
+
+  <!-- ① Basic Information -->
+  <div class="section">
+    <div class="sec-head">① Basic Information</div>
+    <div class="sec-body">
+      <div class="fg">
+        <div class="g"><label>Profile ID</label><input id="f_id" placeholder="P1"></div>
+        <div class="g"><label>Name (Romanian)</label><input id="f_name_ro" placeholder="ICDCRM (Miercurea Ciuc)"></div>
+        <div class="g"><label>Name (English)</label><input id="f_name_en" placeholder="ICDCRM (Miercurea Ciuc)"></div>
+        <div class="g"><label>SRTS</label><input id="f_srts" placeholder="SRTS 2012"></div>
+        <div class="g s2"><label>Soil Type (Romanian)</label><input id="f_soilType" placeholder="Faeoziom cambic, cu caracter vermic"></div>
+        <div class="g s2"><label>Soil Type (English / WRB)</label><input id="f_soilTypeEn" placeholder="Cambic Phaeozem, vermic"></div>
+        <div class="g sf"><label>General Texture</label><input id="f_texture" placeholder="lut mediu / lut nisipos prăfos"></div>
+      </div>
+    </div>
+  </div>
+
+  <!-- ② Location -->
+  <div class="section">
+    <div class="sec-head">② Location</div>
+    <div class="sec-body">
+      <div class="fg">
+        <div class="g"><label>County (Județ)</label><input id="f_county" placeholder="Harghita"></div>
+        <div class="g"><label>UAT</label><input id="f_uat" placeholder="Miercurea Ciuc"></div>
+        <div class="g"><label>Locality</label><input id="f_locality" placeholder="Miercurea Ciuc"></div>
+        <div class="g sf"><label>Placement</label><input id="f_placement" placeholder="sectorul nord-vestic al incintei ICDCRM"></div>
+        <div class="g"><label>Latitude</label><input type="number" id="f_lat" placeholder="46.378" step="0.001"></div>
+        <div class="g"><label>Longitude</label><input type="number" id="f_lng" placeholder="25.806" step="0.001"></div>
+        <div class="g"><label>Altitude (m)</label><input type="number" id="f_altitude" placeholder="677"></div>
+        <div class="g sf"><label>Geomorphological Unit</label><input id="f_unit" placeholder="Depresiunea Ciucului / Compartimentul central"></div>
+      </div>
+    </div>
+  </div>
+
+  <!-- ③ Climate -->
+  <div class="section">
+    <div class="sec-head">③ Climate</div>
+    <div class="sec-body">
+      <div class="fg">
+        <div class="g"><label>Mean Annual Temperature — TMA (°C)</label><input type="number" id="f_tma" placeholder="6.1" step="0.1"></div>
+        <div class="g"><label>Mean Annual Precipitation — PMA (mm)</label><input type="number" id="f_pma" placeholder="596"></div>
+      </div>
+    </div>
+  </div>
+
+  <!-- ④ Site Conditions -->
+  <div class="section">
+    <div class="sec-head">④ Site Conditions</div>
+    <div class="sec-body">
+      <div class="fg">
+        <div class="g sf"><label>Relief</label><input id="f_relief" placeholder="câmp interfluvial, terasa de 20 m a Oltului"></div>
+        <div class="g"><label>Parent Material</label><input id="f_parentMaterial" placeholder="luturi"></div>
+        <div class="g"><label>Bedrock</label><input id="f_bedrock" placeholder="depozite de terasă luto-nisipoase"></div>
+        <div class="g"><label>Groundwater</label><input id="f_groundwater" placeholder="sub 7 m, permanent, oscilant"></div>
+        <div class="g"><label>Drainage</label><input id="f_drainage" placeholder="moderat"></div>
+        <div class="g sf"><label>Vegetation</label><input id="f_vegetation" placeholder="zonă forestieră de foioase (păduri de cvercinee)"></div>
+        <div class="g"><label>Current Land Use</label><input id="f_landUse" placeholder="arabil (loturi experimentale)"></div>
+        <div class="g"><label>Previous Land Use</label><input id="f_previousLandUse" placeholder="forestieră"></div>
+      </div>
+    </div>
+  </div>
+
+  <!-- ⑤ Photo -->
+  <div class="section">
+    <div class="sec-head">⑤ Photo</div>
+    <div class="sec-body">
+      <div class="g"><label>Photo Path</label><input id="f_photo" placeholder="photos/2025/2025_P1.jpg"></div>
+    </div>
+  </div>
+
+  <!-- ⑥ Soil Horizons -->
+  <div class="section">
+    <div class="sec-head">
+      <span>⑥ Soil Horizons</span>
+      <span class="badge" id="hcount-badge">0</span>
+    </div>
+    <div class="sec-body">
+      <div class="abar">
+        <button class="btn btn-p" onclick="addHorizon()">+ Add Horizon</button>
+        <span class="hint">Add in top-to-bottom order</span>
+      </div>
+      <div class="tw">
+        <table id="htable">
+          <thead>
+            <tr>
+              <th>#</th>
+              <th>Symbol</th>
+              <th>Top (cm)</th>
+              <th>Bottom (cm)</th>
+              <th>Texture</th>
+              <th>Munsell (primary)</th>
+              <th>Munsell (secondary)</th>
+              <th style="min-width:280px;">Description (RO)</th>
+			  <th title="Skip analytical data">🚫 Anal.</th>
+              <th></th>
+            </tr>
+          </thead>
+          <tbody id="hbody">
+            <tr id="hempty">
+              <td colspan="10" style="text-align:center;padding:20px;color:var(--muted);font-style:italic;">
+                No horizons yet — click "+ Add Horizon" to start.
+              </td>
+            </tr>
+          </tbody>
+        </table>
+      </div>
+    </div>
+  </div>
+
+  <!-- ⑦ Granulometry -->
+  <div class="section">
+    <div class="sec-head">⑦ Analytical Data — Granulometry</div>
+    <div class="sec-body">
+      <p class="hint" style="margin-bottom:9px;">Column headers are auto-filled from horizons above. Leave a cell empty to output <code>null</code>.</p>
+      <div class="tw">
+        <table id="gran-table" class="at">
+          <thead><tr><th>Property</th></tr></thead>
+          <tbody>
+            <tr data-prop="sandCoarse"><td>Sand Coarse (%)</td></tr>
+            <tr data-prop="sandFine"><td>Sand Fine (%)</td></tr>
+            <tr data-prop="silt"><td>Silt (%)</td></tr>
+            <tr data-prop="clay"><td>Clay (%)</td></tr>
+            <tr data-prop="textureClass"><td>Texture Class</td></tr>
+          </tbody>
+        </table>
+      </div>
+    </div>
+  </div>
+
+  <!-- ⑧ Chemistry -->
+  <div class="section">
+    <div class="sec-head">⑧ Analytical Data — Chemistry</div>
+    <div class="sec-body">
+      <p class="hint" style="margin-bottom:9px;">Leave cells empty for <code>null</code>.</p>
+      <div class="tw">
+        <table id="chem-table" class="at">
+          <thead><tr><th>Property</th></tr></thead>
+          <tbody>
+            <tr data-prop="pH"><td>pH</td></tr>
+            <tr data-prop="CaCO3"><td>CaCO₃ (%)</td></tr>
+            <tr data-prop="humus"><td>Humus (%)</td></tr>
+            <tr data-prop="Nt"><td>Nt (%)</td></tr>
+            <tr data-prop="PAL"><td>PAL (ppm)</td></tr>
+            <tr data-prop="KAL"><td>KAL (ppm)</td></tr>
+            <tr data-prop="SB"><td>SB (me/100g)</td></tr>
+            <tr data-prop="SH"><td>SH (me/100g)</td></tr>
+            <tr data-prop="T"><td>T (me/100g)</td></tr>
+            <tr data-prop="Vsh"><td>Vsh (%)</td></tr>
+          </tbody>
+        </table>
+      </div>
+    </div>
+  </div>
+
+  <!-- ⑨ Observations -->
+  <div class="section">
+    <div class="sec-head">⑨ Observations (RO)</div>
+    <div class="sec-body">
+      <div class="abar">
+        <button class="btn btn-o" onclick="addObs()">+ Add Observation</button>
+      </div>
+      <div class="obs-list" id="obs-list"></div>
+    </div>
+  </div>
+
+  <!-- ⑩ Described By -->
+  <div class="section">
+    <div class="sec-head">⑩ Described By</div>
+    <div class="sec-body">
+      <div class="g">
+        <label>Authors (comma-separated)</label>
+        <input id="f_describedBy" placeholder="Constantin Rusu, Bogdan Roșca, Dumitru Bulgariu">
+      </div>
+    </div>
+  </div>
+
+  <!-- Output -->
+  <div id="out-section" style="display:none;">
+    <div class="section">
+      <div class="sec-head">
+        <span>Generated JSON</span>
+        <button class="btn btn-g" style="padding:3px 10px;font-size:12px;" onclick="copyOut()">Copy</button>
+      </div>
+      <div class="sec-body">
+        <pre class="out-pre" id="out-pre"></pre>
+      </div>
+    </div>
+  </div>
+
+</div><!-- /container -->
+
+<!-- Generate bar -->
+<div class="gen-bar">
+  <button class="btn btn-p" onclick="generateJSON()" style="font-size:14px;padding:9px 20px;">⚡ Generate JSON</button>
+  <button class="btn btn-g" onclick="loadExample()">Load Example</button>
+  <button class="btn btn-g" onclick="clearAll()">Clear All</button>
+  <span class="lbl" id="hcount-lbl">0 horizons</span>
+</div>
+
+<div class="toast" id="toast">Copied!</div>
+
+<script>
+// ── State ────────────────────────────────────────────────────────────────────
+let nextId = 0;
+const hIds = []; // ordered horizon UIDs
+
+// ── Tiny helpers ─────────────────────────────────────────────────────────────
+const esc = s => String(s ?? '').replace(/&/g,'&amp;').replace(/</g,'&lt;').replace(/>/g,'&gt;').replace(/"/g,'&quot;');
+const val = id => (document.getElementById(id)?.value ?? '').trim();
+const numVal = id => { const v = val(id); if (!v) return null; const n = parseFloat(v); return isNaN(n) ? null : n; };
+const sOrNull = s => (s = (s??'').trim()) ? s : null;
+const pNum = v => { v = String(v??'').trim(); if (!v) return null; const n = parseFloat(v); return isNaN(n) ? null : n; };
+
+// ── Horizons ─────────────────────────────────────────────────────────────────
+function addHorizon(d = {}) {
+  const uid = nextId++;
+  hIds.push(uid);
+  document.getElementById('hempty')?.remove();
+
+  const tr = document.createElement('tr');
+  tr.id = `hr-${uid}`;
+  tr.innerHTML = `
+    <td style="text-align:center;color:var(--muted);width:30px;" id="hnum-${uid}">${hIds.length}</td>
+    <td style="width:90px;"><input id="hsym-${uid}" value="${esc(d.symbol??'')}" placeholder="Ap"
+      oninput="updateLabel(${uid})"></td>
+    <td style="width:72px;"><input type="number" id="htop-${uid}" value="${d.top??''}"
+      placeholder="0" min="0" oninput="updateLabel(${uid})"></td>
+    <td style="width:85px;"><input type="number" id="hbot-${uid}" value="${d.bottom??''}"
+      placeholder="21" min="0" oninput="updateLabel(${uid})"></td>
+    <td style="min-width:120px;"><input id="htex-${uid}" value="${esc(d.texture??'')}" placeholder="lut mediu"></td>
+    <td style="width:108px;"><input id="hm1-${uid}" value="${esc(d.munsell??'')}" placeholder="10YR 3/2"></td>
+    <td style="width:118px;"><input id="hm2-${uid}" value="${esc(d.munsellSecondary??'')}" placeholder="—"></td>
+    <td><textarea id="hdesc-${uid}" placeholder="Description (RO)…">${esc(d.descRo??'')}</textarea></td>
+    <td style="width:44px;text-align:center;">
+      <input type="checkbox" id="hskip-${uid}" ${d.skipAnalytics?'checked':''}
+        onchange="toggleAnalytics(${uid})" title="Skip analytical data"></td>
+    <td style="width:38px;"><button class="btn btn-d" onclick="removeHorizon(${uid})">×</button></td>`;
+	
+  document.getElementById('hbody').appendChild(tr);
+
+  addAnalyticCol(uid, d.gran ?? {}, d.chem ?? {});
+  updateLabel(uid);
+  updateCounts();
+}
+
+function removeHorizon(uid) {
+  const pos = hIds.indexOf(uid);
+  if (pos < 0) return;
+  hIds.splice(pos, 1);
+  document.getElementById(`hr-${uid}`)?.remove();
+  document.querySelectorAll(`th[data-uid="${uid}"]`).forEach(e => e.remove());
+  document.querySelectorAll(`td[data-uid="${uid}"]`).forEach(e => e.remove());
+
+  if (!hIds.length) {
+    const tr = document.createElement('tr');
+    tr.id = 'hempty';
+    tr.innerHTML = `<td colspan="10" style="text-align:center;padding:20px;color:var(--muted);font-style:italic;">
+      No horizons yet — click "+ Add Horizon" to start.</td>`;
+    document.getElementById('hbody').appendChild(tr);
+  }
+  hIds.forEach((id, i) => { const el = document.getElementById(`hnum-${id}`); if (el) el.textContent = i+1; });
+  updateCounts();
+}
+
+function updateLabel(uid) {
+  const sym = val(`hsym-${uid}`) || `H${uid}`;
+  const t   = val(`htop-${uid}`) || '?';
+  const b   = val(`hbot-${uid}`) || '?';
+  document.querySelectorAll(`th[data-uid="${uid}"]`).forEach(th => {
+    th.innerHTML = `${esc(sym)}<br><small style="font-weight:400;color:#888;font-size:10px;">${t}–${b}</small>`;
+  });
+}
+
+function updateCounts() {
+  const n = hIds.length;
+  document.getElementById('hcount-badge').textContent = n;
+  document.getElementById('hcount-lbl').textContent = `${n} horizon${n===1?'':'s'}`;
+}
+
+// ── Analytical table columns ──────────────────────────────────────────────────
+const GRAN = ['sandCoarse','sandFine','silt','clay','textureClass'];
+const CHEM = ['pH','CaCO3','humus','Nt','PAL','KAL','SB','SH','T','Vsh'];
+
+function addAnalyticCol(uid, granD, chemD) {
+  [['gran-table', GRAN, granD], ['chem-table', CHEM, chemD]].forEach(([tid, props, src]) => {
+    const tbl = document.getElementById(tid);
+    const th = document.createElement('th');
+    th.dataset.uid = uid;
+    th.style.cssText = 'min-width:88px;text-align:center;';
+    tbl.querySelector('thead tr').appendChild(th);
+
+    tbl.querySelectorAll('tbody tr').forEach(row => {
+      const prop = row.dataset.prop;
+      const td = document.createElement('td');
+      td.dataset.uid = uid;
+      const inp = document.createElement('input');
+      inp.id = `${tid.split('-')[0]}_${prop}_${uid}`;
+      inp.placeholder = '—';
+      const v = src[prop];
+      inp.value = (v !== null && v !== undefined && v !== '') ? v : '';
+      td.appendChild(inp);
+      row.appendChild(td);
+    });
+  });
+}
+
+// ── Observations ──────────────────────────────────────────────────────────────
+let obsC = 0;
+function addObs(text = '') {
+  const list = document.getElementById('obs-list');
+  const oid = `obs_${obsC++}`;
+  const div = document.createElement('div');
+  div.className = 'obs-item';
+  div.id = `obsw-${oid}`;
+  div.innerHTML = `<input class="obs-inp" id="${oid}" value="${esc(text)}" placeholder="Observation in Romanian…">
+    <button class="btn btn-d" onclick="document.getElementById('obsw-${oid}').remove()">×</button>`;
+  list.appendChild(div);
+}
+
+// ── Toggle analytical columns ─────────────────────────────────────────────
+function toggleAnalytics(uid) {
+  const skip = document.getElementById(`hskip-${uid}`).checked;
+  // Hide/show the column in both analytical tables
+  document.querySelectorAll(`th[data-uid="${uid}"], td[data-uid="${uid}"]`).forEach(el => {
+    el.style.display = skip ? 'none' : '';
+  });
+}
+
+// ── JSON generator ────────────────────────────────────────────────────────────
+function fmtJSON(obj) {
+  function ser(v, d) {
+    const pad = '  '.repeat(d), inn = '  '.repeat(d+1);
+    if (v === null) return 'null';
+    if (typeof v !== 'object') return JSON.stringify(v);
+    if (Array.isArray(v)) {
+      if (!v.length) return '[]';
+      if (v.every(x => x === null || typeof x !== 'object')) return `[${v.map(x=>ser(x,0)).join(', ')}]`;
+      return `[\n${v.map(x=>inn+ser(x,d+1)).join(',\n')}\n${pad}]`;
+    }
+    const keys = Object.keys(v);
+    if (!keys.length) return '{}';
+    return `{\n${keys.map(k=>`${inn}${JSON.stringify(k)}: ${ser(v[k],d+1)}`).join(',\n')}\n${pad}}`;
+  }
+  return ser(obj, 0);
+}
+
+function generateJSON() {
+  const horizons = hIds.map(uid => {
+    const h = {
+      symbol:  val(`hsym-${uid}`) || undefined,
+      top:     numVal(`htop-${uid}`),
+      bottom:  numVal(`hbot-${uid}`),
+      texture: sOrNull(val(`htex-${uid}`)) || undefined,
+      munsell: sOrNull(val(`hm1-${uid}`))  || undefined,
+    };
+    const m2 = sOrNull(val(`hm2-${uid}`));
+    if (m2) h.munsellSecondary = m2;
+    const desc = document.getElementById(`hdesc-${uid}`)?.value?.trim();
+    if (desc) h.description = { ro: desc };
+    return h;
+  });
+
+  
+  const activeIds = hIds.filter(uid => !document.getElementById(`hskip-${uid}`)?.checked);
+  // ── Validate array lengths ──────────────────
+  const nActive = activeIds.length;
+  const nHorizons = hIds.length;
+  if (nActive === 0 && nHorizons > 0) {
+    alert('⚠️ All horizons are marked "Skip analytics". Uncheck at least one.');
+    return;
+  }
+  const gran = {};
+  gran.headers = activeIds.map(uid => val(`hsym-${uid}`));
+  gran.depths  = activeIds.map(uid => { const t=val(`htop-${uid}`),b=val(`hbot-${uid}`); return (t&&b)?`${t}-${b}`:''; });
+
+  GRAN.forEach(p => {
+    gran[p] = activeIds.map(uid => {
+      const v = (document.getElementById(`gran_${p}_${uid}`)?.value??'').trim();
+      if (!v || v==='—') return null;
+      return p==='textureClass' ? v : pNum(v);
+    });
+  });
+
+  const chem = {};
+  CHEM.forEach(p => {
+    chem[p] = activeIds.map(uid => {
+      const v = (document.getElementById(`chem_${p}_${uid}`)?.value??'').trim();
+      return (!v || v==='—') ? null : pNum(v);
+    });
+  });
+
+  const obs = [];
+  document.querySelectorAll('.obs-inp').forEach(el => { const v=el.value.trim(); if(v) obs.push(v); });
+
+  const profile = {
+    id: sOrNull(val('f_id')),
+    name: { ro: sOrNull(val('f_name_ro')), en: sOrNull(val('f_name_en')) },
+    soilType:   sOrNull(val('f_soilType')),
+    soilTypeEn: sOrNull(val('f_soilTypeEn')),
+    texture:    sOrNull(val('f_texture')),
+    srts:       sOrNull(val('f_srts')),
+    location: {
+      county:    sOrNull(val('f_county')),
+      uat:       sOrNull(val('f_uat')),
+      locality:  sOrNull(val('f_locality')),
+      placement: sOrNull(val('f_placement')),
+      lat:       numVal('f_lat'),
+      lng:       numVal('f_lng'),
+      altitude:  numVal('f_altitude'),
+      unit:      sOrNull(val('f_unit')),
+    },
+    climate: { tma: numVal('f_tma'), pma: numVal('f_pma') },
+    conditions: {
+      relief:          sOrNull(val('f_relief')),
+      parentMaterial:  sOrNull(val('f_parentMaterial')),
+      bedrock:         sOrNull(val('f_bedrock')),
+      groundwater:     sOrNull(val('f_groundwater')),
+      drainage:        sOrNull(val('f_drainage')),
+      vegetation:      sOrNull(val('f_vegetation')),
+      landUse:         sOrNull(val('f_landUse')),
+      previousLandUse: sOrNull(val('f_previousLandUse')),
+    },
+    photo:    sOrNull(val('f_photo')),
+    horizons: horizons,
+    analyticalData: { granulometry: gran, chemistry: chem },
+    observations: { ro: obs },
+    describedBy: sOrNull(val('f_describedBy')),
+  };
+
+  document.getElementById('out-pre').textContent = fmtJSON(profile);
+  const sec = document.getElementById('out-section');
+  sec.style.display = 'block';
+  setTimeout(() => sec.scrollIntoView({ behavior:'smooth', block:'start' }), 60);
+}
+
+function copyOut() {
+  navigator.clipboard.writeText(document.getElementById('out-pre').textContent)
+    .then(() => showToast('Copied to clipboard!'));
+}
+
+function showToast(msg) {
+  const t = document.getElementById('toast');
+  t.textContent = msg; t.classList.add('show');
+  setTimeout(() => t.classList.remove('show'), 2400);
+}
+
+// ── Load example (from profil_sol.txt) ───────────────────────────────────────
+function loadExample() {
+  if (hIds.length && !confirm('This will replace all current data. Continue?')) return;
+  clearAll();
+
+  document.getElementById('f_id').value         = 'P1';
+  document.getElementById('f_name_ro').value    = 'ICDCRM (Miercurea Ciuc)';
+  document.getElementById('f_name_en').value    = 'ICDCRM (Miercurea Ciuc)';
+  document.getElementById('f_soilType').value   = 'Faeoziom cambic, cu caracter vermic';
+  document.getElementById('f_soilTypeEn').value = 'Cambic Phaeozem, vermic';
+  document.getElementById('f_texture').value    = 'lut mediu / lut nisipos prăfos';
+  document.getElementById('f_srts').value       = 'SRTS 2012';
+
+  document.getElementById('f_county').value     = 'Harghita';
+  document.getElementById('f_uat').value        = 'Miercurea Ciuc';
+  document.getElementById('f_locality').value   = 'Miercurea Ciuc';
+  document.getElementById('f_placement').value  = 'sectorul nord-vestic al incintei ICDCRM';
+  document.getElementById('f_lat').value        = '46.378';
+  document.getElementById('f_lng').value        = '25.806';
+  document.getElementById('f_altitude').value   = '677';
+  document.getElementById('f_unit').value       = 'Depresiunea Ciucului / Compartimentul central';
+
+  document.getElementById('f_tma').value = '6.1';
+  document.getElementById('f_pma').value = '596';
+
+  document.getElementById('f_relief').value          = 'câmp interfluvial, terasa de 20 m a Oltului';
+  document.getElementById('f_parentMaterial').value  = 'luturi';
+  document.getElementById('f_bedrock').value         = 'depozite de terasă luto-nisipoase';
+  document.getElementById('f_groundwater').value     = 'sub 7 m, permanent, oscilant';
+  document.getElementById('f_drainage').value        = 'moderat';
+  document.getElementById('f_vegetation').value      = 'zonă forestieră de foioase (păduri de cvercinee)';
+  document.getElementById('f_landUse').value         = 'arabil (loturi experimentale)';
+  document.getElementById('f_previousLandUse').value = 'forestieră';
+  document.getElementById('f_photo').value           = 'photos/2025/2025_P1.jpg';
+
+  [
+    { symbol:'Ap',      top:0,   bottom:21,  texture:'lut mediu',         munsell:'10YR 3/2',
+      descRo:'lut mediu; brun cenușiu foarte închis (10YR 3/2); structură distrusă prin lucrările agricole; neplastic; neadeziv; afânat; friabil; slab coeziv în stare uscată; porozitate mare; fără efervescență; rădăcini subțiri rare; coprolite frecvente; trecere treptată.',
+      gran:{sandCoarse:3.33, sandFine:39.37, silt:27.60, clay:29.70, textureClass:'LL'},
+      chem:{pH:6.11, CaCO3:'', humus:4.68, Nt:0.240, PAL:310, KAL:499, SB:25.34, SH:6.57, T:31.91, Vsh:79.42} },
+    { symbol:'Atp',     top:21,  bottom:41,  texture:'lut mediu',         munsell:'10YR 3/1',
+      descRo:'lut mediu; slab tasat; cenușiu foarte închis (10YR 3/1); structură grăunțoasă mică, distrusă parțial prin lucrările agricole; neplastic; neadeziv; slab coeziv în stare uscată; porozitate mare; fără efervescență; rădăcini subțiri foarte rare; trecere clară.',
+      gran:{sandCoarse:4.32, sandFine:35.49, silt:32.30, clay:27.90, textureClass:'LL'},
+      chem:{pH:6.24, CaCO3:'', humus:4.13, Nt:0.200, PAL:185, KAL:276, SB:29.30, SH:6.17, T:35.48, Vsh:82.60} },
+    { symbol:'Am',      top:41,  bottom:63,  texture:'lut mediu',         munsell:'10YR 2/1',
+      descRo:'lut mediu; negru (10YR 2/1); structură grăunțos-glomerulară; slab plastic; slab adeziv; slab coeziv în stare uscată; porozitate mare; fără efervescență; rădăcini subțiri foarte rare; coprolite frecvente; trecere clară.',
+      gran:{sandCoarse:4.90, sandFine:35.80, silt:28.40, clay:30.90, textureClass:'LL'},
+      chem:{pH:6.71, CaCO3:'', humus:4.11, Nt:0.15, PAL:238, KAL:219, SB:31.68, SH:5.19, T:36.87, Vsh:85.91} },
+    { symbol:'AB',      top:63,  bottom:81,  texture:'lut mediu',         munsell:'10YR 3/3', munsellSecondary:'10YR 4/6',
+      descRo:'lut mediu; dominant brun închis (10YR 3/3) cu 20% culori brun gălbui închise (10YR 4/6); structură grăunțoasă-poliedric angulară mică; slab plastic; slab adeziv; porozitate medie; fără efervescență; trecere treptată.',
+      gran:{sandCoarse:2.90, sandFine:40.40, silt:29.60, clay:27.10, textureClass:'LL'},
+      chem:{pH:6.98, CaCO3:0.72, humus:2.61, Nt:'', PAL:'', KAL:'', SB:32.08, SH:4.21, T:36.29, Vsh:88.40} },
+    { symbol:'Bv₁(t)', top:81,  bottom:102, texture:'lut nisipos prăfos', munsell:'10YR 4/4', munsellSecondary:'10YR 3/3',
+      descRo:'lut nisipos prăfos cu pelicule organo-minerale incipiente; dominant brun gălbui (10YR 4/4) cu 40% brun închis (10YR 3/3); structură poliedric subangulară medie; neplastic; neadeziv; porozitate mare; efervescență slabă cu HCl; coprolite frecvente, cervotocine și crotovine rare; trecere treptată.',
+      gran:{sandCoarse:4.81, sandFine:37.39, silt:43.00, clay:14.80, textureClass:'SS'},
+      chem:{pH:7.21, CaCO3:2.18, humus:'', Nt:'', PAL:'', KAL:'', SB:28.12, SH:2.74, T:30.86, Vsh:91.12} },
+    { symbol:'Bv₂(t)', top:102, bottom:133, texture:'lut nisipos prăfos', munsell:'2.5Y 4/3', munsellSecondary:'10YR 4/3',
+      descRo:'lut nisipos prăfos cu pelicule organo-minerale incipiente; dominant brun oliv deschis (2,5Y 4/3) cu 30% culori brune (10YR 4/3); structură poliedric angulară medie spre mare; neplastic; neadeziv; porozitate mare; efervescență foarte slabă; coprolite, cervotocine și crotovine frecvente; trecere treptată.',
+      gran:{sandCoarse:6.49, sandFine:36.71, silt:41.10, clay:15.70, textureClass:'SS'},
+      chem:{pH:7.26, CaCO3:0.76, humus:'', Nt:'', PAL:'', KAL:'', SB:27.72, SH:3.82, T:31.54, Vsh:87.89} },
+    { symbol:'Bv',     top:133, bottom:160, texture:'lut nisipos prăfos', munsell:'2.5Y 5/6', munsellSecondary:'10YR 4/4',
+      descRo:'lut nisipos prăfos; galben oliv (2,5Y 5/6) cu 10% pete brun gălbui (10YR 4/4); structură poliedrică medie; neplastic; neadeziv; porozitate mijlocie; efervescență slabă; crotovine de dimensiuni mari; trecere treptată.',
+      gran:{sandCoarse:7.95, sandFine:44.65, silt:34.90, clay:12.50, textureClass:'SS'},
+      chem:{pH:7.28, CaCO3:1.46, humus:'', Nt:'', PAL:'', KAL:'', SB:25.74, SH:5.19, T:30.93, Vsh:83.22} },
+    { symbol:'BCk',    top:160, bottom:170, texture:'lut nisipos prăfos', munsell:'2.5Y 5/6',
+      descRo:'lut nisipos prăfos; galben oliv (2,5Y 5/6); slab structurat poliedric; neplastic; neadeziv; porozitate mijlocie-mică; efervescență slab-moderată.',
+      gran:{sandCoarse:2.12, sandFine:47.88, silt:39.10, clay:10.90, textureClass:'SS'},
+      chem:{pH:7.38, CaCO3:2.06, humus:'', Nt:'', PAL:'', KAL:'', SB:28.12, SH:2.74, T:30.86, Vsh:91.11} },
+  ].forEach(addHorizon);
+
+  document.getElementById('f_describedBy').value = 'Constantin Rusu, Bogdan Roșca, Dumitru Bulgariu, Radu Gabriel Pîrnău';
+
+  ['Sol de tip faeoziom, tipic pentru depresiunile intramontane, cu acumulări de materie organică de până la 80 cm',
+   'Activitate faunistică bogată, cu coprolite și crotovine adânci până la 140–150 cm (caracter vermic)',
+   'Valori mari ale fosforului și potasiului mobil în partea superioară (0–60 cm)',
+   'Ușoară regradare în orizonturile B'].forEach(addObs);
+}
+
+// ── Clear all ─────────────────────────────────────────────────────────────────
+function clearAll() {
+  [...hIds].forEach(uid => removeHorizon(uid));
+  document.querySelectorAll('input[type=text],input[type=number],textarea').forEach(el => el.value='');
+  document.getElementById('obs-list').innerHTML = '';
+  document.getElementById('out-section').style.display = 'none';
+}
+</script>
+</body>
+</html>
